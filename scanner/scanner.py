@@ -1,5 +1,5 @@
-import wmi
-import json
+from wmi import WMI
+from json import dump
 
 def Round2(x):
     i=1
@@ -14,7 +14,7 @@ while True:
     #get system info #begin
 
     try:
-        computer = wmi.WMI()
+        computer = WMI()
         print("=====CPU=====")
         proc=computer.Win32_Processor()[0]
         procname=proc.Name.split()
@@ -72,7 +72,7 @@ while True:
             print("Память                   -",gpuitem["memory"])
     except Exception as error:
         print("Ошибка во время получения данных. Подробнее...")
-        print(e)
+        print(error)
         continue
 
     #get system info #end
@@ -102,11 +102,11 @@ while True:
             path=path[:-1]
         try:
             with open(path+"\\"+ID+".json", "w") as file:
-                json.dump(data,file)
+                dump(data,file)
             print("Данные сохранены")
         except Exception as error:
             print("Ошибка во время сохранения. Подробнее...")
-            print(e)
+            print(error)
         
             
     
