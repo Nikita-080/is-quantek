@@ -1,12 +1,26 @@
 from wmi import WMI
 from json import dump
 
+D30=pow(2,30)
+
 def Round2(x):
     i=1
     while i<x:
         i*=2
     return i
 
+def Fix(x,kind,devision=1):
+    if kind=="int":
+        return -1 if x==None else int(x)//devision
+    elif kind=="float":
+        return -1 if x==None else float(x)/devision
+    elif kind=="degree":
+        return -1 if x==None else Round2(abs(int(x))//devision)
+    elif kind=="string":
+        return "unknow" if x==None else x
+    elif kind=="shared_string":
+        return "unknow unknow" if x==None else x
+    
 while True:
     print("Нажмите Enter для начала сканирования...")
     input()
@@ -16,11 +30,17 @@ while True:
     try:
         computer = WMI()
         print("=====CPU=====")
-        proc=computer.Win32_Processor()[0]
-        procname=proc.Name.split()
-        proccreator=procname[0]
-        procmodel=procname[1]+' '+procname[2]
-        procfreq=str(float(proc.MaxClockSpeed)/1000)
+        proccreator="unknow"
+        procmodel="unknow"
+        procfreq=-1
+        processors=computer.Win32_Processor()
+        if len(processors)>0:
+            procname=processors[0].Name
+            if procname!=None:
+                procname=procname.split()+["unknow","unknow"]
+                proccreator=procname[0]
+                procmodel=procname[1]+' '+procname[2]
+            procfreq=Fix(processors[0].MaxClockSpeed,"float",1000)
         print("Производитель процессора -",proccreator)
         print("Модель процессора        -",procmodel)
         print("Частота процессора       -",procfreq)
@@ -30,9 +50,9 @@ while True:
         disks=computer.Win32_DiskDrive()
         for disk in disks:
             diskitem={}
-            diskitem["model"]=disk.Model
-            diskitem["size"]=str(Round2(int(disk.Size)/pow(2,30)))
-            diskitem["type"]=disk.MediaType
+            diskitem["model"]=Fix(disk.Model,"string")
+            diskitem["size"]=Fix(disk.Size,"degree",D30)
+            diskitem["type"]=Fix(disk.MediaType,"string")
             if ' ' in diskitem["model"]:
                 diskitem["creator"]=diskitem["model"].split()[0]
             else:
@@ -49,11 +69,13 @@ while True:
         ramsize=0
         rammode=[]
         for ram in rams:
-            size=round(int(ram.Capacity)/pow(2,30))
-            ramsize+=size
-            rammode.append(str(size))
+            size=Fix(ram.Capacity,"int",D30)
+            if size==-1:
+                rammode.append("x")
+            else:
+                ramsize+=size
+                rammode.append(str(size))
         rammode=" ".join(rammode)
-        ramsize=str(ramsize)
         print("Объем                    -",ramsize)
         print("Конфигурация             -",rammode)
 
@@ -61,10 +83,11 @@ while True:
         gpulist=[]
         gpus=computer.Win32_VideoController()
         for gpu in gpus:
+            print(gpu)
             gpuitem={}
-            gpuitem["name"]=gpu.Name
-            gpuitem["memory"]=str(round(abs(gpu.AdapterRam)/pow(2,30)))
-            gpuitem["creator"]=gpu.Name.split()[0]
+            gpuitem["name"]=Fix(gpu.Name,"string")
+            gpuitem["memory"]=Fix(gpu.AdapterRam,"degree",D30)
+            gpuitem["creator"]=Fix(gpu.Name,"shared_string").split()[0]
             gpulist.append(gpuitem)
             print("---GPU---")
             print("Производитель            -",gpuitem["creator"])
