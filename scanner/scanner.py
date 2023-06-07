@@ -1,5 +1,6 @@
 from wmi import WMI
-from json import dump
+from json import dump,load
+from os.path import exists
 
 D30=pow(2,30)
 
@@ -20,7 +21,14 @@ def Fix(x,kind,devision=1):
         return "unknow" if x==None else x
     elif kind=="shared_string":
         return "unknow unknow" if x==None else x
-    
+
+def FixPath(s):
+    if s[-1]=='"' and len(s)>1:
+        s=s[1:-1]
+    if s[-1]=="/" or s[-1]=="\\":
+        s=s[:-1]
+    return s
+
 while True:
     print("Нажмите Enter для начала сканирования...")
     input()
@@ -80,19 +88,24 @@ while True:
         print("Конфигурация             -",rammode)
 
         print("=====GPU=====")
-        gpulist=[]
         gpus=computer.Win32_VideoController()
+        isInternalGPU=False
+        gpuname="unknow"
+        gpumemory="unknow"
+        gpucreator="unknow"
         for gpu in gpus:
-            print(gpu)
-            gpuitem={}
-            gpuitem["name"]=Fix(gpu.Name,"string")
-            gpuitem["memory"]=Fix(gpu.AdapterRam,"degree",D30)
-            gpuitem["creator"]=Fix(gpu.Name,"shared_string").split()[0]
-            gpulist.append(gpuitem)
-            print("---GPU---")
-            print("Производитель            -",gpuitem["creator"])
-            print("Модель                   -",gpuitem["name"])
-            print("Память                   -",gpuitem["memory"])
+            gputype=Fix(gpu.AdapterDACType,"string")
+            if gputype!="unknow":
+                if "Internal" in gputype:
+                    isInternalGPU=True
+                else:
+                    gpuname=Fix(gpu.Name,"string")
+                    gpumemory=Fix(gpu.AdapterRam,"degree",D30)
+                    gpucreator=Fix(gpu.Name,"shared_string").split()[0]
+                    print("Производитель            -",gpucreator)
+                    print("Модель                   -",gpuname)
+                    print("Память                   -",gpumemory)
+        print("Встроенная видеокарта    -","да" if isInternalGPU else "нет")
     except Exception as error:
         print("Ошибка во время получения данных. Подробнее...")
         print(error)
@@ -108,22 +121,37 @@ while True:
           "disks":disklist,
           "ramsize":ramsize,
           "rammode":rammode,
-          "gpus":gpulist}
+          "isInternalGPU":int(isInternalGPU),
+          "gpucreator":gpucreator,
+          "gpuname":gpuname,
+          "gpumemory":gpumemory}
     
     #saving
     
-    print("Выполнить сохранение данных? [y/n]")
     command=""
     while command not in ["y","n"]:
-        command=input()
+        command=input("Выполнить сохранение данных? [y/n] ")
     if command=="y":
-        path=input("Введите папку для сохранения: ")
-        ID=input("Введите номер устройства: ")
-        if path[-1]=='"':
-            path=path[1:-1]
-        if path[-1]=="/" or path[-1]=="\\":
-            path=path[:-1]
+        path=""
+        ID=""
+        while not exists(path):
+            path=input("Введите папку для сохранения: ")
+            path=FixPath(path)
+        while not ID.isdigit():
+            ID=input("Введите номер устройства: ")
+        data["ID"]=int(ID)
+
         try:
+            if exists(path+"\\metadata.json"):
+                with open(path+"\\metadata.json") as file:
+                    metadata=json.load(file)
+                    metadata.append(ID)
+                with open(path+"\\metadata.json", "w") as file:
+                    dump(metadata,file)
+            else:
+                with open(path+"\\metadata.json", "w") as file:
+                    dump([ID],file)
+                
             with open(path+"\\"+ID+".json", "w") as file:
                 dump(data,file)
             print("Данные сохранены")
