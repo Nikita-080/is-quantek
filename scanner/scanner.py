@@ -146,6 +146,7 @@ while True:
                 with open(path+"\\metadata.json") as file:
                     metadata=json.load(file)
                     metadata.append(ID)
+                    metadata=list(set(metadata))
                 with open(path+"\\metadata.json", "w") as file:
                     dump(metadata,file)
             else:
