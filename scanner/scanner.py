@@ -40,7 +40,7 @@ while True:
         print("=====CPU=====")
         proccreator="unknow"
         procmodel="unknow"
-        procfreq=-1
+        procfreq=0
         processors=computer.Win32_Processor()
         if len(processors)>0:
             procname=processors[0].Name
@@ -59,7 +59,7 @@ while True:
         for disk in disks:
             diskitem={}
             diskitem["model"]=Fix(disk.Model,"string")
-            diskitem["size"]=Fix(disk.Size,"degree",D30)
+            diskitem["size"]=str(Fix(disk.Size,"degree",D30))
             diskitem["type"]=Fix(disk.MediaType,"string")
             if ' ' in diskitem["model"]:
                 diskitem["creator"]=diskitem["model"].split()[0]
@@ -91,7 +91,7 @@ while True:
         gpus=computer.Win32_VideoController()
         isInternalGPU=False
         gpuname="unknow"
-        gpumemory="unknow"
+        gpumemory=0
         gpucreator="unknow"
         for gpu in gpus:
             gputype=Fix(gpu.AdapterDACType,"string")
@@ -117,14 +117,14 @@ while True:
 
     data={"procname":proccreator,
           "procmodel":procmodel,
-          "procfreq":procfreq,
+          "procfreq":str(procfreq),
           "disks":disklist,
-          "ramsize":ramsize,
+          "ramsize":str(ramsize),
           "rammode":rammode,
-          "isInternalGPU":int(isInternalGPU),
+          "isInternalGPU":str(int(isInternalGPU)),
           "gpucreator":gpucreator,
           "gpuname":gpuname,
-          "gpumemory":gpumemory}
+          "gpumemory":str(gpumemory)}
     
     #saving
     
@@ -144,7 +144,7 @@ while True:
         try:
             if exists(path+"\\metadata.json"):
                 with open(path+"\\metadata.json") as file:
-                    metadata=json.load(file)
+                    metadata=load(file)
                     metadata.append(ID)
                     metadata=list(set(metadata))
                 with open(path+"\\metadata.json", "w") as file:
