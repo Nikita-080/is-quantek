@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
+            this.SuspendLayout();
             // 
             // UpdateDataWindow
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Name = "UpdateDataWindow";
-            Text = "UpdateDataWindow";
-            Load += UpdateDataWindow_Load;
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(640, 360);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "UpdateDataWindow";
+            this.Text = "UpdateDataWindow";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
