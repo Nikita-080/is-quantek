@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,11 @@ namespace InformSystem.Forms
         {
             Form1 mainMenu = new Form1();
             mainMenu.Show();
+            mainMenu.FormClosed += Logout;
             this.Hide();
+            
+            
+
         }
 
         private void LoginTextBox_Enter(object sender, EventArgs e)
@@ -57,6 +62,13 @@ namespace InformSystem.Forms
                 PasswordTextBox.Text = "Пароль";
                 PasswordTextBox.UseSystemPasswordChar = false;
             }
+        }
+
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+            //PasswordTextBox.Clear();
+            //LoginTextBox.Clear();
+            this.Close();
         }
     }
 }
