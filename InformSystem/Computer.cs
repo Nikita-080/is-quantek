@@ -8,15 +8,16 @@ namespace InformSystem
 {
     internal class Computer
     {
-        string procmodel;
-        string proccreator;
-        string procfreq;
-        List<Disk> disks;
-        string ramsize;
-        string rammode;
-        string isInternalGPU;
-        string gpucreator;
-        string gpumemory;
-        string gpuname;
+        public int ID;
+        public string procmodel;
+        public string proccreator;
+        public string procfreq;
+        public List<Disk> disks;
+        public string ramsize;
+        public string rammode;
+        public string isInternalGPU;
+        public string gpucreator;
+        public string gpumemory;
+        public string gpuname;
     }
 }

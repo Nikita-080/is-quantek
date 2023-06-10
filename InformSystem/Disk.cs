@@ -8,9 +8,9 @@ namespace InformSystem
 {
     internal class Disk
     {
-        string creator;
-        string model;
-        string size;
-        string type;
+        public string creator;
+        public string model;
+        public string size;
+        public string type;
     }
 }
