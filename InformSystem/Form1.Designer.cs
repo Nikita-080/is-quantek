@@ -106,6 +106,7 @@
             this.RepairButton.Text = "Техническое обслуживание";
             this.RepairButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.RepairButton.UseVisualStyleBackColor = true;
+            this.RepairButton.Click += new System.EventHandler(this.RepairButton_Click);
             // 
             // HardwareButton
             // 
