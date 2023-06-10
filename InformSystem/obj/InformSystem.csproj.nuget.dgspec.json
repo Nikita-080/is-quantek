@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ainaz\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj": {}
+    "C:\\Users\\vvvvvvvvv\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ainaz\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj": {
+    "C:\\Users\\vvvvvvvvv\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ainaz\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj",
+        "projectUniqueName": "C:\\Users\\vvvvvvvvv\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj",
         "projectName": "InformSystem",
-        "projectPath": "C:\\Users\\ainaz\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj",
-        "packagesPath": "C:\\Users\\ainaz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ainaz\\Source\\Repos\\is-quantek\\InformSystem\\obj\\",
+        "projectPath": "C:\\Users\\vvvvvvvvv\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj",
+        "packagesPath": "C:\\Users\\vvvvvvvvv\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vvvvvvvvv\\Source\\Repos\\is-quantek\\InformSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ainaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vvvvvvvvv\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,18 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
