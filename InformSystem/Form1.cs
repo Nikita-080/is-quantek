@@ -1,3 +1,5 @@
+using InformSystem.Forms;
+
 namespace InformSystem
 {
     public partial class Form1 : Form
@@ -49,7 +51,12 @@ namespace InformSystem
 
         private void HardwareButton_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new Hardware(), sender);
+        }
 
+        private void RepairButton_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new RepareMainWindow(), sender);
         }
     }
 }

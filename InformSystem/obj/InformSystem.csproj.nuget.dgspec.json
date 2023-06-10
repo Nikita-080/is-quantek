@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ainaz\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj": {}
+    "C:\\Users\\ainaz\\source\\repos\\is-quantek\\InformSystem\\InformSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ainaz\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj": {
+    "C:\\Users\\ainaz\\source\\repos\\is-quantek\\InformSystem\\InformSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ainaz\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj",
+        "projectUniqueName": "C:\\Users\\ainaz\\source\\repos\\is-quantek\\InformSystem\\InformSystem.csproj",
         "projectName": "InformSystem",
-        "projectPath": "C:\\Users\\ainaz\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj",
+        "projectPath": "C:\\Users\\ainaz\\source\\repos\\is-quantek\\InformSystem\\InformSystem.csproj",
         "packagesPath": "C:\\Users\\ainaz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ainaz\\Source\\Repos\\is-quantek\\InformSystem\\obj\\",
+        "outputPath": "C:\\Users\\ainaz\\source\\repos\\is-quantek\\InformSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ainaz\\AppData\\Roaming\\NuGet\\NuGet.Config",

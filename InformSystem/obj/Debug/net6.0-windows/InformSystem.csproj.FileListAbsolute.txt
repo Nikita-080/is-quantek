@@ -56,3 +56,5 @@ C:\Users\ainaz\Source\Repos\is-quantek\InformSystem\obj\Debug\net6.0-windows\ref
 C:\Users\ainaz\Source\Repos\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.pdb
 C:\Users\ainaz\Source\Repos\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.genruntimeconfig.cache
 C:\Users\ainaz\Source\Repos\is-quantek\InformSystem\obj\Debug\net6.0-windows\ref\InformSystem.dll
+C:\Users\ainaz\source\repos\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.Hardware.resources
+C:\Users\ainaz\source\repos\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.RepareMainWindow.resources
