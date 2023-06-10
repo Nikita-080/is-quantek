@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vvvvvvvvv\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj": {}
+    "D:\\is-quantek\\InformSystem\\InformSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vvvvvvvvv\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj": {
+    "D:\\is-quantek\\InformSystem\\InformSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vvvvvvvvv\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj",
+        "projectUniqueName": "D:\\is-quantek\\InformSystem\\InformSystem.csproj",
         "projectName": "InformSystem",
-        "projectPath": "C:\\Users\\vvvvvvvvv\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj",
-        "packagesPath": "C:\\Users\\vvvvvvvvv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vvvvvvvvv\\Source\\Repos\\is-quantek\\InformSystem\\obj\\",
+        "projectPath": "D:\\is-quantek\\InformSystem\\InformSystem.csproj",
+        "packagesPath": "C:\\Users\\ainaz\\.nuget\\packages\\",
+        "outputPath": "D:\\is-quantek\\InformSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vvvvvvvvv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ainaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -70,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
