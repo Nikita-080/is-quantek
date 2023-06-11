@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using InformSystem.dataBase;
+using System.Text;
 using System.Text.Json;
 
 namespace InformSystem
@@ -6,19 +7,35 @@ namespace InformSystem
     //created by Nikita
     public partial class UpdateDataWindow : Form
     {
+        const int TYPE_SYSTEM_UNIT = 1;
+        const int PROC_MODEL       = 1;
+        const int PROC_CREATOR     = 2;
+        const int PROC_FREQ        = 3;
+        const int RAM_SIZE         = 4;
+        const int RAM_MODE         = 5;
+        const int IS_INTERNAL_GPU  = 6;
+        const int GPU_CREATOR      = 7;
+        const int GPU_MEMORY       = 8;
+        const int GPU_NAME         = 9;
+
         string path = "";
         string mode = "";
         List<string> filenames=new List<string>();
         int numfiles=0;
         int numsurcess = 0;
         int numerrors = 0;
-        List<Computer> computers=new List<Computer>();
+        List<Hardware> computers=new List<Hardware>();
+        
         public UpdateDataWindow(object connection)
         {
             InitializeComponent();
-            textBox_path.Text = GetPath();
+
             mode = "find";
+
             richTextBox1.Text += "нажмите \"Найти\" для поиска файлов о компьютерах\n";
+            path = GetPath();
+            textBox_path.Text = path;
+
             button_path.Click += new System.EventHandler(ChoseFolder);
             button_ok.Click += new System.EventHandler(OK);
             button_cancel.Click += new System.EventHandler(CANCEL);
@@ -76,20 +93,19 @@ namespace InformSystem
                         filenames.Add(root[i].ToString() + ".json");
                     }
 
-                    button_ok.Text = "Записать";
-                    mode = "change";
+                    button_ok.Text = "Получить";
+                    mode = "get";
                     numfiles = root.GetArrayLength();
                     richTextBox1.Text += $"обнаружено файлов: {numfiles}\n";
-                    richTextBox1.Text += "нажмите \"Записать\" для обновленя базы данных\n";
+                    richTextBox1.Text += "нажмите \"Получить\" для сбора информации\n";
                 }
                 else
                 {
                     richTextBox1.Text += "файл metadata.json не найден\n";
                 }
             }
-            else if (mode == "change")
+            else if (mode == "get")
             {
-                richTextBox1.Text += "обработка...\n";
                 for (int i = 0; i < numfiles; i++)
                 {
                     try
@@ -97,35 +113,71 @@ namespace InformSystem
                         string datajson = File.ReadAllText(path + "/" + filenames[i]);
                         JsonDocument doc = JsonDocument.Parse(datajson);
                         JsonElement root = doc.RootElement;
-                        Computer comp = new Computer();
 
-                        bool ok = root.GetProperty("ID").TryGetInt32(out comp.ID);
+                        Hardware h = new Hardware();
+
+                        h.TypeH = TYPE_SYSTEM_UNIT;
+
+                        int id;
+                        bool ok = root.GetProperty("ID").TryGetInt32(out id);
                         if (!ok) throw new Exception("ID is not valid");
+                        h.IdH = id;
 
-                        comp.gpucreator = root.GetProperty("gpucreator").ToString();
-                        comp.gpumemory = root.GetProperty("gpumemory").ToString();
-                        comp.gpuname = root.GetProperty("gpuname").ToString();
-                        comp.isInternalGPU = root.GetProperty("isInternalGPU").ToString();
-                        comp.proccreator = root.GetProperty("proccreator").ToString();
-                        comp.procfreq = root.GetProperty("procfreq").ToString();
-                        comp.procmodel = root.GetProperty("procmodel").ToString();
-                        comp.rammode = root.GetProperty("rammode").ToString();
-                        comp.ramsize = root.GetProperty("ramsize").ToString();
+                        HardwareValue hv1 = new HardwareValue();
+                        hv1.Property = GPU_CREATOR;
+                        hv1.Value = root.GetProperty("gpucreator").ToString();
+
+                        HardwareValue hv2 = new HardwareValue();
+                        hv2.Property = GPU_MEMORY;
+                        hv2.Value = root.GetProperty("gpumemory").ToString();
+
+                        HardwareValue hv3 = new HardwareValue();
+                        hv3.Property = GPU_NAME;
+                        hv3.Value = root.GetProperty("gpuname").ToString();
+
+                        HardwareValue hv4 = new HardwareValue();
+                        hv4.Property = IS_INTERNAL_GPU;
+                        hv4.Value = root.GetProperty("isInternalGPU").ToString();
+
+                        HardwareValue hv5 = new HardwareValue();
+                        hv5.Property = PROC_CREATOR;
+                        hv5.Value = root.GetProperty("proccreator").ToString();
+
+                        HardwareValue hv6 = new HardwareValue();
+                        hv6.Property = PROC_FREQ;
+                        hv6.Value = root.GetProperty("procfreq").ToString();
+
+                        HardwareValue hv7 = new HardwareValue();
+                        hv7.Property = PROC_MODEL;
+                        hv7.Value = root.GetProperty("procmodel").ToString();
+
+                        HardwareValue hv8 = new HardwareValue();
+                        hv8.Property = RAM_MODE;
+                        hv8.Value = root.GetProperty("rammode").ToString();
+
+                        HardwareValue hv9 = new HardwareValue();
+                        hv9.Property = RAM_SIZE;
+                        hv9.Value = root.GetProperty("ramsize").ToString();
+
+                        h.HardwareValues = new List<HardwareValue> { hv1, hv2, hv3, hv4, hv5, hv6, hv7, hv8, hv9 };
+
 
                         int numdisks = root.GetProperty("disks").GetArrayLength();
                         for (int j = 0; j < numdisks; j++)
                         {
                             Disk disk = new Disk();
-                            disk.creator = root.GetProperty("disks")[j].GetProperty("creator").ToString();
-                            disk.model = root.GetProperty("disks")[j].GetProperty("model").ToString();
-                            disk.type = root.GetProperty("disks")[j].GetProperty("type").ToString();
+                            disk.Creator = root.GetProperty("disks")[j].GetProperty("creator").ToString();
+                            disk.Model = root.GetProperty("disks")[j].GetProperty("model").ToString();
+                            disk.Type = root.GetProperty("disks")[j].GetProperty("type").ToString();
 
-                            ok = root.GetProperty("disks")[j].GetProperty("size").TryGetInt32(out disk.size);
+                            int ds;
+                            ok = root.GetProperty("disks")[j].GetProperty("size").TryGetInt32(out ds);
                             if (!ok) throw new Exception("disk size is not valid");
+                            disk.Size = ds;
 
-                            comp.disks.Add(disk);
+                            h.Disks.Add(disk);
                         }
-                        UpdateDB(comp);
+                        computers.Add(h);
                         numsurcess++;
                     }
                     catch (Exception error)
@@ -134,9 +186,27 @@ namespace InformSystem
                         numerrors++;
                     }
                 }
-                richTextBox1.Text += "Завершено\n";
-                richTextBox1.Text += $"Записано файлов\t: {numsurcess}/{numfiles}\n";
-                richTextBox1.Text += $"Не записано\t: {numerrors}/{numfiles}\n";
+                button_ok.Text = "Записать";
+                mode = "change";
+                richTextBox1.Text += $"Получено файлов\t: {numsurcess}/{numfiles}\n";
+                richTextBox1.Text += $"Повреждено файлов\t: {numerrors}/{numfiles}\n";
+                richTextBox1.Text += "нажмите \"Записать\" для обновленя базы данных\n";
+            }
+            else if (mode == "change")
+            {
+                try
+                {
+                    PnppkContext context = new PnppkContext();
+                    context.Hardwares.AddRange(computers);
+                    context.SaveChanges();
+
+                    richTextBox1.Text += "Завершено\n";
+                }
+                catch (Exception error)
+                {
+                    richTextBox1.Text += "ОШИБКА\n";
+                    richTextBox1.Text += error.Message+"\n";
+                }
                 richTextBox1.Text += "нажмите \"Готово\" для завершения\n";
                 button_ok.Text = "Готово";
                 mode = "final";
@@ -146,13 +216,6 @@ namespace InformSystem
                 Close();
             }
         }
-        private void UpdateDB(Computer comp)
-        {
-            //TODO запись в базу данных
-            //объекты - computers
-            //подключение - connection
-        }
-
         private void UpdateDataWindow_Load(object sender, EventArgs e)
         {
 
