@@ -93,10 +93,13 @@
             this.databaseTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.databaseTable.Location = new System.Drawing.Point(0, 0);
             this.databaseTable.Name = "databaseTable";
+            this.databaseTable.ReadOnly = true;
             this.databaseTable.RowHeadersWidth = 51;
             this.databaseTable.RowTemplate.Height = 29;
+            this.databaseTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.databaseTable.Size = new System.Drawing.Size(1044, 411);
             this.databaseTable.TabIndex = 0;
+            this.databaseTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.databaseTable_CellDoubleClick);
             // 
             // Hardware
             // 
@@ -107,6 +110,7 @@
             this.Controls.Add(this.toolsPanel);
             this.Name = "Hardware";
             this.Text = "Hardware";
+            this.Load += new System.EventHandler(this.Hardware_Load);
             this.toolsPanel.ResumeLayout(false);
             this.tablePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.databaseTable)).EndInit();
