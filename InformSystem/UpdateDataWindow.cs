@@ -169,6 +169,7 @@ namespace InformSystem
                         for (int j = 0; j < numdisks; j++)
                         {
                             Disk disk = new Disk();
+                            disk.HardwareD = current_id;
                             disk.Creator = root.GetProperty("disks")[j].GetProperty("creator").ToString();
                             disk.Model = root.GetProperty("disks")[j].GetProperty("model").ToString();
                             disk.Type = root.GetProperty("disks")[j].GetProperty("type").ToString();
@@ -189,8 +190,7 @@ namespace InformSystem
                         richTextBox1.Text += $"{filenames[i]}\tошибка {error.Message}\n";
                         numerrors++;
                         errors.Add(current_id);
-                    }
-                        
+                    }   
                 }
                 button_ok.Text = "Записать";
                 mode = "change";
@@ -203,9 +203,30 @@ namespace InformSystem
                 richTextBox1.Text += "внесение изменений...\n";
                 try
                 {
-                    //PnppkContext context = new PnppkContext();
-                    //context.Hardwares.AddRange(computers);
-                    //context.SaveChanges();
+                    PnppkContext context = new PnppkContext();
+                    foreach (Hardware i in computers)
+                    {
+                        var result=context.Hardwares.Find(i.IdH);
+                        if (result == null) context.Hardwares.Add(i);
+                        else
+                        {
+                            List<Disk> diskstodelete = context.Disks.Where(x => x.HardwareD == i.IdH).ToList();
+                            context.Disks.RemoveRange(diskstodelete);
+
+                            context.Disks.AddRange(i.Disks);
+
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == PROC_MODEL     ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == PROC_MODEL     ).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == PROC_CREATOR   ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == PROC_CREATOR   ).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == PROC_FREQ      ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == PROC_FREQ      ).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == GPU_MEMORY     ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == GPU_MEMORY     ).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == GPU_CREATOR    ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == GPU_CREATOR    ).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == GPU_NAME       ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == GPU_NAME       ).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == RAM_MODE       ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == RAM_MODE       ).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == RAM_SIZE       ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == RAM_SIZE       ).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == IS_INTERNAL_GPU).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == IS_INTERNAL_GPU).FirstOrDefault().Value;
+                        }
+                    }
+                    context.SaveChanges();
 
                     string jsonString = JsonSerializer.Serialize(errors);
                     File.WriteAllText(path + "/metadata.json", jsonString);
