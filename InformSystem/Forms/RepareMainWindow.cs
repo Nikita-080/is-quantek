@@ -28,7 +28,41 @@ namespace InformSystem.Forms
 
         private void updateTableButton_Click(object sender, EventArgs e)
         {
-            databaseTable.DataSource = context.Repairs.ToList();
+            if(HwIdTextBox.Text != "Номер оборудования")
+            {
+                try
+                {
+                    databaseTable.DataSource = context.Repairs.Where(repair => repair.HardwareR == Convert.ToInt32(HwIdTextBox.Text)).ToList();
+                    MessageBox.Show("Данные успешно обновлены");
+                }
+                catch (Exception ex) 
+                {
+                    MessageBox.Show($"Ошибка {ex.Message}");
+                }
+            }
+            else
+            {
+                databaseTable.DataSource = context.Repairs.ToList();
+                MessageBox.Show("Данные успешно обновлены");
+            }
+                
+        }
+
+        private void HwIdTextBox_Enter(object sender, EventArgs e)
+        {
+            if (HwIdTextBox.Text == "Номер оборудования")
+            {
+                HwIdTextBox.Text = "";
+            }
+        }
+
+        private void HwIdTextBox_Leave(object sender, EventArgs e)
+        {
+            if (HwIdTextBox.Text == "")
+            {
+                HwIdTextBox.Text = "Номер оборудования";
+
+            }
         }
     }
 }

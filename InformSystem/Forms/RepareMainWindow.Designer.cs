@@ -43,6 +43,7 @@
             toolsPanel = new Panel();
             updateTableButton = new Button();
             addButton = new Button();
+            HwIdTextBox = new TextBox();
             tablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)databaseTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repairBindingSource).BeginInit();
@@ -141,6 +142,7 @@
             // 
             // toolsPanel
             // 
+            toolsPanel.Controls.Add(HwIdTextBox);
             toolsPanel.Controls.Add(updateTableButton);
             toolsPanel.Controls.Add(addButton);
             toolsPanel.Dock = DockStyle.Top;
@@ -157,12 +159,12 @@
             updateTableButton.FlatStyle = FlatStyle.Flat;
             updateTableButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             updateTableButton.ForeColor = SystemColors.ButtonFace;
-            updateTableButton.Location = new Point(187, 9);
+            updateTableButton.Location = new Point(563, 11);
             updateTableButton.Margin = new Padding(3, 2, 3, 2);
             updateTableButton.Name = "updateTableButton";
             updateTableButton.Size = new Size(171, 25);
             updateTableButton.TabIndex = 1;
-            updateTableButton.Text = "Обновить данные";
+            updateTableButton.Text = "Загрузить данные";
             updateTableButton.UseVisualStyleBackColor = false;
             updateTableButton.Click += updateTableButton_Click;
             // 
@@ -182,6 +184,16 @@
             addButton.UseVisualStyleBackColor = false;
             addButton.Click += addButton_Click;
             // 
+            // HwIdTextBox
+            // 
+            HwIdTextBox.Location = new Point(751, 12);
+            HwIdTextBox.Name = "HwIdTextBox";
+            HwIdTextBox.Size = new Size(151, 23);
+            HwIdTextBox.TabIndex = 2;
+            HwIdTextBox.Text = "Номер оборудования";
+            HwIdTextBox.Enter += HwIdTextBox_Enter;
+            HwIdTextBox.Leave += HwIdTextBox_Leave;
+            // 
             // RepareMainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -196,6 +208,7 @@
             ((System.ComponentModel.ISupportInitialize)databaseTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)repairBindingSource).EndInit();
             toolsPanel.ResumeLayout(false);
+            toolsPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -215,5 +228,6 @@
         private DataGridViewTextBoxColumn documentOutDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn reasonDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn verdictDataGridViewTextBoxColumn;
+        private TextBox HwIdTextBox;
     }
 }
