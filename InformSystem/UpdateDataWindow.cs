@@ -8,26 +8,26 @@ namespace InformSystem
     public partial class UpdateDataWindow : Form
     {
         const int TYPE_SYSTEM_UNIT = 1;
-        const int PROC_MODEL       = 1;
-        const int PROC_CREATOR     = 2;
-        const int PROC_FREQ        = 3;
-        const int RAM_SIZE         = 4;
-        const int RAM_MODE         = 5;
-        const int IS_INTERNAL_GPU  = 6;
-        const int GPU_CREATOR      = 7;
-        const int GPU_MEMORY       = 8;
-        const int GPU_NAME         = 9;
+        const int PROC_MODEL = 1;
+        const int PROC_CREATOR = 2;
+        const int PROC_FREQ = 3;
+        const int RAM_SIZE = 4;
+        const int RAM_MODE = 5;
+        const int IS_INTERNAL_GPU = 6;
+        const int GPU_CREATOR = 7;
+        const int GPU_MEMORY = 8;
+        const int GPU_NAME = 9;
 
         string path = "";
         string mode = "";
-        List<string> filenames=new List<string>();
-        int numfiles=0;
+        List<string> filenames = new List<string>();
+        int numfiles = 0;
         int numsurcess = 0;
         int numerrors = 0;
         int current_id;
-        List<Hardware> computers=new List<Hardware>();
+        List<Hardware> computers = new List<Hardware>();
         List<int> errors = new List<int>();
-        
+
         public UpdateDataWindow(object connection)
         {
             InitializeComponent();
@@ -66,7 +66,7 @@ namespace InformSystem
         {
             if (!File.Exists("./datapath.txt"))
             {
-                FileStream fs=File.Create("./datapath.txt");
+                FileStream fs = File.Create("./datapath.txt");
                 byte[] data = Encoding.UTF8.GetBytes(s);
                 fs.Write(data, 0, data.Length);
             }
@@ -183,14 +183,14 @@ namespace InformSystem
                         }
                         computers.Add(h);
                         numsurcess++;
-                        
+
                     }
                     catch (Exception error)
                     {
                         richTextBox1.Text += $"{filenames[i]}\tошибка {error.Message}\n";
                         numerrors++;
                         errors.Add(current_id);
-                    }   
+                    }
                 }
                 button_ok.Text = "Записать";
                 mode = "change";
@@ -206,7 +206,7 @@ namespace InformSystem
                     PnppkContext context = new PnppkContext();
                     foreach (Hardware i in computers)
                     {
-                        var result=context.Hardwares.Find(i.IdH);
+                        var result = context.Hardwares.Find(i.IdH);
                         if (result == null) context.Hardwares.Add(i);
                         else
                         {
@@ -215,14 +215,14 @@ namespace InformSystem
 
                             context.Disks.AddRange(i.Disks);
 
-                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == PROC_MODEL     ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == PROC_MODEL     ).FirstOrDefault().Value;
-                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == PROC_CREATOR   ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == PROC_CREATOR   ).FirstOrDefault().Value;
-                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == PROC_FREQ      ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == PROC_FREQ      ).FirstOrDefault().Value;
-                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == GPU_MEMORY     ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == GPU_MEMORY     ).FirstOrDefault().Value;
-                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == GPU_CREATOR    ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == GPU_CREATOR    ).FirstOrDefault().Value;
-                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == GPU_NAME       ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == GPU_NAME       ).FirstOrDefault().Value;
-                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == RAM_MODE       ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == RAM_MODE       ).FirstOrDefault().Value;
-                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == RAM_SIZE       ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == RAM_SIZE       ).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == PROC_MODEL).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == PROC_MODEL).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == PROC_CREATOR).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == PROC_CREATOR).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == PROC_FREQ).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == PROC_FREQ).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == GPU_MEMORY).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == GPU_MEMORY).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == GPU_CREATOR).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == GPU_CREATOR).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == GPU_NAME).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == GPU_NAME).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == RAM_MODE).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == RAM_MODE).FirstOrDefault().Value;
+                            context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == RAM_SIZE).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == RAM_SIZE).FirstOrDefault().Value;
                             context.HardwareValues.Where(x => x.HardwareV == i.IdH && x.Property == IS_INTERNAL_GPU).FirstOrDefault().Value = i.HardwareValues.Where(x => x.Property == IS_INTERNAL_GPU).FirstOrDefault().Value;
                         }
                     }
@@ -236,7 +236,7 @@ namespace InformSystem
                 catch (Exception error)
                 {
                     richTextBox1.Text += "ОШИБКА\n";
-                    richTextBox1.Text += error.Message+"\n";
+                    richTextBox1.Text += error.Message + "\n";
                 }
                 richTextBox1.Text += "нажмите \"Готово\" для завершения\n";
                 button_ok.Text = "Готово";
