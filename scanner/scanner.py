@@ -115,7 +115,7 @@ while True:
 
     #preparing data
 
-    data={"procname":proccreator,
+    data={"proccreator":proccreator,
           "procmodel":procmodel,
           "procfreq":str(procfreq),
           "disks":disklist,

@@ -24,7 +24,9 @@ namespace InformSystem
         int numfiles=0;
         int numsurcess = 0;
         int numerrors = 0;
+        int current_id;
         List<Hardware> computers=new List<Hardware>();
+        List<int> errors = new List<int>();
         
         public UpdateDataWindow(object connection)
         {
@@ -82,6 +84,7 @@ namespace InformSystem
         {
             if (mode == "find")
             {
+                richTextBox1.Text += "поиск...\n";
                 if (File.Exists(path + "/metadata.json"))
                 {
                     string metadatajson = File.ReadAllText(path + "/metadata.json");
@@ -106,6 +109,7 @@ namespace InformSystem
             }
             else if (mode == "get")
             {
+                richTextBox1.Text += "чтение файлов...\n";
                 for (int i = 0; i < numfiles; i++)
                 {
                     try
@@ -118,10 +122,9 @@ namespace InformSystem
 
                         h.TypeH = TYPE_SYSTEM_UNIT;
 
-                        int id;
-                        bool ok = root.GetProperty("ID").TryGetInt32(out id);
+                        bool ok = root.GetProperty("ID").TryGetInt32(out current_id);
                         if (!ok) throw new Exception("ID is not valid");
-                        h.IdH = id;
+                        h.IdH = current_id;
 
                         HardwareValue hv1 = new HardwareValue();
                         hv1.Property = GPU_CREATOR;
@@ -179,12 +182,15 @@ namespace InformSystem
                         }
                         computers.Add(h);
                         numsurcess++;
+                        
                     }
                     catch (Exception error)
                     {
                         richTextBox1.Text += $"{filenames[i]}\tошибка {error.Message}\n";
                         numerrors++;
+                        errors.Add(current_id);
                     }
+                        
                 }
                 button_ok.Text = "Записать";
                 mode = "change";
@@ -194,11 +200,15 @@ namespace InformSystem
             }
             else if (mode == "change")
             {
+                richTextBox1.Text += "внесение изменений...\n";
                 try
                 {
-                    PnppkContext context = new PnppkContext();
-                    context.Hardwares.AddRange(computers);
-                    context.SaveChanges();
+                    //PnppkContext context = new PnppkContext();
+                    //context.Hardwares.AddRange(computers);
+                    //context.SaveChanges();
+
+                    string jsonString = JsonSerializer.Serialize(errors);
+                    File.WriteAllText(path + "/metadata.json", jsonString);
 
                     richTextBox1.Text += "Завершено\n";
                 }
