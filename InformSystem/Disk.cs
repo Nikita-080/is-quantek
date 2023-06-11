@@ -10,7 +10,7 @@ namespace InformSystem
     {
         public string creator;
         public string model;
-        public string size;
+        public int size;
         public string type;
     }
 }

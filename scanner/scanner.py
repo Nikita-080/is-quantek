@@ -59,7 +59,7 @@ while True:
         for disk in disks:
             diskitem={}
             diskitem["model"]=Fix(disk.Model,"string")
-            diskitem["size"]=str(Fix(disk.Size,"degree",D30))
+            diskitem["size"]=Fix(disk.Size,"degree",D30)
             diskitem["type"]=Fix(disk.MediaType,"string")
             if ' ' in diskitem["model"]:
                 diskitem["creator"]=diskitem["model"].split()[0]

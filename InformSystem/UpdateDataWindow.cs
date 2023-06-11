@@ -19,9 +19,9 @@ namespace InformSystem
             textBox_path.Text = GetPath();
             mode = "find";
             richTextBox1.Text += "нажмите \"Найти\" для поиска файлов о компьютерах\n";
-            button_path.Click += new System.EventHandler(this.ChoseFolder);
-            button_ok.Click += new System.EventHandler(this.OK);
-            button_cancel.Click += new System.EventHandler(this.CANCEL);
+            button_path.Click += new System.EventHandler(ChoseFolder);
+            button_ok.Click += new System.EventHandler(OK);
+            button_cancel.Click += new System.EventHandler(CANCEL);
         }
         void ChoseFolder(object sender, EventArgs e)
         {
@@ -59,7 +59,7 @@ namespace InformSystem
 
         void CANCEL(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         void OK(object sender, EventArgs e)
         {
@@ -118,8 +118,11 @@ namespace InformSystem
                             Disk disk = new Disk();
                             disk.creator = root.GetProperty("disks")[j].GetProperty("creator").ToString();
                             disk.model = root.GetProperty("disks")[j].GetProperty("model").ToString();
-                            disk.size = root.GetProperty("disks")[j].GetProperty("size").ToString();
                             disk.type = root.GetProperty("disks")[j].GetProperty("type").ToString();
+
+                            ok = root.GetProperty("disks")[j].GetProperty("size").TryGetInt32(out disk.size);
+                            if (!ok) throw new Exception("disk size is not valid");
+
                             comp.disks.Add(disk);
                         }
                         UpdateDB(comp);
@@ -140,7 +143,7 @@ namespace InformSystem
             }
             else if (mode == "final")
             {
-                this.Close();
+                Close();
             }
         }
         private void UpdateDB(Computer comp)
