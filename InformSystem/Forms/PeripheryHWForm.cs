@@ -21,5 +21,10 @@ namespace InformSystem.Forms
         {
 
         }
+
+        private void changePlaceButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

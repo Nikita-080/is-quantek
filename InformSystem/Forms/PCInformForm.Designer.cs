@@ -32,6 +32,8 @@
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label7;
             this.panelCommonInfo = new System.Windows.Forms.Panel();
+            this.editPersonButton = new System.Windows.Forms.Button();
+            this.editPlaceButton = new System.Windows.Forms.Button();
             this.PersonTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.PlaceTextBox = new System.Windows.Forms.TextBox();
@@ -48,6 +50,7 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.dataGridViewConnectedHW = new System.Windows.Forms.DataGridView();
+            this.saveButton = new System.Windows.Forms.Button();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
@@ -95,6 +98,8 @@
             // 
             // panelCommonInfo
             // 
+            this.panelCommonInfo.Controls.Add(this.editPersonButton);
+            this.panelCommonInfo.Controls.Add(this.editPlaceButton);
             this.panelCommonInfo.Controls.Add(this.PersonTextBox);
             this.panelCommonInfo.Controls.Add(this.label4);
             this.panelCommonInfo.Controls.Add(this.PlaceTextBox);
@@ -109,14 +114,41 @@
             this.panelCommonInfo.Size = new System.Drawing.Size(800, 146);
             this.panelCommonInfo.TabIndex = 0;
             // 
+            // editPersonButton
+            // 
+            this.editPersonButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.editPersonButton.FlatAppearance.BorderSize = 0;
+            this.editPersonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editPersonButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.editPersonButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.editPersonButton.Image = global::InformSystem.Properties.Resources.edit48481;
+            this.editPersonButton.Location = new System.Drawing.Point(495, 107);
+            this.editPersonButton.Name = "editPersonButton";
+            this.editPersonButton.Size = new System.Drawing.Size(36, 29);
+            this.editPersonButton.TabIndex = 12;
+            this.editPersonButton.UseVisualStyleBackColor = false;
+            // 
+            // editPlaceButton
+            // 
+            this.editPlaceButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.editPlaceButton.FlatAppearance.BorderSize = 0;
+            this.editPlaceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editPlaceButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.editPlaceButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.editPlaceButton.Image = global::InformSystem.Properties.Resources.edit48481;
+            this.editPlaceButton.Location = new System.Drawing.Point(495, 71);
+            this.editPlaceButton.Name = "editPlaceButton";
+            this.editPlaceButton.Size = new System.Drawing.Size(36, 29);
+            this.editPlaceButton.TabIndex = 11;
+            this.editPlaceButton.UseVisualStyleBackColor = false;
+            // 
             // PersonTextBox
             // 
-            this.PersonTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PersonTextBox.Enabled = false;
             this.PersonTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PersonTextBox.Location = new System.Drawing.Point(201, 111);
             this.PersonTextBox.Name = "PersonTextBox";
-            this.PersonTextBox.Size = new System.Drawing.Size(288, 25);
+            this.PersonTextBox.Size = new System.Drawing.Size(288, 32);
             this.PersonTextBox.TabIndex = 7;
             // 
             // label4
@@ -131,12 +163,11 @@
             // 
             // PlaceTextBox
             // 
-            this.PlaceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PlaceTextBox.Enabled = false;
             this.PlaceTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PlaceTextBox.Location = new System.Drawing.Point(201, 75);
             this.PlaceTextBox.Name = "PlaceTextBox";
-            this.PlaceTextBox.Size = new System.Drawing.Size(288, 25);
+            this.PlaceTextBox.Size = new System.Drawing.Size(288, 32);
             this.PlaceTextBox.TabIndex = 5;
             // 
             // label3
@@ -151,12 +182,11 @@
             // 
             // HTypeTextBox
             // 
-            this.HTypeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.HTypeTextBox.Enabled = false;
             this.HTypeTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.HTypeTextBox.Location = new System.Drawing.Point(201, 41);
             this.HTypeTextBox.Name = "HTypeTextBox";
-            this.HTypeTextBox.Size = new System.Drawing.Size(288, 25);
+            this.HTypeTextBox.Size = new System.Drawing.Size(288, 32);
             this.HTypeTextBox.TabIndex = 3;
             // 
             // label2
@@ -171,12 +201,11 @@
             // 
             // IdTextBox
             // 
-            this.IdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.IdTextBox.Enabled = false;
             this.IdTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.IdTextBox.Location = new System.Drawing.Point(201, 7);
             this.IdTextBox.Name = "IdTextBox";
-            this.IdTextBox.Size = new System.Drawing.Size(288, 25);
+            this.IdTextBox.Size = new System.Drawing.Size(288, 32);
             this.IdTextBox.TabIndex = 1;
             this.IdTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -292,11 +321,26 @@
             this.dataGridViewConnectedHW.Size = new System.Drawing.Size(800, 188);
             this.dataGridViewConnectedHW.TabIndex = 2;
             // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.saveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.saveButton.Location = new System.Drawing.Point(678, 835);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(119, 29);
+            this.saveButton.TabIndex = 5;
+            this.saveButton.Text = "Сохранить";
+            this.saveButton.UseVisualStyleBackColor = false;
+            // 
             // PCInformForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 832);
+            this.ClientSize = new System.Drawing.Size(800, 876);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.ConnectedHWPanel);
             this.Controls.Add(this.ServisHistoryPanel);
             this.Controls.Add(this.PCHardInfoPanel);
@@ -338,5 +382,8 @@
         private DataGridView dataGridViewConnectedHW;
         private Button deleteButton;
         private Button addButton;
+        private Button saveButton;
+        private Button editPersonButton;
+        private Button editPlaceButton;
     }
 }

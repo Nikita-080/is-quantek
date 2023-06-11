@@ -75,6 +75,7 @@
             this.addButton.TabIndex = 0;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // tablePanel
             // 
