@@ -28,74 +28,175 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tablePanel = new System.Windows.Forms.Panel();
-            this.databaseTable = new System.Windows.Forms.DataGridView();
-            this.toolsPanel = new System.Windows.Forms.Panel();
-            this.addButton = new System.Windows.Forms.Button();
-            this.tablePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseTable)).BeginInit();
-            this.toolsPanel.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            tablePanel = new Panel();
+            databaseTable = new DataGridView();
+            idRDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            hardwareRDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateOutDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            documentInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            documentOutDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            reasonDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            verdictDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            repairBindingSource = new BindingSource(components);
+            toolsPanel = new Panel();
+            updateTableButton = new Button();
+            addButton = new Button();
+            tablePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)databaseTable).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repairBindingSource).BeginInit();
+            toolsPanel.SuspendLayout();
+            SuspendLayout();
             // 
             // tablePanel
             // 
-            this.tablePanel.Controls.Add(this.databaseTable);
-            this.tablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel.Location = new System.Drawing.Point(0, 65);
-            this.tablePanel.Name = "tablePanel";
-            this.tablePanel.Size = new System.Drawing.Size(1044, 411);
-            this.tablePanel.TabIndex = 3;
+            tablePanel.Controls.Add(databaseTable);
+            tablePanel.Dock = DockStyle.Fill;
+            tablePanel.Location = new Point(0, 49);
+            tablePanel.Margin = new Padding(3, 2, 3, 2);
+            tablePanel.Name = "tablePanel";
+            tablePanel.Size = new Size(914, 308);
+            tablePanel.TabIndex = 3;
             // 
             // databaseTable
             // 
-            this.databaseTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.databaseTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.databaseTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.databaseTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.databaseTable.Location = new System.Drawing.Point(0, 0);
-            this.databaseTable.Name = "databaseTable";
-            this.databaseTable.RowHeadersWidth = 51;
-            this.databaseTable.RowTemplate.Height = 29;
-            this.databaseTable.Size = new System.Drawing.Size(1044, 411);
-            this.databaseTable.TabIndex = 0;
+            databaseTable.AllowUserToAddRows = false;
+            databaseTable.AllowUserToDeleteRows = false;
+            databaseTable.AutoGenerateColumns = false;
+            databaseTable.BackgroundColor = SystemColors.ControlLight;
+            databaseTable.BorderStyle = BorderStyle.None;
+            databaseTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            databaseTable.Columns.AddRange(new DataGridViewColumn[] { idRDataGridViewTextBoxColumn, hardwareRDataGridViewTextBoxColumn, dateInDataGridViewTextBoxColumn, dateOutDataGridViewTextBoxColumn, documentInDataGridViewTextBoxColumn, documentOutDataGridViewTextBoxColumn, reasonDataGridViewTextBoxColumn, verdictDataGridViewTextBoxColumn });
+            databaseTable.DataSource = repairBindingSource;
+            databaseTable.Dock = DockStyle.Fill;
+            databaseTable.Location = new Point(0, 0);
+            databaseTable.Margin = new Padding(3, 2, 3, 2);
+            databaseTable.Name = "databaseTable";
+            databaseTable.ReadOnly = true;
+            databaseTable.RowHeadersWidth = 51;
+            databaseTable.RowTemplate.Height = 29;
+            databaseTable.Size = new Size(914, 308);
+            databaseTable.TabIndex = 0;
+            // 
+            // idRDataGridViewTextBoxColumn
+            // 
+            idRDataGridViewTextBoxColumn.DataPropertyName = "IdR";
+            idRDataGridViewTextBoxColumn.HeaderText = "IdR";
+            idRDataGridViewTextBoxColumn.Name = "idRDataGridViewTextBoxColumn";
+            idRDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hardwareRDataGridViewTextBoxColumn
+            // 
+            hardwareRDataGridViewTextBoxColumn.DataPropertyName = "HardwareR";
+            hardwareRDataGridViewTextBoxColumn.HeaderText = "HardwareR";
+            hardwareRDataGridViewTextBoxColumn.Name = "hardwareRDataGridViewTextBoxColumn";
+            hardwareRDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateInDataGridViewTextBoxColumn
+            // 
+            dateInDataGridViewTextBoxColumn.DataPropertyName = "DateIn";
+            dateInDataGridViewTextBoxColumn.HeaderText = "DateIn";
+            dateInDataGridViewTextBoxColumn.Name = "dateInDataGridViewTextBoxColumn";
+            dateInDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateOutDataGridViewTextBoxColumn
+            // 
+            dateOutDataGridViewTextBoxColumn.DataPropertyName = "DateOut";
+            dateOutDataGridViewTextBoxColumn.HeaderText = "DateOut";
+            dateOutDataGridViewTextBoxColumn.Name = "dateOutDataGridViewTextBoxColumn";
+            dateOutDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // documentInDataGridViewTextBoxColumn
+            // 
+            documentInDataGridViewTextBoxColumn.DataPropertyName = "DocumentIn";
+            documentInDataGridViewTextBoxColumn.HeaderText = "DocumentIn";
+            documentInDataGridViewTextBoxColumn.Name = "documentInDataGridViewTextBoxColumn";
+            documentInDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // documentOutDataGridViewTextBoxColumn
+            // 
+            documentOutDataGridViewTextBoxColumn.DataPropertyName = "DocumentOut";
+            documentOutDataGridViewTextBoxColumn.HeaderText = "DocumentOut";
+            documentOutDataGridViewTextBoxColumn.Name = "documentOutDataGridViewTextBoxColumn";
+            documentOutDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // reasonDataGridViewTextBoxColumn
+            // 
+            reasonDataGridViewTextBoxColumn.DataPropertyName = "Reason";
+            reasonDataGridViewTextBoxColumn.HeaderText = "Reason";
+            reasonDataGridViewTextBoxColumn.Name = "reasonDataGridViewTextBoxColumn";
+            reasonDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // verdictDataGridViewTextBoxColumn
+            // 
+            verdictDataGridViewTextBoxColumn.DataPropertyName = "Verdict";
+            verdictDataGridViewTextBoxColumn.HeaderText = "Verdict";
+            verdictDataGridViewTextBoxColumn.Name = "verdictDataGridViewTextBoxColumn";
+            verdictDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // repairBindingSource
+            // 
+            repairBindingSource.DataSource = typeof(dataBase.Repair);
             // 
             // toolsPanel
             // 
-            this.toolsPanel.Controls.Add(this.addButton);
-            this.toolsPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.toolsPanel.Location = new System.Drawing.Point(0, 0);
-            this.toolsPanel.Name = "toolsPanel";
-            this.toolsPanel.Size = new System.Drawing.Size(1044, 65);
-            this.toolsPanel.TabIndex = 2;
+            toolsPanel.Controls.Add(updateTableButton);
+            toolsPanel.Controls.Add(addButton);
+            toolsPanel.Dock = DockStyle.Top;
+            toolsPanel.Location = new Point(0, 0);
+            toolsPanel.Margin = new Padding(3, 2, 3, 2);
+            toolsPanel.Name = "toolsPanel";
+            toolsPanel.Size = new Size(914, 49);
+            toolsPanel.TabIndex = 2;
+            // 
+            // updateTableButton
+            // 
+            updateTableButton.BackColor = Color.FromArgb(0, 42, 87);
+            updateTableButton.FlatAppearance.BorderSize = 0;
+            updateTableButton.FlatStyle = FlatStyle.Flat;
+            updateTableButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            updateTableButton.ForeColor = SystemColors.ButtonFace;
+            updateTableButton.Location = new Point(187, 9);
+            updateTableButton.Margin = new Padding(3, 2, 3, 2);
+            updateTableButton.Name = "updateTableButton";
+            updateTableButton.Size = new Size(171, 25);
+            updateTableButton.TabIndex = 1;
+            updateTableButton.Text = "Обновить данные";
+            updateTableButton.UseVisualStyleBackColor = false;
+            updateTableButton.Click += updateTableButton_Click;
             // 
             // addButton
             // 
-            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
-            this.addButton.FlatAppearance.BorderSize = 0;
-            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.addButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.addButton.Location = new System.Drawing.Point(12, 12);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(195, 29);
-            this.addButton.TabIndex = 0;
-            this.addButton.Text = "Добавить ремонт";
-            this.addButton.UseVisualStyleBackColor = false;
+            addButton.BackColor = Color.FromArgb(0, 42, 87);
+            addButton.FlatAppearance.BorderSize = 0;
+            addButton.FlatStyle = FlatStyle.Flat;
+            addButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            addButton.ForeColor = SystemColors.ButtonFace;
+            addButton.Location = new Point(10, 9);
+            addButton.Margin = new Padding(3, 2, 3, 2);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(171, 25);
+            addButton.TabIndex = 0;
+            addButton.Text = "Добавить ремонт";
+            addButton.UseVisualStyleBackColor = false;
+            addButton.Click += addButton_Click;
             // 
             // RepareMainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1044, 476);
-            this.Controls.Add(this.tablePanel);
-            this.Controls.Add(this.toolsPanel);
-            this.Name = "RepareMainWindow";
-            this.Text = "RepareMainWindow";
-            this.tablePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.databaseTable)).EndInit();
-            this.toolsPanel.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(914, 357);
+            Controls.Add(tablePanel);
+            Controls.Add(toolsPanel);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "RepareMainWindow";
+            Text = "RepareMainWindow";
+            tablePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)databaseTable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repairBindingSource).EndInit();
+            toolsPanel.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
@@ -104,5 +205,15 @@
         private DataGridView databaseTable;
         private Panel toolsPanel;
         private Button addButton;
+        private BindingSource repairBindingSource;
+        private Button updateTableButton;
+        private DataGridViewTextBoxColumn idRDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn hardwareRDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateInDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateOutDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn documentInDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn documentOutDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn reasonDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn verdictDataGridViewTextBoxColumn;
     }
 }
