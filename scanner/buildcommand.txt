@@ -1,0 +1,1 @@
+pyinstaller --onedir --onefile --name=scanner "C:\python_exe\scanner.py"
