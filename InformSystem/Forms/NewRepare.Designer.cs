@@ -73,7 +73,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(297, 332);
+            panel1.Size = new Size(297, 341);
             panel1.TabIndex = 13;
             // 
             // sendButton
@@ -209,16 +209,16 @@
             // 
             panel3.Controls.Add(verdictTextBox);
             panel3.Controls.Add(verdictLabel);
-            panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(297, 167);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(297, 168);
             panel3.Name = "panel3";
-            panel3.Size = new Size(470, 165);
+            panel3.Size = new Size(470, 173);
             panel3.TabIndex = 15;
             // 
             // verdictTextBox
             // 
-            verdictTextBox.Dock = DockStyle.Bottom;
-            verdictTextBox.Location = new Point(0, 24);
+            verdictTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            verdictTextBox.Location = new Point(0, 32);
             verdictTextBox.MaxLength = 50;
             verdictTextBox.Multiline = true;
             verdictTextBox.Name = "verdictTextBox";
@@ -237,12 +237,13 @@
             // 
             // infoPanel
             // 
+            infoPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             infoPanel.Controls.Add(panel3);
             infoPanel.Controls.Add(panel2);
             infoPanel.Controls.Add(panel1);
-            infoPanel.Location = new Point(0, 73);
+            infoPanel.Location = new Point(0, 64);
             infoPanel.Name = "infoPanel";
-            infoPanel.Size = new Size(767, 332);
+            infoPanel.Size = new Size(767, 341);
             infoPanel.TabIndex = 2;
             // 
             // headerPanel
@@ -251,7 +252,7 @@
             headerPanel.Dock = DockStyle.Top;
             headerPanel.Location = new Point(0, 0);
             headerPanel.Name = "headerPanel";
-            headerPanel.Size = new Size(767, 74);
+            headerPanel.Size = new Size(767, 64);
             headerPanel.TabIndex = 3;
             // 
             // NewRepare

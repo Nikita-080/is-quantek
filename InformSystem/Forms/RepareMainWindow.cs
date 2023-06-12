@@ -28,16 +28,16 @@ namespace InformSystem.Forms
 
         private void updateTableButton_Click(object sender, EventArgs e)
         {
-            if(HwIdTextBox.Text != "Номер оборудования")
+            if (HwIdTextBox.Text != "Номер оборудования")
             {
                 try
                 {
                     databaseTable.DataSource = context.Repairs.Where(repair => repair.HardwareR == Convert.ToInt32(HwIdTextBox.Text)).ToList();
                     MessageBox.Show("Данные успешно обновлены");
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
-                    MessageBox.Show($"Ошибка {ex.Message}");
+                    MessageBox.Show($"Ошибка \"{ex.Message}\"");
                 }
             }
             else
@@ -45,7 +45,7 @@ namespace InformSystem.Forms
                 databaseTable.DataSource = context.Repairs.ToList();
                 MessageBox.Show("Данные успешно обновлены");
             }
-                
+
         }
 
         private void HwIdTextBox_Enter(object sender, EventArgs e)

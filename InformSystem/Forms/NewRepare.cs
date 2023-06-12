@@ -39,11 +39,11 @@ namespace InformSystem.Forms
                 context.SaveChanges();
                 MessageBox.Show("Запись успешно добавлена");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка {ex.Message}");
+                MessageBox.Show($"Ошибка \"{ex.Message}\"");
             }
-            
+
         }
     }
 }
