@@ -37,14 +37,14 @@ namespace InformSystem.Forms
                 password = PasswordTextBox.Text;
 
             this.Hide();
-            
-            
+
+
 
         }
 
         private void LoginTextBox_Enter(object sender, EventArgs e)
         {
-            if(LoginTextBox.Text == "Имя пользователя")
+            if (LoginTextBox.Text == "Имя пользователя")
             {
                 LoginTextBox.Text = "";
             }
@@ -55,7 +55,7 @@ namespace InformSystem.Forms
             if (LoginTextBox.Text == "")
             {
                 LoginTextBox.Text = "Имя пользователя";
-                
+
             }
         }
 
@@ -82,6 +82,11 @@ namespace InformSystem.Forms
             //PasswordTextBox.Clear();
             //LoginTextBox.Clear();
             this.Close();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
