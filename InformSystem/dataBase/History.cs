@@ -9,13 +9,15 @@ public partial class History
 
     public int Computer { get; set; }
 
-    public int HardwareOld { get; set; }
+    public int? HardwareOld { get; set; }
 
-    public int HardwareNew { get; set; }
+    public int? HardwareNew { get; set; }
+
+    public DateTime DateH { get; set; }
 
     public virtual Hardware ComputerNavigation { get; set; } = null!;
 
-    public virtual Hardware HardwareNewNavigation { get; set; } = null!;
+    public virtual Hardware? HardwareNewNavigation { get; set; }
 
-    public virtual Hardware HardwareOldNavigation { get; set; } = null!;
+    public virtual Hardware? HardwareOldNavigation { get; set; }
 }

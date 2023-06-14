@@ -33,6 +33,14 @@
             this.addButton = new System.Windows.Forms.Button();
             this.tablePanel = new System.Windows.Forms.Panel();
             this.databaseTable = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Person = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Building = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Office = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolsPanel.SuspendLayout();
             this.tablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.databaseTable)).BeginInit();
@@ -75,6 +83,7 @@
             this.addButton.TabIndex = 0;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // tablePanel
             // 
@@ -90,13 +99,90 @@
             this.databaseTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.databaseTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.databaseTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.databaseTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Type,
+            this.Person,
+            this.Building,
+            this.Floor,
+            this.Office,
+            this.isWork,
+            this.typeID});
             this.databaseTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.databaseTable.Location = new System.Drawing.Point(0, 0);
             this.databaseTable.Name = "databaseTable";
+            this.databaseTable.ReadOnly = true;
             this.databaseTable.RowHeadersWidth = 51;
             this.databaseTable.RowTemplate.Height = 29;
+            this.databaseTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.databaseTable.Size = new System.Drawing.Size(1044, 411);
             this.databaseTable.TabIndex = 0;
+            this.databaseTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.databaseTable_CellDoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Номер";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 150;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Тип";
+            this.Type.MinimumWidth = 6;
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 150;
+            // 
+            // Person
+            // 
+            this.Person.HeaderText = "Ответственный";
+            this.Person.MinimumWidth = 6;
+            this.Person.Name = "Person";
+            this.Person.ReadOnly = true;
+            this.Person.Width = 150;
+            // 
+            // Building
+            // 
+            this.Building.HeaderText = "Здание";
+            this.Building.MinimumWidth = 6;
+            this.Building.Name = "Building";
+            this.Building.ReadOnly = true;
+            this.Building.Width = 125;
+            // 
+            // Floor
+            // 
+            this.Floor.HeaderText = "Этаж";
+            this.Floor.MinimumWidth = 6;
+            this.Floor.Name = "Floor";
+            this.Floor.ReadOnly = true;
+            this.Floor.Width = 125;
+            // 
+            // Office
+            // 
+            this.Office.HeaderText = "Офис";
+            this.Office.MinimumWidth = 6;
+            this.Office.Name = "Office";
+            this.Office.ReadOnly = true;
+            this.Office.Width = 125;
+            // 
+            // isWork
+            // 
+            this.isWork.HeaderText = "Состояние";
+            this.isWork.MinimumWidth = 6;
+            this.isWork.Name = "isWork";
+            this.isWork.ReadOnly = true;
+            this.isWork.Width = 125;
+            // 
+            // typeID
+            // 
+            this.typeID.HeaderText = "typeID";
+            this.typeID.MinimumWidth = 6;
+            this.typeID.Name = "typeID";
+            this.typeID.ReadOnly = true;
+            this.typeID.Visible = false;
+            this.typeID.Width = 125;
             // 
             // Hardware
             // 
@@ -107,6 +193,7 @@
             this.Controls.Add(this.toolsPanel);
             this.Name = "Hardware";
             this.Text = "Hardware";
+            this.Load += new System.EventHandler(this.Hardware_Load);
             this.toolsPanel.ResumeLayout(false);
             this.tablePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.databaseTable)).EndInit();
@@ -121,5 +208,13 @@
         private Panel tablePanel;
         private DataGridView databaseTable;
         private Button sortButton;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Type;
+        private DataGridViewTextBoxColumn Person;
+        private DataGridViewTextBoxColumn Building;
+        private DataGridViewTextBoxColumn Floor;
+        private DataGridViewTextBoxColumn Office;
+        private DataGridViewTextBoxColumn isWork;
+        private DataGridViewTextBoxColumn typeID;
     }
 }

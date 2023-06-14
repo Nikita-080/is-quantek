@@ -4,13 +4,19 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\ChangePlaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Hardware.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\NewRepare.cs">
+    <Compile Update="Forms\PCInformForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\PeripheryHWForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\RepareMainWindow.cs">

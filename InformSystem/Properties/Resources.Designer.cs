@@ -63,6 +63,36 @@ namespace InformSystem.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edit4848 {
+            get {
+                object obj = ResourceManager.GetObject("edit4848", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit48481 {
+            get {
+                object obj = ResourceManager.GetObject("edit48481", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap free_icon_font_edit_alt_3917337 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-font-edit-alt-3917337", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_transparent_computer_icons_technical_support_computer_repair_technician_computer_text_rectangle_computer {
             get {
                 object obj = ResourceManager.GetObject("png-transparent-computer-icons-technical-support-computer-repair-technician-compu" +

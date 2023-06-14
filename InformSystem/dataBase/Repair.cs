@@ -9,9 +9,9 @@ public partial class Repair
 
     public int HardwareR { get; set; }
 
-    public DateTime DateIn { get; set; }
+    public DateTime? DateIn { get; set; }
 
-    public DateTime DateOut { get; set; }
+    public DateTime? DateOut { get; set; }
 
     public int? DocumentIn { get; set; }
 

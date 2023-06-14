@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Никита\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Никита\\.nuget\\packages"
+      "C:\\Users\\ainaz\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\ainaz\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Reflection.NullabilityInfoContext.IsSupported": true,

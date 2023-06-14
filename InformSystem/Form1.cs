@@ -24,6 +24,7 @@ namespace InformSystem
             {
                 MessageBox.Show("Недостаточно прав", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void OpenChildForm(Form childForm, object btnSender)
