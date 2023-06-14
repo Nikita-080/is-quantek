@@ -85,6 +85,7 @@ namespace InformSystem.Forms
             InitializeComponent();
             ActiveElementsChange();
             FillComboBox();
+            saveButton.Text = "Добавить";
         }
 
         public PeripheryHWForm(int id)
