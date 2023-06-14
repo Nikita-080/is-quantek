@@ -31,6 +31,7 @@
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label7;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelCommonInfo = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.departmenTextBox = new System.Windows.Forms.TextBox();
@@ -47,6 +48,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PCHardInfoPanel = new System.Windows.Forms.Panel();
             this.dataGridViewPcInfo = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServisHistoryPanel = new System.Windows.Forms.Panel();
             this.dataGridViewServisHistory = new System.Windows.Forms.DataGridView();
             this.ConnectedHWPanel = new System.Windows.Forms.Panel();
@@ -265,36 +268,64 @@
             this.PCHardInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.PCHardInfoPanel.Location = new System.Drawing.Point(0, 190);
             this.PCHardInfoPanel.Name = "PCHardInfoPanel";
-            this.PCHardInfoPanel.Size = new System.Drawing.Size(800, 212);
+            this.PCHardInfoPanel.Size = new System.Drawing.Size(800, 293);
             this.PCHardInfoPanel.TabIndex = 1;
             // 
             // dataGridViewPcInfo
             // 
-            this.dataGridViewPcInfo.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridViewPcInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewPcInfo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewPcInfo.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewPcInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewPcInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPcInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridViewPcInfo.ColumnHeadersVisible = false;
+            this.dataGridViewPcInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.value});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPcInfo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewPcInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewPcInfo.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridViewPcInfo.Location = new System.Drawing.Point(0, 23);
             this.dataGridViewPcInfo.Name = "dataGridViewPcInfo";
+            this.dataGridViewPcInfo.RowHeadersVisible = false;
             this.dataGridViewPcInfo.RowHeadersWidth = 51;
             this.dataGridViewPcInfo.RowTemplate.Height = 29;
             this.dataGridViewPcInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPcInfo.Size = new System.Drawing.Size(800, 188);
+            this.dataGridViewPcInfo.Size = new System.Drawing.Size(800, 270);
             this.dataGridViewPcInfo.TabIndex = 2;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "name";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            // 
+            // value
+            // 
+            this.value.HeaderText = "value";
+            this.value.MinimumWidth = 6;
+            this.value.Name = "value";
             // 
             // ServisHistoryPanel
             // 
             this.ServisHistoryPanel.Controls.Add(this.dataGridViewServisHistory);
             this.ServisHistoryPanel.Controls.Add(label6);
             this.ServisHistoryPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ServisHistoryPanel.Location = new System.Drawing.Point(0, 402);
+            this.ServisHistoryPanel.Location = new System.Drawing.Point(0, 483);
             this.ServisHistoryPanel.Name = "ServisHistoryPanel";
-            this.ServisHistoryPanel.Size = new System.Drawing.Size(800, 212);
+            this.ServisHistoryPanel.Size = new System.Drawing.Size(800, 220);
             this.ServisHistoryPanel.TabIndex = 2;
             // 
             // dataGridViewServisHistory
             // 
-            this.dataGridViewServisHistory.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridViewServisHistory.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewServisHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewServisHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewServisHistory.Dock = System.Windows.Forms.DockStyle.Top;
@@ -313,7 +344,7 @@
             this.ConnectedHWPanel.Controls.Add(this.dataGridViewConnectedHW);
             this.ConnectedHWPanel.Controls.Add(label7);
             this.ConnectedHWPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ConnectedHWPanel.Location = new System.Drawing.Point(0, 614);
+            this.ConnectedHWPanel.Location = new System.Drawing.Point(0, 703);
             this.ConnectedHWPanel.Name = "ConnectedHWPanel";
             this.ConnectedHWPanel.Size = new System.Drawing.Size(800, 247);
             this.ConnectedHWPanel.TabIndex = 3;
@@ -348,7 +379,7 @@
             // 
             // dataGridViewConnectedHW
             // 
-            this.dataGridViewConnectedHW.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridViewConnectedHW.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewConnectedHW.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewConnectedHW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewConnectedHW.Dock = System.Windows.Forms.DockStyle.Top;
@@ -367,7 +398,7 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.saveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.saveButton.Location = new System.Drawing.Point(678, 867);
+            this.saveButton.Location = new System.Drawing.Point(681, 948);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(119, 29);
             this.saveButton.TabIndex = 5;
@@ -378,7 +409,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 914);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(800, 983);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.ConnectedHWPanel);
             this.Controls.Add(this.ServisHistoryPanel);
@@ -427,5 +459,7 @@
         private Button button1;
         private TextBox departmenTextBox;
         private Label label8;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn value;
     }
 }

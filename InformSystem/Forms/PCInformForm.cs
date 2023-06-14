@@ -1,4 +1,5 @@
 ﻿using InformSystem.dataBase;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,13 +66,37 @@ namespace InformSystem.Forms
                     var config = from hardw in context.HardwareValues
                                  join prop in context.HardwareProperties on hardw.Property equals prop.IdHp
                                  where hardw.HardwareV == id
+                                 orderby hardw.Property
                                  select new
                                  {
                                      name = prop.NameP,
                                      value = hardw.Value
                                  };
-                    dataGridViewPcInfo.DataSource = config.ToList();
-                                 
+                    var disk = from d in context.Disks
+                               where d.HardwareD == id
+                               select new
+                               {
+                                   name = "Диск",
+                                   value = d.Size + "GB " + d.Creator + " " + d.Model + " (" + d.Type + ")"
+                               };
+                    //dataGridViewPcInfo.DataSource = config.ToList();
+                    foreach(var c in config.ToList())
+                    {
+                        DataGridViewRow dr = new DataGridViewRow();
+                        dr.CreateCells(dataGridViewPcInfo);
+                        dr.Cells[0].Value = c.name;
+                        dr.Cells[1].Value = c.value;
+                        dataGridViewPcInfo.Rows.Add(dr);
+                    }
+                    foreach (var d in disk.ToList())
+                    {
+                        DataGridViewRow dr = new DataGridViewRow();
+                        dr.CreateCells(dataGridViewPcInfo);
+                        dr.Cells[0].Value = d.name;
+                        dr.Cells[1].Value = d.value;
+                        dataGridViewPcInfo.Rows.Add(dr);
+                    }
+
 
 
                 }

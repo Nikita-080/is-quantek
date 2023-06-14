@@ -30,6 +30,11 @@
         {
             System.Windows.Forms.Label label6;
             this.panelCommonInfo = new System.Windows.Forms.Panel();
+            this.editTypeButton = new System.Windows.Forms.Button();
+            this.HTypeTextBox = new System.Windows.Forms.ComboBox();
+            this.editDepartmenButton = new System.Windows.Forms.Button();
+            this.departmenTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.editPersonButton = new System.Windows.Forms.Button();
             this.editPlaceButton = new System.Windows.Forms.Button();
             this.DiagFormatTextBox = new System.Windows.Forms.TextBox();
@@ -38,7 +43,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.PlaceTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.HTypeTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,6 +68,11 @@
             // 
             // panelCommonInfo
             // 
+            this.panelCommonInfo.Controls.Add(this.editTypeButton);
+            this.panelCommonInfo.Controls.Add(this.HTypeTextBox);
+            this.panelCommonInfo.Controls.Add(this.editDepartmenButton);
+            this.panelCommonInfo.Controls.Add(this.departmenTextBox);
+            this.panelCommonInfo.Controls.Add(this.label8);
             this.panelCommonInfo.Controls.Add(this.editPersonButton);
             this.panelCommonInfo.Controls.Add(this.editPlaceButton);
             this.panelCommonInfo.Controls.Add(this.DiagFormatTextBox);
@@ -72,15 +81,74 @@
             this.panelCommonInfo.Controls.Add(this.label4);
             this.panelCommonInfo.Controls.Add(this.PlaceTextBox);
             this.panelCommonInfo.Controls.Add(this.label3);
-            this.panelCommonInfo.Controls.Add(this.HTypeTextBox);
             this.panelCommonInfo.Controls.Add(this.label2);
             this.panelCommonInfo.Controls.Add(this.IdTextBox);
             this.panelCommonInfo.Controls.Add(this.label1);
             this.panelCommonInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCommonInfo.Location = new System.Drawing.Point(0, 0);
             this.panelCommonInfo.Name = "panelCommonInfo";
-            this.panelCommonInfo.Size = new System.Drawing.Size(800, 180);
+            this.panelCommonInfo.Size = new System.Drawing.Size(800, 245);
             this.panelCommonInfo.TabIndex = 1;
+            // 
+            // editTypeButton
+            // 
+            this.editTypeButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.editTypeButton.FlatAppearance.BorderSize = 0;
+            this.editTypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editTypeButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.editTypeButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.editTypeButton.Image = global::InformSystem.Properties.Resources.edit48481;
+            this.editTypeButton.Location = new System.Drawing.Point(495, 39);
+            this.editTypeButton.Name = "editTypeButton";
+            this.editTypeButton.Size = new System.Drawing.Size(36, 29);
+            this.editTypeButton.TabIndex = 20;
+            this.editTypeButton.Text = "Р";
+            this.editTypeButton.UseVisualStyleBackColor = false;
+            // 
+            // HTypeTextBox
+            // 
+            this.HTypeTextBox.Enabled = false;
+            this.HTypeTextBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HTypeTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.HTypeTextBox.FormattingEnabled = true;
+            this.HTypeTextBox.Location = new System.Drawing.Point(201, 41);
+            this.HTypeTextBox.Name = "HTypeTextBox";
+            this.HTypeTextBox.Size = new System.Drawing.Size(288, 31);
+            this.HTypeTextBox.TabIndex = 19;
+            this.HTypeTextBox.SelectedIndexChanged += new System.EventHandler(this.HTypeTextBox_SelectedIndexChanged);
+            // 
+            // editDepartmenButton
+            // 
+            this.editDepartmenButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.editDepartmenButton.FlatAppearance.BorderSize = 0;
+            this.editDepartmenButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editDepartmenButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.editDepartmenButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.editDepartmenButton.Image = global::InformSystem.Properties.Resources.edit48481;
+            this.editDepartmenButton.Location = new System.Drawing.Point(495, 151);
+            this.editDepartmenButton.Name = "editDepartmenButton";
+            this.editDepartmenButton.Size = new System.Drawing.Size(36, 29);
+            this.editDepartmenButton.TabIndex = 18;
+            this.editDepartmenButton.UseVisualStyleBackColor = false;
+            // 
+            // departmenTextBox
+            // 
+            this.departmenTextBox.Enabled = false;
+            this.departmenTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.departmenTextBox.Location = new System.Drawing.Point(201, 155);
+            this.departmenTextBox.Name = "departmenTextBox";
+            this.departmenTextBox.Size = new System.Drawing.Size(288, 32);
+            this.departmenTextBox.TabIndex = 17;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(7, 155);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 23);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Отдел";
             // 
             // editPersonButton
             // 
@@ -117,7 +185,7 @@
             // 
             this.DiagFormatTextBox.Enabled = false;
             this.DiagFormatTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DiagFormatTextBox.Location = new System.Drawing.Point(201, 144);
+            this.DiagFormatTextBox.Location = new System.Drawing.Point(201, 198);
             this.DiagFormatTextBox.Name = "DiagFormatTextBox";
             this.DiagFormatTextBox.Size = new System.Drawing.Size(288, 32);
             this.DiagFormatTextBox.TabIndex = 9;
@@ -127,7 +195,7 @@
             // 
             this.DiagAndFormatLabel.AutoSize = true;
             this.DiagAndFormatLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DiagAndFormatLabel.Location = new System.Drawing.Point(7, 143);
+            this.DiagAndFormatLabel.Location = new System.Drawing.Point(7, 197);
             this.DiagAndFormatLabel.Name = "DiagAndFormatLabel";
             this.DiagAndFormatLabel.Size = new System.Drawing.Size(117, 23);
             this.DiagAndFormatLabel.TabIndex = 8;
@@ -171,15 +239,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Местоположение";
             // 
-            // HTypeTextBox
-            // 
-            this.HTypeTextBox.Enabled = false;
-            this.HTypeTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.HTypeTextBox.Location = new System.Drawing.Point(201, 41);
-            this.HTypeTextBox.Name = "HTypeTextBox";
-            this.HTypeTextBox.Size = new System.Drawing.Size(288, 32);
-            this.HTypeTextBox.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -214,7 +273,7 @@
             this.ServisHistoryPanel.Controls.Add(this.dataGridViewServisHistory);
             this.ServisHistoryPanel.Controls.Add(label6);
             this.ServisHistoryPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ServisHistoryPanel.Location = new System.Drawing.Point(0, 180);
+            this.ServisHistoryPanel.Location = new System.Drawing.Point(0, 245);
             this.ServisHistoryPanel.Name = "ServisHistoryPanel";
             this.ServisHistoryPanel.Size = new System.Drawing.Size(800, 212);
             this.ServisHistoryPanel.TabIndex = 3;
@@ -240,7 +299,7 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.saveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.saveButton.Location = new System.Drawing.Point(669, 393);
+            this.saveButton.Location = new System.Drawing.Point(681, 463);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(119, 29);
             this.saveButton.TabIndex = 4;
@@ -251,7 +310,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 497);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.ServisHistoryPanel);
             this.Controls.Add(this.panelCommonInfo);
@@ -273,7 +332,6 @@
         private Label label4;
         private TextBox PlaceTextBox;
         private Label label3;
-        private TextBox HTypeTextBox;
         private Label label2;
         private TextBox IdTextBox;
         private Label label1;
@@ -284,5 +342,10 @@
         private Button saveButton;
         private Button editPlaceButton;
         private Button editPersonButton;
+        private Button editDepartmenButton;
+        private TextBox departmenTextBox;
+        private Label label8;
+        private ComboBox HTypeTextBox;
+        private Button editTypeButton;
     }
 }
