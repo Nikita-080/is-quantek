@@ -32,6 +32,9 @@
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label7;
             this.panelCommonInfo = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.departmenTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.editPersonButton = new System.Windows.Forms.Button();
             this.editPlaceButton = new System.Windows.Forms.Button();
             this.PersonTextBox = new System.Windows.Forms.TextBox();
@@ -98,6 +101,9 @@
             // 
             // panelCommonInfo
             // 
+            this.panelCommonInfo.Controls.Add(this.button1);
+            this.panelCommonInfo.Controls.Add(this.departmenTextBox);
+            this.panelCommonInfo.Controls.Add(this.label8);
             this.panelCommonInfo.Controls.Add(this.editPersonButton);
             this.panelCommonInfo.Controls.Add(this.editPlaceButton);
             this.panelCommonInfo.Controls.Add(this.PersonTextBox);
@@ -111,8 +117,41 @@
             this.panelCommonInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCommonInfo.Location = new System.Drawing.Point(0, 0);
             this.panelCommonInfo.Name = "panelCommonInfo";
-            this.panelCommonInfo.Size = new System.Drawing.Size(800, 146);
+            this.panelCommonInfo.Size = new System.Drawing.Size(800, 190);
             this.panelCommonInfo.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Image = global::InformSystem.Properties.Resources.edit48481;
+            this.button1.Location = new System.Drawing.Point(495, 147);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 29);
+            this.button1.TabIndex = 15;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // departmenTextBox
+            // 
+            this.departmenTextBox.Enabled = false;
+            this.departmenTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.departmenTextBox.Location = new System.Drawing.Point(201, 151);
+            this.departmenTextBox.Name = "departmenTextBox";
+            this.departmenTextBox.Size = new System.Drawing.Size(288, 32);
+            this.departmenTextBox.TabIndex = 14;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(7, 151);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 23);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Отдел";
             // 
             // editPersonButton
             // 
@@ -224,7 +263,7 @@
             this.PCHardInfoPanel.Controls.Add(this.dataGridViewPcInfo);
             this.PCHardInfoPanel.Controls.Add(label5);
             this.PCHardInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PCHardInfoPanel.Location = new System.Drawing.Point(0, 146);
+            this.PCHardInfoPanel.Location = new System.Drawing.Point(0, 190);
             this.PCHardInfoPanel.Name = "PCHardInfoPanel";
             this.PCHardInfoPanel.Size = new System.Drawing.Size(800, 212);
             this.PCHardInfoPanel.TabIndex = 1;
@@ -248,7 +287,7 @@
             this.ServisHistoryPanel.Controls.Add(this.dataGridViewServisHistory);
             this.ServisHistoryPanel.Controls.Add(label6);
             this.ServisHistoryPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ServisHistoryPanel.Location = new System.Drawing.Point(0, 358);
+            this.ServisHistoryPanel.Location = new System.Drawing.Point(0, 402);
             this.ServisHistoryPanel.Name = "ServisHistoryPanel";
             this.ServisHistoryPanel.Size = new System.Drawing.Size(800, 212);
             this.ServisHistoryPanel.TabIndex = 2;
@@ -274,7 +313,7 @@
             this.ConnectedHWPanel.Controls.Add(this.dataGridViewConnectedHW);
             this.ConnectedHWPanel.Controls.Add(label7);
             this.ConnectedHWPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ConnectedHWPanel.Location = new System.Drawing.Point(0, 570);
+            this.ConnectedHWPanel.Location = new System.Drawing.Point(0, 614);
             this.ConnectedHWPanel.Name = "ConnectedHWPanel";
             this.ConnectedHWPanel.Size = new System.Drawing.Size(800, 247);
             this.ConnectedHWPanel.TabIndex = 3;
@@ -328,7 +367,7 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.saveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.saveButton.Location = new System.Drawing.Point(678, 835);
+            this.saveButton.Location = new System.Drawing.Point(678, 867);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(119, 29);
             this.saveButton.TabIndex = 5;
@@ -339,7 +378,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 876);
+            this.ClientSize = new System.Drawing.Size(800, 914);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.ConnectedHWPanel);
             this.Controls.Add(this.ServisHistoryPanel);
@@ -385,5 +424,8 @@
         private Button saveButton;
         private Button editPersonButton;
         private Button editPlaceButton;
+        private Button button1;
+        private TextBox departmenTextBox;
+        private Label label8;
     }
 }
