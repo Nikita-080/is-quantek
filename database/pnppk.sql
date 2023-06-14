@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 26.192.232.27:3306
--- Время создания: Июн 11 2023 г., 14:46
+-- Время создания: Июн 14 2023 г., 13:10
 -- Версия сервера: 5.7.39
 -- Версия PHP: 7.2.34
 
@@ -33,6 +33,13 @@ CREATE TABLE `Access` (
   `person` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `Access`
+--
+
+INSERT INTO `Access` (`ID_A`, `hardware_a`, `person`) VALUES
+(1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -43,6 +50,13 @@ CREATE TABLE `Department_Dict` (
   `ID_DD` int(11) NOT NULL,
   `name_d` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `Department_Dict`
+--
+
+INSERT INTO `Department_Dict` (`ID_DD`, `name_d`) VALUES
+(1, 'Информационный');
 
 -- --------------------------------------------------------
 
@@ -213,6 +227,13 @@ CREATE TABLE `Place` (
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `Place`
+--
+
+INSERT INTO `Place` (`ID_P`, `hardware_p`, `department_id`, `building`, `floor`, `office`, `data`) VALUES
+(1, 1, 1, 1, 2, 101, '2023-06-01');
+
 -- --------------------------------------------------------
 
 --
@@ -229,6 +250,14 @@ CREATE TABLE `Repair` (
   `reason` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'неизвестно',
   `verdict` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'неизвестно'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `Repair`
+--
+
+INSERT INTO `Repair` (`ID_R`, `hardware_r`, `date_in`, `date_out`, `document_in`, `document_out`, `reason`, `verdict`) VALUES
+(1, 1, '2023-06-01', '2023-06-11', 123, 100, 'Да', 'Нет'),
+(2, 1, '2023-06-06', '2023-06-09', 123, 100, '124545657', '13124235456');
 
 --
 -- Индексы сохранённых таблиц
@@ -315,13 +344,13 @@ ALTER TABLE `Repair`
 -- AUTO_INCREMENT для таблицы `Access`
 --
 ALTER TABLE `Access`
-  MODIFY `ID_A` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_A` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `Department_Dict`
 --
 ALTER TABLE `Department_Dict`
-  MODIFY `ID_DD` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_DD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `Disk`
@@ -345,13 +374,13 @@ ALTER TABLE `History`
 -- AUTO_INCREMENT для таблицы `Place`
 --
 ALTER TABLE `Place`
-  MODIFY `ID_P` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_P` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `Repair`
 --
 ALTER TABLE `Repair`
-  MODIFY `ID_R` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_R` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
