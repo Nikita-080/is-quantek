@@ -13,6 +13,8 @@ namespace InformSystem.Forms
 {
     public partial class Login : Form
     {
+        public static string login;
+        public static string password;
         public Login()
         {
             InitializeComponent();
@@ -23,6 +25,17 @@ namespace InformSystem.Forms
             Form1 mainMenu = new Form1();
             mainMenu.Show();
             mainMenu.FormClosed += Logout;
+            login = LoginTextBox.Text;
+            password = PasswordTextBox.Text;
+            if (LoginTextBox.Text == "Имя пользователя")
+                login = "";
+            else
+                login = LoginTextBox.Text;
+            if (PasswordTextBox.Text == "Пароль")
+                password = "";
+            else
+                password = PasswordTextBox.Text;
+
             this.Hide();
             
             
