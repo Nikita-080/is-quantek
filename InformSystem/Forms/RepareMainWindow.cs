@@ -17,7 +17,15 @@ namespace InformSystem.Forms
         public RepareMainWindow()
         {
             InitializeComponent();
-            databaseTable.DataSource = context.Repairs.ToList();
+            try
+            {
+                databaseTable.DataSource = context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue).ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка \"{ex.Message}\"");
+            }
+
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -28,41 +36,21 @@ namespace InformSystem.Forms
 
         private void updateTableButton_Click(object sender, EventArgs e)
         {
-            if (HwIdTextBox.Text != "Номер оборудования")
+            try
             {
-                try
-                {
-                    databaseTable.DataSource = context.Repairs.Where(repair => repair.HardwareR == Convert.ToInt32(HwIdTextBox.Text)).ToList();
-                    MessageBox.Show("Данные успешно обновлены");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ошибка \"{ex.Message}\"");
-                }
-            }
-            else
-            {
-                databaseTable.DataSource = context.Repairs.ToList();
+                databaseTable.DataSource = context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue).ToList();
                 MessageBox.Show("Данные успешно обновлены");
             }
-
-        }
-
-        private void HwIdTextBox_Enter(object sender, EventArgs e)
-        {
-            if (HwIdTextBox.Text == "Номер оборудования")
+            catch (Exception ex)
             {
-                HwIdTextBox.Text = "";
+                MessageBox.Show($"Ошибка \"{ex.Message}\"");
             }
         }
 
-        private void HwIdTextBox_Leave(object sender, EventArgs e)
+        private void closeRepairButton_Click(object sender, EventArgs e)
         {
-            if (HwIdTextBox.Text == "")
-            {
-                HwIdTextBox.Text = "Номер оборудования";
-
-            }
+            CloseRepair closeRepair = new CloseRepair();
+            closeRepair.Show();
         }
     }
 }

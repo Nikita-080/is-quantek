@@ -18,7 +18,6 @@ namespace InformSystem.Forms
         {
             InitializeComponent();
             docInUpDown.Controls[0].Visible = false;
-            docOutUpDown.Controls[0].Visible = false;
             foreach (var item in context.Hardwares.Select(id => id.IdH))
                 HwIdComboBox.Items.Add(item);
         }
@@ -30,11 +29,8 @@ namespace InformSystem.Forms
             {
                 repair.HardwareR = Convert.ToInt32(HwIdComboBox.Text);
                 repair.DateIn = dateInPicker.Value;
-                repair.DateOut = dateOutPicker.Value;
                 repair.DocumentIn = (int)docInUpDown.Value;
-                repair.DocumentOut = (int)docOutUpDown.Value;
                 repair.Reason = reasonTextBox.Text;
-                repair.Verdict = verdictTextBox.Text;
                 context.Repairs.Add(repair);
                 context.SaveChanges();
                 MessageBox.Show("Запись успешно добавлена");
