@@ -9,9 +9,9 @@ public partial class Repair
 
     public int HardwareR { get; set; }
 
-    public DateTime DateIn { get; set; }
+    public DateTime? DateIn { get; set; }
 
-    public DateTime DateOut { get; set; }
+    public DateTime? DateOut { get; set; }
 
     public int? DocumentIn { get; set; }
 
@@ -19,7 +19,7 @@ public partial class Repair
 
     public string Reason { get; set; } = null!;
 
-    public string Verdict { get; set; } = null!;
+    public string? Verdict { get; set; }
 
     public virtual Hardware HardwareRNavigation { get; set; } = null!;
 }

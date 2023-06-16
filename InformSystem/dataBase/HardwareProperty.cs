@@ -9,7 +9,7 @@ public partial class HardwareProperty
 
     public int TypeP { get; set; }
 
-    public int NameP { get; set; }
+    public string NameP { get; set; } = null!;
 
     public virtual ICollection<HardwareValue> HardwareValues { get; set; } = new List<HardwareValue>();
 

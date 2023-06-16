@@ -170,6 +170,7 @@
             // 
             // updateTableButton
             // 
+            updateTableButton.Anchor = AnchorStyles.Right;
             updateTableButton.BackColor = Color.FromArgb(0, 42, 87);
             updateTableButton.FlatAppearance.BorderSize = 0;
             updateTableButton.FlatStyle = FlatStyle.Flat;

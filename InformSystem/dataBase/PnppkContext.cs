@@ -160,7 +160,7 @@ public partial class PnppkContext : DbContext
                 .HasColumnType("int(11)")
                 .HasColumnName("ID_HP");
             entity.Property(e => e.NameP)
-                .HasColumnType("int(11)")
+                .HasMaxLength(50)
                 .HasColumnName("name_p");
             entity.Property(e => e.TypeP)
                 .HasColumnType("int(11)")
@@ -238,6 +238,10 @@ public partial class PnppkContext : DbContext
             entity.Property(e => e.Computer)
                 .HasColumnType("int(11)")
                 .HasColumnName("computer");
+            entity.Property(e => e.DateH)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp")
+                .HasColumnName("date_h");
             entity.Property(e => e.HardwareNew)
                 .HasColumnType("int(11)")
                 .HasColumnName("hardware_new");
@@ -332,6 +336,7 @@ public partial class PnppkContext : DbContext
                 .HasColumnName("hardware_r");
             entity.Property(e => e.Reason)
                 .HasMaxLength(50)
+                .HasDefaultValueSql("'неизвестно'")
                 .HasColumnName("reason");
             entity.Property(e => e.Verdict)
                 .HasMaxLength(50)

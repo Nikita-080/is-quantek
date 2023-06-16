@@ -31,16 +31,16 @@
             headerPanel = new Panel();
             infoPanel = new Panel();
             sendButton = new Button();
-            textBox1 = new TextBox();
-            numericUpDown1 = new NumericUpDown();
-            dateTimePicker1 = new DateTimePicker();
-            comboBox1 = new ComboBox();
+            verdictTextBox = new TextBox();
+            docNumUpDown = new NumericUpDown();
+            dateClsoePicker = new DateTimePicker();
+            repairNumComboBox = new ComboBox();
             verdictLabel = new Label();
             documentNumberLabel = new Label();
             closeRepairDateLabel = new Label();
             repairIdLabel = new Label();
             infoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)docNumUpDown).BeginInit();
             SuspendLayout();
             // 
             // headerPanel
@@ -55,10 +55,10 @@
             // infoPanel
             // 
             infoPanel.Controls.Add(sendButton);
-            infoPanel.Controls.Add(textBox1);
-            infoPanel.Controls.Add(numericUpDown1);
-            infoPanel.Controls.Add(dateTimePicker1);
-            infoPanel.Controls.Add(comboBox1);
+            infoPanel.Controls.Add(verdictTextBox);
+            infoPanel.Controls.Add(docNumUpDown);
+            infoPanel.Controls.Add(dateClsoePicker);
+            infoPanel.Controls.Add(repairNumComboBox);
             infoPanel.Controls.Add(verdictLabel);
             infoPanel.Controls.Add(documentNumberLabel);
             infoPanel.Controls.Add(closeRepairDateLabel);
@@ -79,39 +79,40 @@
             sendButton.TabIndex = 8;
             sendButton.Text = "Отпарвить";
             sendButton.UseVisualStyleBackColor = true;
+            sendButton.Click += sendButton_Click;
             // 
-            // textBox1
+            // verdictTextBox
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(12, 115);
-            textBox1.MaxLength = 50;
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(440, 209);
-            textBox1.TabIndex = 7;
+            verdictTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            verdictTextBox.Location = new Point(12, 115);
+            verdictTextBox.MaxLength = 50;
+            verdictTextBox.Multiline = true;
+            verdictTextBox.Name = "verdictTextBox";
+            verdictTextBox.Size = new Size(440, 209);
+            verdictTextBox.TabIndex = 7;
             // 
-            // numericUpDown1
+            // docNumUpDown
             // 
-            numericUpDown1.Location = new Point(276, 66);
-            numericUpDown1.Maximum = new decimal(new int[] { 1410065407, 2, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(176, 23);
-            numericUpDown1.TabIndex = 6;
+            docNumUpDown.Location = new Point(276, 66);
+            docNumUpDown.Maximum = new decimal(new int[] { 1410065407, 2, 0, 0 });
+            docNumUpDown.Name = "docNumUpDown";
+            docNumUpDown.Size = new Size(176, 23);
+            docNumUpDown.TabIndex = 6;
             // 
-            // dateTimePicker1
+            // dateClsoePicker
             // 
-            dateTimePicker1.Location = new Point(276, 35);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(176, 23);
-            dateTimePicker1.TabIndex = 5;
+            dateClsoePicker.Location = new Point(276, 35);
+            dateClsoePicker.Name = "dateClsoePicker";
+            dateClsoePicker.Size = new Size(176, 23);
+            dateClsoePicker.TabIndex = 5;
             // 
-            // comboBox1
+            // repairNumComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(276, 6);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(176, 23);
-            comboBox1.TabIndex = 4;
+            repairNumComboBox.FormattingEnabled = true;
+            repairNumComboBox.Location = new Point(276, 6);
+            repairNumComboBox.Name = "repairNumComboBox";
+            repairNumComboBox.Size = new Size(176, 23);
+            repairNumComboBox.TabIndex = 4;
             // 
             // verdictLabel
             // 
@@ -164,7 +165,7 @@
             Text = "CloseRepair";
             infoPanel.ResumeLayout(false);
             infoPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)docNumUpDown).EndInit();
             ResumeLayout(false);
         }
 
@@ -176,10 +177,10 @@
         private Label closeRepairDateLabel;
         private Label repairIdLabel;
         private Label verdictLabel;
-        private ComboBox comboBox1;
+        private ComboBox repairNumComboBox;
         private Button sendButton;
-        private TextBox textBox1;
-        private NumericUpDown numericUpDown1;
-        private DateTimePicker dateTimePicker1;
+        private TextBox verdictTextBox;
+        private NumericUpDown docNumUpDown;
+        private DateTimePicker dateClsoePicker;
     }
 }
