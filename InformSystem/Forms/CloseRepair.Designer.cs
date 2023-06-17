@@ -123,6 +123,8 @@
             // 
             // repairNumComboBox
             // 
+            repairNumComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            repairNumComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             repairNumComboBox.FormattingEnabled = true;
             repairNumComboBox.Location = new Point(276, 6);
             repairNumComboBox.Name = "repairNumComboBox";

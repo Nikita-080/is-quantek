@@ -21,7 +21,7 @@ namespace InformSystem.Forms
             docNumUpDown.Controls[0].Visible = false;
             try
             {
-                foreach (var item in context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue))
+                foreach (var item in context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue || repair.DateOut == null))
                     repairNumComboBox.Items.Add(item.IdR);
             }
             catch (Exception ex)

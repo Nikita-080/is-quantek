@@ -19,7 +19,7 @@ namespace InformSystem.Forms
             InitializeComponent();
             try
             {
-                databaseTable.DataSource = context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue).ToList();
+                databaseTable.DataSource = context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue || repair.DateOut == null).ToList();
             }
             catch (Exception ex)
             {
@@ -38,7 +38,7 @@ namespace InformSystem.Forms
         {
             try
             {
-                databaseTable.DataSource = context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue).ToList();
+                databaseTable.DataSource = context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue || repair.DateOut == null).ToList();
                 MessageBox.Show("Данные успешно обновлены");
             }
             catch (Exception ex)

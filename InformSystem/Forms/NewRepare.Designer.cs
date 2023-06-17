@@ -110,6 +110,8 @@
             // 
             // HwIdComboBox
             // 
+            HwIdComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            HwIdComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             HwIdComboBox.FormattingEnabled = true;
             HwIdComboBox.Location = new Point(163, 7);
             HwIdComboBox.Name = "HwIdComboBox";

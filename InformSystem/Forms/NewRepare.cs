@@ -27,7 +27,6 @@ namespace InformSystem.Forms
             {
                 MessageBox.Show($"Ошибка \"{ex.Message}\"");
             }
-
         }
 
         private void sendButton_Click(object sender, EventArgs e)
