@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             headerPanel = new Panel();
+            label1 = new Label();
             infoPanel = new Panel();
             sendButton = new Button();
             verdictTextBox = new TextBox();
@@ -39,6 +40,7 @@
             documentNumberLabel = new Label();
             closeRepairDateLabel = new Label();
             repairIdLabel = new Label();
+            headerPanel.SuspendLayout();
             infoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)docNumUpDown).BeginInit();
             SuspendLayout();
@@ -46,11 +48,24 @@
             // headerPanel
             // 
             headerPanel.BackColor = Color.FromArgb(0, 42, 87);
+            headerPanel.Controls.Add(label1);
             headerPanel.Dock = DockStyle.Top;
             headerPanel.Location = new Point(0, 0);
             headerPanel.Name = "headerPanel";
             headerPanel.Size = new Size(466, 66);
             headerPanel.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Century Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(125, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(227, 26);
+            label1.TabIndex = 0;
+            label1.Text = "Завершить ремонт";
             // 
             // infoPanel
             // 
@@ -163,6 +178,8 @@
             Controls.Add(headerPanel);
             Name = "CloseRepair";
             Text = "CloseRepair";
+            headerPanel.ResumeLayout(false);
+            headerPanel.PerformLayout();
             infoPanel.ResumeLayout(false);
             infoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)docNumUpDown).EndInit();
@@ -182,5 +199,6 @@
         private TextBox verdictTextBox;
         private NumericUpDown docNumUpDown;
         private DateTimePicker dateClsoePicker;
+        private Label label1;
     }
 }

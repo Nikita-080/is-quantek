@@ -40,9 +40,11 @@
             DocInLabel = new Label();
             infoPanel = new Panel();
             headerPanel = new Panel();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)docInUpDown).BeginInit();
             infoPanel.SuspendLayout();
+            headerPanel.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -161,11 +163,24 @@
             // headerPanel
             // 
             headerPanel.BackColor = Color.FromArgb(0, 42, 87);
+            headerPanel.Controls.Add(label1);
             headerPanel.Dock = DockStyle.Top;
             headerPanel.Location = new Point(0, 0);
             headerPanel.Name = "headerPanel";
             headerPanel.Size = new Size(450, 64);
             headerPanel.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Century Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(121, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(211, 26);
+            label1.TabIndex = 4;
+            label1.Text = "Добавить ремонт";
             // 
             // NewRepare
             // 
@@ -181,6 +196,8 @@
             ((System.ComponentModel.ISupportInitialize)docInUpDown).EndInit();
             infoPanel.ResumeLayout(false);
             infoPanel.PerformLayout();
+            headerPanel.ResumeLayout(false);
+            headerPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -198,5 +215,6 @@
         private TextBox reasonTextBox;
         private Panel infoPanel;
         private Panel headerPanel;
+        private Label label1;
     }
 }

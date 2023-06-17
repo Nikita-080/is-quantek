@@ -23,11 +23,11 @@ namespace InformSystem.Forms
                 foreach (var item in context.Hardwares.Select(id => id.IdH))
                     HwIdComboBox.Items.Add(item);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка \"{ex.Message}\"");
             }
-            
+
         }
 
         private void sendButton_Click(object sender, EventArgs e)
