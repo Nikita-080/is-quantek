@@ -21,6 +21,40 @@ namespace InformSystem.Forms
         int floor;
         int office;
 
+        private void LoadService(int id)
+        {
+            try
+            {
+                using (PnppkContext context = new PnppkContext())
+                {
+                    var repair = from rep in context.Repairs
+                                 where rep.HardwareR == id
+                                 select new
+                                 {
+                                     dateIn = rep.DateIn,
+                                     dateOut = rep.DateOut,
+                                     reason = rep.Reason,
+                                     verd = rep.Verdict
+                                 };
+                    foreach (var r in repair)
+                    {
+                        DataGridViewRow dr = new DataGridViewRow();
+                        dr.CreateCells(dataGridViewServisHistory);
+                        dr.Cells[0].Value = r.dateIn;
+                        dr.Cells[1].Value = r.dateOut;
+                        dr.Cells[2].Value = r.reason;
+                        dr.Cells[3].Value = r.verd;
+                        dataGridViewServisHistory.Rows.Add(dr);
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
         private void FillComboBox()
         {
             using (PnppkContext context = new PnppkContext())
@@ -109,6 +143,7 @@ namespace InformSystem.Forms
             departmenTextBox.Enabled = true;
             DiagFormatTextBox.Enabled = true;
             LoadInfo(id);
+            LoadService(id);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

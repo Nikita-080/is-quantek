@@ -33,6 +33,7 @@
             System.Windows.Forms.Label label7;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelCommonInfo = new System.Windows.Forms.Panel();
             this.departmenTextBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -52,6 +53,10 @@
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServisHistoryPanel = new System.Windows.Forms.Panel();
             this.dataGridViewServisHistory = new System.Windows.Forms.DataGridView();
+            this.DateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Verdict = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConnectedHWPanel = new System.Windows.Forms.Panel();
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
@@ -317,15 +322,57 @@
             // 
             this.dataGridViewServisHistory.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewServisHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewServisHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewServisHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewServisHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DateIn,
+            this.DateOut,
+            this.Reason,
+            this.Verdict});
             this.dataGridViewServisHistory.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridViewServisHistory.Location = new System.Drawing.Point(0, 23);
             this.dataGridViewServisHistory.Name = "dataGridViewServisHistory";
+            this.dataGridViewServisHistory.RowHeadersVisible = false;
             this.dataGridViewServisHistory.RowHeadersWidth = 51;
             this.dataGridViewServisHistory.RowTemplate.Height = 29;
             this.dataGridViewServisHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewServisHistory.Size = new System.Drawing.Size(802, 188);
             this.dataGridViewServisHistory.TabIndex = 2;
+            // 
+            // DateIn
+            // 
+            this.DateIn.HeaderText = "Дата получения";
+            this.DateIn.MinimumWidth = 6;
+            this.DateIn.Name = "DateIn";
+            this.DateIn.Width = 125;
+            // 
+            // DateOut
+            // 
+            this.DateOut.HeaderText = "Дата возврата";
+            this.DateOut.MinimumWidth = 6;
+            this.DateOut.Name = "DateOut";
+            this.DateOut.Width = 125;
+            // 
+            // Reason
+            // 
+            this.Reason.HeaderText = "Причина";
+            this.Reason.MinimumWidth = 6;
+            this.Reason.Name = "Reason";
+            this.Reason.Width = 125;
+            // 
+            // Verdict
+            // 
+            this.Verdict.HeaderText = "Вердикт";
+            this.Verdict.MinimumWidth = 6;
+            this.Verdict.Name = "Verdict";
+            this.Verdict.Width = 125;
             // 
             // ConnectedHWPanel
             // 
@@ -373,14 +420,14 @@
             // 
             this.dataGridViewConnectedHW.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewConnectedHW.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewConnectedHW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewConnectedHW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewConnectedHW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewConnectedHW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -465,7 +512,6 @@
         private Panel PCHardInfoPanel;
         private DataGridView dataGridViewPcInfo;
         private Panel ServisHistoryPanel;
-        private DataGridView dataGridViewServisHistory;
         private Panel ConnectedHWPanel;
         private DataGridView dataGridViewConnectedHW;
         private Button deleteButton;
@@ -479,5 +525,10 @@
         private ComboBox departmenTextBox;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Type;
+        private DataGridView dataGridViewServisHistory;
+        private DataGridViewTextBoxColumn DateIn;
+        private DataGridViewTextBoxColumn DateOut;
+        private DataGridViewTextBoxColumn Reason;
+        private DataGridViewTextBoxColumn Verdict;
     }
 }

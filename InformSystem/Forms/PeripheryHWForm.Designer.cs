@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label label6;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelCommonInfo = new System.Windows.Forms.Panel();
             this.departmenTextBox = new System.Windows.Forms.ComboBox();
             this.HTypeTextBox = new System.Windows.Forms.ComboBox();
@@ -45,8 +46,12 @@
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ServisHistoryPanel = new System.Windows.Forms.Panel();
-            this.saveButton = new System.Windows.Forms.Button();
             this.dataGridViewServisHistory = new System.Windows.Forms.DataGridView();
+            this.DateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Verdict = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveButton = new System.Windows.Forms.Button();
             label6 = new System.Windows.Forms.Label();
             this.panelCommonInfo.SuspendLayout();
             this.ServisHistoryPanel.SuspendLayout();
@@ -236,14 +241,70 @@
             // 
             // ServisHistoryPanel
             // 
-            this.ServisHistoryPanel.Controls.Add(this.saveButton);
             this.ServisHistoryPanel.Controls.Add(this.dataGridViewServisHistory);
+            this.ServisHistoryPanel.Controls.Add(this.saveButton);
             this.ServisHistoryPanel.Controls.Add(label6);
             this.ServisHistoryPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.ServisHistoryPanel.Location = new System.Drawing.Point(0, 268);
             this.ServisHistoryPanel.Name = "ServisHistoryPanel";
-            this.ServisHistoryPanel.Size = new System.Drawing.Size(802, 239);
+            this.ServisHistoryPanel.Size = new System.Drawing.Size(802, 253);
             this.ServisHistoryPanel.TabIndex = 3;
+            // 
+            // dataGridViewServisHistory
+            // 
+            this.dataGridViewServisHistory.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewServisHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewServisHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewServisHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewServisHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DateIn,
+            this.DateOut,
+            this.Reason,
+            this.Verdict});
+            this.dataGridViewServisHistory.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridViewServisHistory.Location = new System.Drawing.Point(0, 23);
+            this.dataGridViewServisHistory.Name = "dataGridViewServisHistory";
+            this.dataGridViewServisHistory.RowHeadersVisible = false;
+            this.dataGridViewServisHistory.RowHeadersWidth = 51;
+            this.dataGridViewServisHistory.RowTemplate.Height = 29;
+            this.dataGridViewServisHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewServisHistory.Size = new System.Drawing.Size(802, 188);
+            this.dataGridViewServisHistory.TabIndex = 5;
+            // 
+            // DateIn
+            // 
+            this.DateIn.HeaderText = "Дата получения";
+            this.DateIn.MinimumWidth = 6;
+            this.DateIn.Name = "DateIn";
+            this.DateIn.Width = 125;
+            // 
+            // DateOut
+            // 
+            this.DateOut.HeaderText = "Дата возврата";
+            this.DateOut.MinimumWidth = 6;
+            this.DateOut.Name = "DateOut";
+            this.DateOut.Width = 125;
+            // 
+            // Reason
+            // 
+            this.Reason.HeaderText = "Причина";
+            this.Reason.MinimumWidth = 6;
+            this.Reason.Name = "Reason";
+            this.Reason.Width = 125;
+            // 
+            // Verdict
+            // 
+            this.Verdict.HeaderText = "Вердикт";
+            this.Verdict.MinimumWidth = 6;
+            this.Verdict.Name = "Verdict";
+            this.Verdict.Width = 125;
             // 
             // saveButton
             // 
@@ -252,32 +313,18 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.saveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.saveButton.Location = new System.Drawing.Point(680, 195);
+            this.saveButton.Location = new System.Drawing.Point(680, 217);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(119, 36);
+            this.saveButton.Size = new System.Drawing.Size(119, 28);
             this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Сохранить";
             this.saveButton.UseVisualStyleBackColor = false;
-            // 
-            // dataGridViewServisHistory
-            // 
-            this.dataGridViewServisHistory.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridViewServisHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewServisHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewServisHistory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridViewServisHistory.Location = new System.Drawing.Point(0, 23);
-            this.dataGridViewServisHistory.Name = "dataGridViewServisHistory";
-            this.dataGridViewServisHistory.RowHeadersWidth = 51;
-            this.dataGridViewServisHistory.RowTemplate.Height = 29;
-            this.dataGridViewServisHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewServisHistory.Size = new System.Drawing.Size(802, 161);
-            this.dataGridViewServisHistory.TabIndex = 2;
             // 
             // PeripheryHWForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 503);
+            this.ClientSize = new System.Drawing.Size(802, 518);
             this.Controls.Add(this.ServisHistoryPanel);
             this.Controls.Add(this.panelCommonInfo);
             this.Name = "PeripheryHWForm";
@@ -304,12 +351,16 @@
         private TextBox DiagFormatTextBox;
         private Label DiagAndFormatLabel;
         private Panel ServisHistoryPanel;
-        private DataGridView dataGridViewServisHistory;
         private Button saveButton;
         private Button editPlaceButton;
         private Button editPersonButton;
         private Label label8;
         private ComboBox HTypeTextBox;
         private ComboBox departmenTextBox;
+        private DataGridView dataGridViewServisHistory;
+        private DataGridViewTextBoxColumn DateIn;
+        private DataGridViewTextBoxColumn DateOut;
+        private DataGridViewTextBoxColumn Reason;
+        private DataGridViewTextBoxColumn Verdict;
     }
 }
