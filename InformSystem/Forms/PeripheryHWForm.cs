@@ -54,7 +54,7 @@ namespace InformSystem.Forms
                 {
                     PlaceTextBox.Text = "Здание " + place.Building + ", " + "этаж " + place.Floor + ", " + "офис " + place.Office;
                     int idD = place.DepartmentId;
-                    dataBase.DepartmentDict department = context.DepartmentDicts.Select(d => d).Where(d => d.IdDd == idD).FirstOrDefault();
+                    dataBase.DepartmentDict department = context.DepartmentDicts.Select(d => d).FirstOrDefault();
                     departmenTextBox.Text = department.NameD;
                 }
                 if (access != null)
@@ -68,6 +68,9 @@ namespace InformSystem.Forms
                         break;
                     case 3:
                         DiagAndFormatLabel.Text = "Диагональ";
+                        break;
+                    case 4:
+                        DiagAndFormatLabel.Text = "Объем";
                         break;
                 }
 
@@ -102,7 +105,12 @@ namespace InformSystem.Forms
 
         private void changePlaceButton_Click(object sender, EventArgs e)
         {
-
+            ChangePlaceForm placeC = new ChangePlaceForm();
+            placeC.ShowDialog();
+            if (placeC.Save) //if click save button
+            {
+                PlaceTextBox.Text = "Здание " + placeC.Building + ", " + "этаж " + placeC.Floor + ", " + "офис " + placeC.Office;
+            }
         }
 
         private void HTypeTextBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,7 +123,21 @@ namespace InformSystem.Forms
                 case 3:
                     DiagAndFormatLabel.Text = "Диагональ";
                     break;
+                case 4:
+                    DiagAndFormatLabel.Text = "Объем";
+                    break;
             }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            //TODO 
+        }
+
+        private void editPersonButton_Click(object sender, EventArgs e)
+        {
+            ChangePersonForm person = new ChangePersonForm();
+            person.ShowDialog();
         }
     }
 }

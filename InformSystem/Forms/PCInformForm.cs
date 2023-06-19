@@ -14,12 +14,17 @@ namespace InformSystem.Forms
 {
     public partial class PCInformForm : Form
     {
+        int id_PC;
+        int building;
+        int floor;
+        int office;
         private dataBase.Hardware PC;
         private dataBase.Place place;
         private dataBase.Access access;
 
         private void LoadPCInfo(int id)
         {
+            id_PC = id;
             try
             {
                 PnppkContext context = new PnppkContext();
@@ -28,21 +33,21 @@ namespace InformSystem.Forms
                 access = context.Accesses.Select(pers => pers).Where(pers => pers.HardwareA == id).FirstOrDefault();
                 IdTextBox.Text = PC.IdH.ToString();
                 HTypeTextBox.Text = "Компьютер";
-                if(place != null)
+                if (place != null)
                 {
                     PlaceTextBox.Text = "Здание " + place.Building + ", " + "этаж " + place.Floor + ", " + "офис " + place.Office;
                     int idD = place.DepartmentId;
-                    dataBase.DepartmentDict department = context.DepartmentDicts.Select(d => d).Where(d => d.IdDd == idD).FirstOrDefault(); 
+                    dataBase.DepartmentDict department = context.DepartmentDicts.Select(d => d).Where(d => d.IdDd == idD).FirstOrDefault();
                     departmenTextBox.Text = department.NameD;
                 }
-                if(access != null)
+                if (access != null)
                 {
                     PersonTextBox.Text = access.Person.ToString();
                 }
-                
-                
+
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -52,11 +57,18 @@ namespace InformSystem.Forms
         public PCInformForm(int idPC)
         {
             InitializeComponent();
+            ActiveElementsChange();
             LoadPCInfo(idPC);
             ConfigLoad(idPC);
-            
-        }
 
+        }
+        private void ActiveElementsChange()
+        {
+            HTypeTextBox.Enabled = false;
+            PlaceTextBox.Enabled = true;
+            PersonTextBox.Enabled = true;
+            departmenTextBox.Enabled = true;
+        }
         private void ConfigLoad(int id)
         {
             try
@@ -80,7 +92,7 @@ namespace InformSystem.Forms
                                    value = d.Size + "GB " + d.Creator + " " + d.Model + " (" + d.Type + ")"
                                };
                     //dataGridViewPcInfo.DataSource = config.ToList();
-                    foreach(var c in config.ToList())
+                    foreach (var c in config.ToList())
                     {
                         DataGridViewRow dr = new DataGridViewRow();
                         dr.CreateCells(dataGridViewPcInfo);
@@ -101,11 +113,10 @@ namespace InformSystem.Forms
 
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -114,6 +125,50 @@ namespace InformSystem.Forms
         }
 
         private void PCInformForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editPlaceButton_Click(object sender, EventArgs e)
+        {
+            ChangePlaceForm placeC = new ChangePlaceForm();
+            placeC.ShowDialog();
+            if (placeC.Save) //if click save button
+            {
+                building = Convert.ToInt32(placeC.Building);
+                floor = Convert.ToInt32(placeC.Floor);
+                office = Convert.ToInt32(placeC.Office);
+                PlaceTextBox.Text = "Здание " + placeC.Building + ", " + "этаж " + placeC.Floor + ", " + "офис " + placeC.Office;
+            }
+        }
+
+        private void editPersonButton_Click(object sender, EventArgs e)
+        {
+            ChangePersonForm person = new ChangePersonForm();
+            person.ShowDialog();
+        }
+
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            //TODO Сохранение данных системного блока оборудования
+            PnppkContext context = new PnppkContext();
+            place = context.Places.Select(h => h).Where(h => h.HardwareP == id_PC).First();
+            place.Building = building;
+            place.Floor = floor;
+            place.Office = office;
+            access = context.Accesses.Where(a => a.HardwareA == id_PC).First();
+            access.Person = Convert.ToInt32(PersonTextBox.Text);
+            context.SaveChanges();
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            AddPeripheryForm periphery = new AddPeripheryForm(PC.IdH);
+            periphery.ShowDialog();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
         {
 
         }

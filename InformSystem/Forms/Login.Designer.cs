@@ -44,29 +44,28 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(952, 100);
+            panel1.Size = new Size(666, 60);
             panel1.TabIndex = 0;
             // 
             // WelcomeLabel
             // 
             WelcomeLabel.AutoSize = true;
             WelcomeLabel.Font = new Font("Century Gothic", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
-            WelcomeLabel.Location = new Point(309, 11);
-            WelcomeLabel.Margin = new Padding(4, 0, 4, 0);
+            WelcomeLabel.Location = new Point(216, 7);
             WelcomeLabel.Name = "WelcomeLabel";
-            WelcomeLabel.Size = new Size(368, 55);
+            WelcomeLabel.Size = new Size(245, 37);
             WelcomeLabel.TabIndex = 1;
             WelcomeLabel.Text = "Вход в систему";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.pnppk;
-            pictureBox1.Location = new Point(15, 15);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Location = new Point(10, 9);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(156, 78);
+            pictureBox1.Size = new Size(109, 47);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -75,10 +74,10 @@
             // 
             LoginTextBox.BorderStyle = BorderStyle.None;
             LoginTextBox.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LoginTextBox.Location = new Point(184, 136);
-            LoginTextBox.Margin = new Padding(4, 4, 4, 4);
+            LoginTextBox.Location = new Point(129, 82);
+            LoginTextBox.Margin = new Padding(3, 2, 3, 2);
             LoginTextBox.Name = "LoginTextBox";
-            LoginTextBox.Size = new Size(636, 34);
+            LoginTextBox.Size = new Size(445, 23);
             LoginTextBox.TabIndex = 1;
             LoginTextBox.Text = "Имя пользователя";
             LoginTextBox.Enter += LoginTextBox_Enter;
@@ -88,10 +87,10 @@
             // 
             PasswordTextBox.BorderStyle = BorderStyle.None;
             PasswordTextBox.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            PasswordTextBox.Location = new Point(184, 218);
-            PasswordTextBox.Margin = new Padding(4, 4, 4, 4);
+            PasswordTextBox.Location = new Point(129, 131);
+            PasswordTextBox.Margin = new Padding(3, 2, 3, 2);
             PasswordTextBox.Name = "PasswordTextBox";
-            PasswordTextBox.Size = new Size(636, 34);
+            PasswordTextBox.Size = new Size(445, 23);
             PasswordTextBox.TabIndex = 2;
             PasswordTextBox.Text = "Пароль";
             PasswordTextBox.Enter += PasswordTextBox_Enter;
@@ -101,10 +100,10 @@
             // 
             LoginButton.FlatStyle = FlatStyle.Flat;
             LoginButton.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LoginButton.Location = new Point(184, 292);
-            LoginButton.Margin = new Padding(4, 4, 4, 4);
+            LoginButton.Location = new Point(129, 175);
+            LoginButton.Margin = new Padding(3, 2, 3, 2);
             LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(636, 50);
+            LoginButton.Size = new Size(445, 30);
             LoginButton.TabIndex = 3;
             LoginButton.Text = "Войти";
             LoginButton.UseVisualStyleBackColor = true;
@@ -112,18 +111,18 @@
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(952, 629);
+            ClientSize = new Size(666, 377);
             Controls.Add(LoginButton);
             Controls.Add(PasswordTextBox);
             Controls.Add(LoginTextBox);
             Controls.Add(panel1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            Load += Login_Load;
+            KeyDown += Login_KeyDown;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

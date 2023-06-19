@@ -18,11 +18,16 @@ namespace InformSystem.Forms
         public Login()
         {
             InitializeComponent();
+            KeyPreview = true;
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Form1 mainMenu = new Form1();
+            LogIn();
+        }
+        private void LogIn()
+        {
+            Main mainMenu = new Main();
             mainMenu.Show();
             mainMenu.FormClosed += Logout;
             login = LoginTextBox.Text;
@@ -37,9 +42,6 @@ namespace InformSystem.Forms
                 password = PasswordTextBox.Text;
 
             this.Hide();
-
-
-
         }
 
         private void LoginTextBox_Enter(object sender, EventArgs e)
@@ -84,9 +86,14 @@ namespace InformSystem.Forms
             this.Close();
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void LoginButton_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
 
+        }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) LogIn();
         }
     }
 }

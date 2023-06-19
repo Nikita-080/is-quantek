@@ -14,7 +14,7 @@ namespace InformSystem.Forms
 {
     public partial class Hardware : Form
     {
-        
+
 
         public Hardware()
         {
@@ -24,13 +24,13 @@ namespace InformSystem.Forms
 
         private void LoadData()
         {
-            using (PnppkContext context = new PnppkContext()) 
+            using (PnppkContext context = new PnppkContext())
             {
                 var hw = from hardw in context.Hardwares
                          join person in context.Accesses on hardw.IdH equals person.HardwareA into phw
                          from p in phw.DefaultIfEmpty()
                          join place in context.Places on p.HardwareA equals place.HardwareP into plc
-                         from pl in plc.DefaultIfEmpty()      
+                         from pl in plc.DefaultIfEmpty()
                          select new
                          {
                              id = hardw.IdH,
@@ -42,7 +42,7 @@ namespace InformSystem.Forms
                              placeFloor = (pl == null ? String.Empty : Convert.ToString(pl.Floor)),
                              placeOffice = (pl == null ? String.Empty : Convert.ToString(pl.Office))
                          };
-                foreach(var r in hw.ToList())
+                foreach (var r in hw.ToList())
                 {
                     DataGridViewRow dr = new DataGridViewRow();
                     dr.CreateCells(databaseTable);
@@ -56,33 +56,28 @@ namespace InformSystem.Forms
                     dr.Cells[7].Value = r.typeId;
                     databaseTable.Rows.Add(dr);
                 }
-                
+
             }
-            
+
         }
 
         private void Hardware_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void databaseTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (databaseTable.SelectedCells.Count > 0)
             {
-                int index = databaseTable.SelectedCells[0].RowIndex;
-                DataGridViewRow dataGridViewRow = databaseTable.Rows[index];
-                int id = Convert.ToInt32(dataGridViewRow.Cells[7].Value);
-                if (id == 1)
-                {
-                    PCInformForm frm = new PCInformForm(id);
-                    frm.ShowDialog();
-                }
-                else if (id == 2 || id == 3)
-                {
-                    PeripheryHWForm frm = new PeripheryHWForm(id);
-                    frm.ShowDialog();
-                }
+                var dgv = (DataGridView)sender;
+
+                //int index = databaseTable.SelectedCells[0].RowIndex;
+                //DataGridViewRow dataGridViewRow = databaseTable.Rows[index];
+
+                int id = Convert.ToInt32(dgv.CurrentCell.Value);
+                PCInformForm frm = new PCInformForm(id);
+                frm.ShowDialog();
             }
         }
 
