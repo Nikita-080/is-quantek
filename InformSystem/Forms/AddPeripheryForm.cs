@@ -30,7 +30,10 @@ namespace InformSystem.Forms
         {
             hardware = context.Hardwares.Select(pc => pc).Where(pc => pc.IdH == Convert.ToInt32(IdTextBox.Text)).First();
             hardware.Parent = id;
-            context.SaveChanges();
+            if (context.SaveChanges() > 0)
+            {
+                MessageBox.Show("Оборудование привязано", "Привязка",MessageBoxButtons.OK);
+            }
         }
     }
 }

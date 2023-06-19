@@ -17,6 +17,9 @@ namespace InformSystem.Forms
         private dataBase.Hardware Per;
         private dataBase.Place place;
         private dataBase.Access access;
+        int building;
+        int floor;
+        int office;
 
         private void FillComboBox()
         {
@@ -27,6 +30,12 @@ namespace InformSystem.Forms
                 HTypeTextBox.DataSource = type.ToList();
                 HTypeTextBox.DisplayMember = "NameT";
                 HTypeTextBox.ValueMember = "IdHt";
+
+                var depart = from t in context.DepartmentDicts
+                           select t;
+                departmenTextBox.DataSource = depart.ToList();
+                departmenTextBox.DisplayMember = "NameD";
+                departmenTextBox.ValueMember = "IdDd";
             }
         }
 
@@ -95,6 +104,10 @@ namespace InformSystem.Forms
         {
             InitializeComponent();
             FillComboBox();
+            PlaceTextBox.Enabled = true;
+            PersonTextBox.Enabled = true;
+            departmenTextBox.Enabled = true;
+            DiagFormatTextBox.Enabled = true;
             LoadInfo(id);
         }
 
@@ -136,8 +149,21 @@ namespace InformSystem.Forms
 
         private void editPersonButton_Click(object sender, EventArgs e)
         {
-            ChangePersonForm person = new ChangePersonForm();
-            person.ShowDialog();
+            //ChangePersonForm person = new ChangePersonForm();
+            //person.ShowDialog();
+        }
+
+        private void editPlaceButton_Click(object sender, EventArgs e)
+        {
+            ChangePlaceForm placeC = new ChangePlaceForm();
+            placeC.ShowDialog();
+            if (placeC.Save) //if click save button
+            {
+                building = Convert.ToInt32(placeC.Building);
+                floor = Convert.ToInt32(placeC.Floor);
+                office = Convert.ToInt32(placeC.Office);
+                PlaceTextBox.Text = "Здание " + placeC.Building + ", " + "этаж " + placeC.Floor + ", " + "офис " + placeC.Office;
+            }
         }
     }
 }

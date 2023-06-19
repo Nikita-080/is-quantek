@@ -147,7 +147,6 @@ D:\is-quantek\InformSystem\bin\Debug\net6.0-windows\runtimes\win-x64\native\krb5
 D:\is-quantek\InformSystem\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
 D:\is-quantek\InformSystem\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.csproj.AssemblyReference.cache
-D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Form1.resources
 D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.Hardware.resources
 D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.Login.resources
 D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.RepareMainWindow.resources
@@ -267,3 +266,8 @@ C:\Users\Rush_IT\Source\Repos\is-quantek\InformSystem\obj\Debug\net6.0-windows\r
 C:\Users\Rush_IT\Source\Repos\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.ChangePersonForm.resources
 C:\Users\Rush_IT\Source\Repos\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Main.resources
 C:\Users\Rush_IT\Source\Repos\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.AddPeripheryForm.resources
+D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.AddPeripheryForm.resources
+D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.ChangePersonForm.resources
+D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.ChangePlaceForm.resources
+D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.NewRepare.resources
+D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Main.resources

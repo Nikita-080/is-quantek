@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,39 +25,46 @@ namespace InformSystem.Forms
 
         private void LoadData()
         {
-            using (PnppkContext context = new PnppkContext())
+            try
             {
-                var hw = from hardw in context.Hardwares
-                         join person in context.Accesses on hardw.IdH equals person.HardwareA into phw
-                         from p in phw.DefaultIfEmpty()
-                         join place in context.Places on p.HardwareA equals place.HardwareP into plc
-                         from pl in plc.DefaultIfEmpty()
-                         select new
-                         {
-                             id = hardw.IdH,
-                             typeId = hardw.TypeH,
-                             type = hardw.TypeHNavigation.NameT,
-                             iswork = hardw.Iswork,
-                             pers = (p == null ? String.Empty : Convert.ToString(p.Person)),
-                             placeBuilding = (pl == null ? String.Empty : Convert.ToString(pl.Building)),
-                             placeFloor = (pl == null ? String.Empty : Convert.ToString(pl.Floor)),
-                             placeOffice = (pl == null ? String.Empty : Convert.ToString(pl.Office))
-                         };
-                foreach (var r in hw.ToList())
+                using (PnppkContext context = new PnppkContext())
                 {
-                    DataGridViewRow dr = new DataGridViewRow();
-                    dr.CreateCells(databaseTable);
-                    dr.Cells[0].Value = r.id;
-                    dr.Cells[1].Value = r.type;
-                    dr.Cells[2].Value = r.pers;
-                    dr.Cells[3].Value = r.placeBuilding;
-                    dr.Cells[4].Value = r.placeFloor;
-                    dr.Cells[5].Value = r.placeOffice;
-                    dr.Cells[6].Value = r.iswork;
-                    dr.Cells[7].Value = r.typeId;
-                    databaseTable.Rows.Add(dr);
-                }
+                    var hw = from hardw in context.Hardwares
+                             join person in context.Accesses on hardw.IdH equals person.HardwareA into phw
+                             from p in phw.DefaultIfEmpty()
+                             join place in context.Places on p.HardwareA equals place.HardwareP into plc
+                             from pl in plc.DefaultIfEmpty()
+                             select new
+                             {
+                                 id = hardw.IdH,
+                                 typeId = hardw.TypeH,
+                                 type = hardw.TypeHNavigation.NameT,
+                                 iswork = hardw.Iswork,
+                                 pers = (p == null ? String.Empty : Convert.ToString(p.Person)),
+                                 placeBuilding = (pl == null ? String.Empty : Convert.ToString(pl.Building)),
+                                 placeFloor = (pl == null ? String.Empty : Convert.ToString(pl.Floor)),
+                                 placeOffice = (pl == null ? String.Empty : Convert.ToString(pl.Office))
+                             };
+                    foreach (var r in hw.ToList())
+                    {
+                        DataGridViewRow dr = new DataGridViewRow();
+                        dr.CreateCells(databaseTable);
+                        dr.Cells[0].Value = r.id;
+                        dr.Cells[1].Value = r.type;
+                        dr.Cells[2].Value = r.pers;
+                        dr.Cells[3].Value = r.placeBuilding;
+                        dr.Cells[4].Value = r.placeFloor;
+                        dr.Cells[5].Value = r.placeOffice;
+                        dr.Cells[6].Value = r.iswork;
+                        dr.Cells[7].Value = r.typeId;
+                        databaseTable.Rows.Add(dr);
+                    }
 
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
 
         }
@@ -70,14 +78,22 @@ namespace InformSystem.Forms
         {
             if (databaseTable.SelectedCells.Count > 0)
             {
-                var dgv = (DataGridView)sender;
-
-                //int index = databaseTable.SelectedCells[0].RowIndex;
-                //DataGridViewRow dataGridViewRow = databaseTable.Rows[index];
-
-                int id = Convert.ToInt32(dgv.CurrentCell.Value);
-                PCInformForm frm = new PCInformForm(id);
-                frm.ShowDialog();
+                int index = databaseTable.SelectedCells[0].RowIndex;
+                DataGridViewRow dataGridViewRow = databaseTable.Rows[index];
+                int id = Convert.ToInt32(dataGridViewRow.Cells[0].Value);
+                int id_type = Convert.ToInt32(dataGridViewRow.Cells[7].Value);
+                switch (id_type)
+                {
+                    case 1:
+                        PCInformForm frm = new PCInformForm(id);
+                        frm.ShowDialog();
+                        break;
+                    default:
+                        PeripheryHWForm pfrm = new PeripheryHWForm(id);
+                        pfrm.ShowDialog();
+                        break;
+                }
+                
             }
         }
 

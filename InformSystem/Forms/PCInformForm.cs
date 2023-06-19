@@ -22,6 +22,53 @@ namespace InformSystem.Forms
         private dataBase.Place place;
         private dataBase.Access access;
 
+        private void LoadConnectedHW()
+        {
+            try
+            {
+                dataGridViewConnectedHW.Rows.Clear();
+                using(PnppkContext context = new PnppkContext())
+                {
+                    var connectedHW = from c in context.Hardwares
+                                      where c.Parent == id_PC
+                                      join t in context.HardwareTypes on c.TypeH equals t.IdHt into ct
+                                      from tc in ct.DefaultIfEmpty()
+                                      select new
+                                      {
+                                          id = c.IdH,
+                                          type = tc.NameT
+                                      };
+                    if(connectedHW != null)
+                    {
+                        foreach (var c in connectedHW.ToList())
+                        {
+                            DataGridViewRow dr = new DataGridViewRow();
+                            dr.CreateCells(dataGridViewConnectedHW);
+                            dr.Cells[0].Value = c.id;
+                            dr.Cells[1].Value = c.type;
+                            dataGridViewConnectedHW.Rows.Add(dr);
+                        }
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void FillComboBox()
+        {
+            using (PnppkContext context = new PnppkContext())
+            {
+                var depart = from t in context.DepartmentDicts
+                             select t;
+                departmenTextBox.DataSource = depart.ToList();
+                departmenTextBox.DisplayMember = "NameD";
+                departmenTextBox.ValueMember = "IdDd";
+            }
+        }
+
         private void LoadPCInfo(int id)
         {
             id_PC = id;
@@ -58,8 +105,11 @@ namespace InformSystem.Forms
         {
             InitializeComponent();
             ActiveElementsChange();
+            FillComboBox();
             LoadPCInfo(idPC);
+            LoadConnectedHW();
             ConfigLoad(idPC);
+
 
         }
         private void ActiveElementsChange()
@@ -144,8 +194,8 @@ namespace InformSystem.Forms
 
         private void editPersonButton_Click(object sender, EventArgs e)
         {
-            ChangePersonForm person = new ChangePersonForm();
-            person.ShowDialog();
+            //ChangePersonForm person = new ChangePersonForm();
+            //person.ShowDialog();
         }
 
 
@@ -165,12 +215,52 @@ namespace InformSystem.Forms
         private void addButton_Click(object sender, EventArgs e)
         {
             AddPeripheryForm periphery = new AddPeripheryForm(PC.IdH);
-            periphery.ShowDialog();
+            if (periphery.ShowDialog() == DialogResult.Cancel)
+            {
+                LoadConnectedHW();
+                this.Refresh();
+            }
+
         }
+        
+
+
+
+
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Отвязать выбранное оборудование?", "Отвязка", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    using (PnppkContext context = new PnppkContext())
+                    {
+                        if (dataGridViewConnectedHW.SelectedRows.Count > 0)
+                        {
+                            var r = this.dataGridViewConnectedHW.SelectedRows;
+                            for (int i = 0; i < r.Count; i++)
+                            {
+                                if (r[i].Cells[0].Value != null)
+                                {
+                                    int id = Convert.ToInt32(r[i].Cells[0].Value);
+                                    dataBase.Hardware hw = context.Hardwares.Select(hw => hw).Where(hw => hw.IdH == id).First();
+                                    hw.Parent = null;
+                                }
+                            }
+                        }
+                        context.SaveChanges();
 
+                    }
+                    LoadConnectedHW();
+                    this.Refresh();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
