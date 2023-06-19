@@ -31,11 +31,6 @@
             components = new System.ComponentModel.Container();
             tablePanel = new Panel();
             databaseTable = new DataGridView();
-            repairBindingSource = new BindingSource(components);
-            toolsPanel = new Panel();
-            HwIdTextBox = new TextBox();
-            updateTableButton = new Button();
-            addButton = new Button();
             idRDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             hardwareRDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dateInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -44,6 +39,11 @@
             documentOutDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             reasonDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             verdictDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            repairBindingSource = new BindingSource(components);
+            toolsPanel = new Panel();
+            closeRepairButton = new Button();
+            updateTableButton = new Button();
+            addButton = new Button();
             tablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)databaseTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repairBindingSource).BeginInit();
@@ -79,64 +79,6 @@
             databaseTable.RowTemplate.Height = 29;
             databaseTable.Size = new Size(914, 308);
             databaseTable.TabIndex = 0;
-            // 
-            // repairBindingSource
-            // 
-            repairBindingSource.DataSource = typeof(dataBase.Repair);
-            // 
-            // toolsPanel
-            // 
-            toolsPanel.Controls.Add(HwIdTextBox);
-            toolsPanel.Controls.Add(updateTableButton);
-            toolsPanel.Controls.Add(addButton);
-            toolsPanel.Dock = DockStyle.Top;
-            toolsPanel.Location = new Point(0, 0);
-            toolsPanel.Margin = new Padding(3, 2, 3, 2);
-            toolsPanel.Name = "toolsPanel";
-            toolsPanel.Size = new Size(914, 49);
-            toolsPanel.TabIndex = 2;
-            // 
-            // HwIdTextBox
-            // 
-            HwIdTextBox.Location = new Point(751, 12);
-            HwIdTextBox.Name = "HwIdTextBox";
-            HwIdTextBox.Size = new Size(151, 23);
-            HwIdTextBox.TabIndex = 2;
-            HwIdTextBox.Text = "Номер оборудования";
-            HwIdTextBox.Enter += HwIdTextBox_Enter;
-            HwIdTextBox.Leave += HwIdTextBox_Leave;
-            // 
-            // updateTableButton
-            // 
-            updateTableButton.BackColor = Color.FromArgb(0, 42, 87);
-            updateTableButton.FlatAppearance.BorderSize = 0;
-            updateTableButton.FlatStyle = FlatStyle.Flat;
-            updateTableButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            updateTableButton.ForeColor = SystemColors.ButtonFace;
-            updateTableButton.Location = new Point(563, 11);
-            updateTableButton.Margin = new Padding(3, 2, 3, 2);
-            updateTableButton.Name = "updateTableButton";
-            updateTableButton.Size = new Size(171, 25);
-            updateTableButton.TabIndex = 1;
-            updateTableButton.Text = "Загрузить данные";
-            updateTableButton.UseVisualStyleBackColor = false;
-            updateTableButton.Click += updateTableButton_Click;
-            // 
-            // addButton
-            // 
-            addButton.BackColor = Color.FromArgb(0, 42, 87);
-            addButton.FlatAppearance.BorderSize = 0;
-            addButton.FlatStyle = FlatStyle.Flat;
-            addButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            addButton.ForeColor = SystemColors.ButtonFace;
-            addButton.Location = new Point(10, 9);
-            addButton.Margin = new Padding(3, 2, 3, 2);
-            addButton.Name = "addButton";
-            addButton.Size = new Size(171, 25);
-            addButton.TabIndex = 0;
-            addButton.Text = "Добавить ремонт";
-            addButton.UseVisualStyleBackColor = false;
-            addButton.Click += addButton_Click;
             // 
             // idRDataGridViewTextBoxColumn
             // 
@@ -194,6 +136,71 @@
             verdictDataGridViewTextBoxColumn.Name = "verdictDataGridViewTextBoxColumn";
             verdictDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // repairBindingSource
+            // 
+            repairBindingSource.DataSource = typeof(dataBase.Repair);
+            // 
+            // toolsPanel
+            // 
+            toolsPanel.Controls.Add(closeRepairButton);
+            toolsPanel.Controls.Add(updateTableButton);
+            toolsPanel.Controls.Add(addButton);
+            toolsPanel.Dock = DockStyle.Top;
+            toolsPanel.Location = new Point(0, 0);
+            toolsPanel.Margin = new Padding(3, 2, 3, 2);
+            toolsPanel.Name = "toolsPanel";
+            toolsPanel.Size = new Size(914, 49);
+            toolsPanel.TabIndex = 2;
+            // 
+            // closeRepairButton
+            // 
+            closeRepairButton.BackColor = Color.FromArgb(0, 42, 87);
+            closeRepairButton.FlatAppearance.BorderSize = 0;
+            closeRepairButton.FlatStyle = FlatStyle.Flat;
+            closeRepairButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            closeRepairButton.ForeColor = SystemColors.ButtonFace;
+            closeRepairButton.Location = new Point(187, 9);
+            closeRepairButton.Margin = new Padding(3, 2, 3, 2);
+            closeRepairButton.Name = "closeRepairButton";
+            closeRepairButton.Size = new Size(171, 25);
+            closeRepairButton.TabIndex = 3;
+            closeRepairButton.Text = "Завершить ремонт";
+            closeRepairButton.UseVisualStyleBackColor = false;
+            closeRepairButton.Click += closeRepairButton_Click;
+            // 
+            // updateTableButton
+            // 
+            updateTableButton.Anchor = AnchorStyles.Right;
+            updateTableButton.BackColor = Color.FromArgb(0, 42, 87);
+            updateTableButton.FlatAppearance.BorderSize = 0;
+            updateTableButton.FlatStyle = FlatStyle.Flat;
+            updateTableButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            updateTableButton.ForeColor = SystemColors.ButtonFace;
+            updateTableButton.Location = new Point(731, 11);
+            updateTableButton.Margin = new Padding(3, 2, 3, 2);
+            updateTableButton.Name = "updateTableButton";
+            updateTableButton.Size = new Size(171, 25);
+            updateTableButton.TabIndex = 1;
+            updateTableButton.Text = "Загрузить данные";
+            updateTableButton.UseVisualStyleBackColor = false;
+            updateTableButton.Click += updateTableButton_Click;
+            // 
+            // addButton
+            // 
+            addButton.BackColor = Color.FromArgb(0, 42, 87);
+            addButton.FlatAppearance.BorderSize = 0;
+            addButton.FlatStyle = FlatStyle.Flat;
+            addButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            addButton.ForeColor = SystemColors.ButtonFace;
+            addButton.Location = new Point(10, 9);
+            addButton.Margin = new Padding(3, 2, 3, 2);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(171, 25);
+            addButton.TabIndex = 0;
+            addButton.Text = "Добавить ремонт";
+            addButton.UseVisualStyleBackColor = false;
+            addButton.Click += addButton_Click;
+            // 
             // RepareMainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -208,7 +215,6 @@
             ((System.ComponentModel.ISupportInitialize)databaseTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)repairBindingSource).EndInit();
             toolsPanel.ResumeLayout(false);
-            toolsPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -220,7 +226,6 @@
         private Button addButton;
         private BindingSource repairBindingSource;
         private Button updateTableButton;
-        private TextBox HwIdTextBox;
         private DataGridViewTextBoxColumn idRDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn hardwareRDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateInDataGridViewTextBoxColumn;
@@ -229,5 +234,6 @@
         private DataGridViewTextBoxColumn documentOutDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn reasonDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn verdictDataGridViewTextBoxColumn;
+        private Button closeRepairButton;
     }
 }

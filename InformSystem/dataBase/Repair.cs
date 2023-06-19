@@ -19,7 +19,7 @@ public partial class Repair
 
     public string Reason { get; set; } = null!;
 
-    public string Verdict { get; set; } = null!;
+    public string? Verdict { get; set; }
 
     public virtual Hardware HardwareRNavigation { get; set; } = null!;
 }

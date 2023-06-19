@@ -4,7 +4,7 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\ChangePlaceForm.cs">
+    <Compile Update="Forms\CloseRepair.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Hardware.cs">
@@ -14,12 +14,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\NewRepare.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\PCInformForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\PeripheryHWForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\RepareMainWindow.cs">
