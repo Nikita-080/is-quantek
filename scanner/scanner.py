@@ -1,6 +1,7 @@
 from wmi import WMI
 from json import dump,load
 from os.path import exists
+import GPUtil
 
 D30=pow(2,30)
 
@@ -43,11 +44,8 @@ while True:
         procfreq=0
         processors=computer.Win32_Processor()
         if len(processors)>0:
-            procname=processors[0].Name
-            if procname!=None:
-                procname=procname.split()+["unknow","unknow"]
-                proccreator=procname[0]
-                procmodel=procname[1]+' '+procname[2]
+            proccreator=Fix(processors[0].Manufacturer,"string")
+            procmodel=Fix(processors[0].Name,"string")
             procfreq=Fix(processors[0].MaxClockSpeed,"float",1000)
         print("Производитель процессора -",proccreator)
         print("Модель процессора        -",procmodel)
@@ -95,16 +93,19 @@ while True:
         gpucreator="unknow"
         for gpu in gpus:
             gputype=Fix(gpu.AdapterDACType,"string")
-            if gputype!="unknow":
-                if "Internal" in gputype:
-                    isInternalGPU=True
-                else:
-                    gpuname=Fix(gpu.Name,"string")
-                    gpumemory=Fix(gpu.AdapterRam,"degree",D30)
-                    gpucreator=Fix(gpu.Name,"shared_string").split()[0]
-                    print("Производитель            -",gpucreator)
-                    print("Модель                   -",gpuname)
-                    print("Память                   -",gpumemory)
+            if gputype!="unknow" and "Internal" in gputype:
+                isInternalGPU=True
+                break
+
+        gpus=GPUtil.getGPUs()
+        for gpu in gpus:
+            gpuname=Fix(gpu.name,"string")
+            gpumemory=Fix(gpu.memoryTotal,"degree",1024)
+            gpucreator=Fix(gpu.name,"shared_string").split()[0]
+            print("Производитель            -",gpucreator)
+            print("Модель                   -",gpuname)
+            print("Память                   -",gpumemory)
+            break
         print("Встроенная видеокарта    -","да" if isInternalGPU else "нет")
     except Exception as error:
         print("Ошибка во время получения данных. Подробнее...")
