@@ -1,4 +1,5 @@
 ﻿using InformSystem.dataBase;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,7 +28,7 @@ namespace InformSystem.Forms
         {
             try
             {
-                using(PnppkContext context = new PnppkContext())
+                using (PnppkContext context = new PnppkContext())
                 {
                     var repair = from rep in context.Repairs
                                  where rep.HardwareR == id_PC
@@ -37,7 +39,7 @@ namespace InformSystem.Forms
                                      reason = rep.Reason,
                                      verd = rep.Verdict
                                  };
-                    foreach(var r in repair)
+                    foreach (var r in repair)
                     {
                         DataGridViewRow dr = new DataGridViewRow();
                         dr.CreateCells(dataGridViewServisHistory);
@@ -50,7 +52,7 @@ namespace InformSystem.Forms
 
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -61,7 +63,7 @@ namespace InformSystem.Forms
             try
             {
                 dataGridViewConnectedHW.Rows.Clear();
-                using(PnppkContext context = new PnppkContext())
+                using (PnppkContext context = new PnppkContext())
                 {
                     var connectedHW = from c in context.Hardwares
                                       where c.Parent == id_PC
@@ -72,7 +74,7 @@ namespace InformSystem.Forms
                                           id = c.IdH,
                                           type = tc.NameT
                                       };
-                    if(connectedHW != null)
+                    if (connectedHW != null)
                     {
                         foreach (var c in connectedHW.ToList())
                         {
@@ -85,7 +87,7 @@ namespace InformSystem.Forms
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -120,6 +122,9 @@ namespace InformSystem.Forms
                     int idD = place.DepartmentId;
                     dataBase.DepartmentDict department = context.DepartmentDicts.Select(d => d).Where(d => d.IdDd == idD).FirstOrDefault();
                     departmenTextBox.Text = department.NameD;
+                    building = place.Building;
+                    floor = place.Floor;
+                    office = place.Office;
                 }
                 if (access != null)
                 {
@@ -238,13 +243,71 @@ namespace InformSystem.Forms
         {
             //TODO Сохранение данных системного блока оборудования
             PnppkContext context = new PnppkContext();
-            place = context.Places.Select(h => h).Where(h => h.HardwareP == id_PC).First();
-            place.Building = building;
-            place.Floor = floor;
-            place.Office = office;
-            access = context.Accesses.Where(a => a.HardwareA == id_PC).First();
-            access.Person = Convert.ToInt32(PersonTextBox.Text);
+
+            if (PersonTextBox.Text != "")
+            {
+                dataBase.Access a = context.Accesses.Where(a => a.HardwareA == id_PC && a.Person == Convert.ToInt32(PersonTextBox.Text)).FirstOrDefault();
+                if (a != null)
+                {
+                    a.Person = Convert.ToInt32(PersonTextBox.Text);
+                }
+                else
+                {
+                    a = new dataBase.Access()
+                    {
+                        HardwareA = id_PC,
+                        Person = Convert.ToInt32(PersonTextBox.Text)
+                    };
+                    context.Accesses.Add(a);
+                }
+            }
+            else
+            {
+
+                if (access != null)
+                {
+                    dataBase.Access remA = context.Accesses.Where(a => a.HardwareA == id_PC && a.Person == access.Person).FirstOrDefault();
+                    context.Accesses.Remove(remA);
+                }
+            }
+            if (PlaceTextBox.Text != "")
+            {
+                dataBase.Place p = context.Places.Where(p => p.HardwareP == id_PC).FirstOrDefault();
+                var dQuery = context.Database.SqlQuery<DateTime>(FormattableStringFactory.Create("SELECT CURDATE()"));
+                DateTime dbDate = dQuery.AsEnumerable().First();
+                if (p != null)
+                {
+                    p.Building = building;
+                    p.Floor = floor;
+                    p.Office = office;
+                    p.Data = dbDate;
+                    p.DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue);
+                }
+                else
+                {
+                    dataBase.Place pc = new dataBase.Place()
+                    {
+                        HardwareP = id_PC,
+                        Building = building,
+                        Floor = floor,
+                        Office = office,
+                        Data = dbDate,
+                        DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue)
+                    };
+                    context.Places.Add(pc);
+                }
+            }
+            else
+            {
+
+                if (place != null)
+                {
+                    dataBase.Place remP = context.Places.Where(a => a.HardwareP == id_PC).FirstOrDefault();
+                    context.Places.Remove(remP);
+                }
+            }
             context.SaveChanges();
+            this.Close();
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -257,7 +320,7 @@ namespace InformSystem.Forms
             }
 
         }
-        
+
 
 
 
@@ -292,7 +355,7 @@ namespace InformSystem.Forms
                     this.Refresh();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

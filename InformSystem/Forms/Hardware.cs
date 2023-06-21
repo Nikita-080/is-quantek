@@ -39,7 +39,7 @@ namespace InformSystem.Forms
                                  id = hardw.IdH,
                                  typeId = hardw.TypeH,
                                  type = hardw.TypeHNavigation.NameT,
-                                 iswork = hardw.Iswork,
+                                 Status = hardw.Status,
                                  pers = (p == null ? String.Empty : Convert.ToString(p.Person)),
                                  placeBuilding = (pl == null ? String.Empty : Convert.ToString(pl.Building)),
                                  placeFloor = (pl == null ? String.Empty : Convert.ToString(pl.Floor)),
@@ -55,7 +55,7 @@ namespace InformSystem.Forms
                         dr.Cells[3].Value = r.placeBuilding;
                         dr.Cells[4].Value = r.placeFloor;
                         dr.Cells[5].Value = r.placeOffice;
-                        dr.Cells[6].Value = r.iswork;
+                        dr.Cells[6].Value = r.Status;
                         dr.Cells[7].Value = r.typeId;
                         databaseTable.Rows.Add(dr);
                     }

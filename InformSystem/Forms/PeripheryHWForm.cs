@@ -1,4 +1,5 @@
 ﻿using InformSystem.dataBase;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +18,9 @@ namespace InformSystem.Forms
         private dataBase.Hardware Per;
         private dataBase.Place place;
         private dataBase.Access access;
-        int building;
-        int floor;
-        int office;
+        int building = 0;
+        int floor = 0;
+        int office = 0;
 
         private void LoadService(int id)
         {
@@ -60,13 +61,14 @@ namespace InformSystem.Forms
             using (PnppkContext context = new PnppkContext())
             {
                 var type = from t in context.HardwareTypes
+                           where t.IdHt != 1 && t.IdHt != 4
                            select t;
                 HTypeTextBox.DataSource = type.ToList();
                 HTypeTextBox.DisplayMember = "NameT";
                 HTypeTextBox.ValueMember = "IdHt";
 
                 var depart = from t in context.DepartmentDicts
-                           select t;
+                             select t;
                 departmenTextBox.DataSource = depart.ToList();
                 departmenTextBox.DisplayMember = "NameD";
                 departmenTextBox.ValueMember = "IdDd";
@@ -75,6 +77,7 @@ namespace InformSystem.Forms
 
         private void ActiveElementsChange()
         {
+            IdTextBox.Enabled = true;
             HTypeTextBox.Enabled = true;
             PlaceTextBox.Enabled = true;
             PersonTextBox.Enabled = true;
@@ -112,9 +115,6 @@ namespace InformSystem.Forms
                     case 3:
                         DiagAndFormatLabel.Text = "Диагональ";
                         break;
-                    case 4:
-                        DiagAndFormatLabel.Text = "Объем";
-                        break;
                 }
 
 
@@ -138,10 +138,10 @@ namespace InformSystem.Forms
         {
             InitializeComponent();
             FillComboBox();
+            IdTextBox.Enabled = true;
             PlaceTextBox.Enabled = true;
             PersonTextBox.Enabled = true;
             departmenTextBox.Enabled = true;
-            DiagFormatTextBox.Enabled = true;
             LoadInfo(id);
             LoadService(id);
         }
@@ -171,16 +171,9 @@ namespace InformSystem.Forms
                 case 3:
                     DiagAndFormatLabel.Text = "Диагональ";
                     break;
-                case 4:
-                    DiagAndFormatLabel.Text = "Объем";
-                    break;
             }
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            //TODO 
-        }
 
         private void editPersonButton_Click(object sender, EventArgs e)
         {
@@ -199,6 +192,54 @@ namespace InformSystem.Forms
                 office = Convert.ToInt32(placeC.Office);
                 PlaceTextBox.Text = "Здание " + placeC.Building + ", " + "этаж " + placeC.Floor + ", " + "офис " + placeC.Office;
             }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            PnppkContext context = new PnppkContext();
+            //Добавление оборудования
+            dataBase.Hardware h = new dataBase.Hardware
+            {
+                IdH = Convert.ToInt32(IdTextBox.Text),
+                TypeH = Convert.ToInt32(HTypeTextBox.SelectedValue)
+            };
+            context.Hardwares.Add(h);
+            //Добавление места и отдела оборудования
+            var dQuery = context.Database.SqlQuery<DateTime>(FormattableStringFactory.Create("SELECT CURDATE()"));
+            DateTime dbDate = dQuery.AsEnumerable().First();
+            dataBase.Place p = new dataBase.Place()
+            {
+
+                HardwareP = h.IdH,
+                DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue),
+                Building = building,
+                Floor = floor,
+                Office = office,
+                Data = dbDate
+            };
+            context.Places.Add(p);
+            //Добавление Пользователя к оборудованию
+            if (PersonTextBox.Text != "")
+            {
+                dataBase.Access a = new dataBase.Access()
+                {
+                    HardwareA = h.IdH,
+                    Person = Convert.ToInt32(PersonTextBox.Text)
+                };
+                context.Accesses.Add(a);
+                this.Close();
+            }
+
+            //Добавление характеристик оборудования
+            int i_type = context.HardwareProperties.Select(p => p).Where(p => p.TypeP == h.TypeH).First().IdHp;//10 or 11
+            dataBase.HardwareValue v = new HardwareValue()
+            {
+                HardwareV = h.IdH,
+                Property = i_type,
+                Value = DiagFormatTextBox.Text
+            };
+            context.HardwareValues.Add(v);
+            context.SaveChanges();
         }
     }
 }

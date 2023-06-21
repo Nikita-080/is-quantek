@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,7 @@ namespace InformSystem.Forms
             Main mainMenu = new Main();
             mainMenu.Show();
             mainMenu.FormClosed += Logout;
+            
             login = LoginTextBox.Text;
             password = PasswordTextBox.Text;
             if (LoginTextBox.Text == "Имя пользователя")

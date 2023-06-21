@@ -11,7 +11,7 @@ public partial class Hardware
 
     public int? Parent { get; set; }
 
-    public bool? Iswork { get; set; }
+    public int Status { get; set; }
 
     public virtual ICollection<Access> Accesses { get; set; } = new List<Access>();
 
@@ -32,6 +32,8 @@ public partial class Hardware
     public virtual ICollection<Place> Places { get; set; } = new List<Place>();
 
     public virtual ICollection<Repair> Repairs { get; set; } = new List<Repair>();
+
+    public virtual StatusDict StatusNavigation { get; set; } = null!;
 
     public virtual HardwareType TypeHNavigation { get; set; } = null!;
 }
