@@ -34,6 +34,20 @@ namespace InformSystem.Forms
             try
             {
                 Repair repair = context.Repairs.First(rep => rep.IdR == Convert.ToInt32(repairNumComboBox.Text));
+                dataBase.Hardware hardware = context.Hardwares.First(id => id.IdH == repair.HardwareR);
+                Place place;
+                if (checkBox1.Checked)
+                {
+                    hardware.Status = 2;
+                    hardware.Parent = null;
+                    place = context.Places.First(item => item.HardwareP == repair.HardwareR);
+                    place.Data = DateTime.Now;
+                    place.Floor = 0;
+                    place.Office = 0;
+                    place.Building = 0;
+                    place.DepartmentId = 0;
+                }
+                else hardware.Status = 1;
                 repair.Verdict = verdictTextBox.Text;
                 repair.DateOut = dateClsoePicker.Value;
                 repair.DocumentOut = (int)docNumUpDown.Value;

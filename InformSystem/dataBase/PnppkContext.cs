@@ -36,9 +36,11 @@ public partial class PnppkContext : DbContext
 
     public virtual DbSet<Repair> Repairs { get; set; }
 
+    public virtual DbSet<StatusDict> StatusDicts { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySQL($"Server=5.42.95.173;Database=pnppk;User Id={Login.login};Password={Login.password};");
+        => optionsBuilder.UseMySQL($"Server=26.192.232.27;Database=pnppk;User Id={Login.login};Password={Login.password};");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -121,18 +123,20 @@ public partial class PnppkContext : DbContext
 
             entity.HasIndex(e => e.Parent, "parent");
 
+            entity.HasIndex(e => e.Status, "status");
+
             entity.HasIndex(e => e.TypeH, "type_h");
 
             entity.Property(e => e.IdH)
                 .HasColumnType("int(11)")
                 .HasColumnName("ID_H");
-            entity.Property(e => e.Iswork)
-                .IsRequired()
-                .HasDefaultValueSql("'1'")
-                .HasColumnName("iswork");
             entity.Property(e => e.Parent)
                 .HasColumnType("int(11)")
                 .HasColumnName("parent");
+            entity.Property(e => e.Status)
+                .HasDefaultValueSql("'1'")
+                .HasColumnType("int(11)")
+                .HasColumnName("status");
             entity.Property(e => e.TypeH)
                 .HasColumnType("int(11)")
                 .HasColumnName("type_h");
@@ -141,6 +145,11 @@ public partial class PnppkContext : DbContext
                 .HasForeignKey(d => d.Parent)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("hardware_ibfk_2");
+
+            entity.HasOne(d => d.StatusNavigation).WithMany(p => p.Hardwares)
+                .HasForeignKey(d => d.Status)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("hardware_ibfk_3");
 
             entity.HasOne(d => d.TypeHNavigation).WithMany(p => p.Hardwares)
                 .HasForeignKey(d => d.TypeH)
@@ -346,6 +355,20 @@ public partial class PnppkContext : DbContext
                 .HasForeignKey(d => d.HardwareR)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("repair_ibfk_1");
+        });
+
+        modelBuilder.Entity<StatusDict>(entity =>
+        {
+            entity.HasKey(e => e.IdS).HasName("PRIMARY");
+
+            entity.ToTable("Status_Dict");
+
+            entity.Property(e => e.IdS)
+                .HasColumnType("int(11)")
+                .HasColumnName("ID_S");
+            entity.Property(e => e.NameS)
+                .HasMaxLength(30)
+                .HasColumnName("name_s");
         });
 
         OnModelCreatingPartial(modelBuilder);
