@@ -35,6 +35,8 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panelCommonInfo = new Panel();
+            StatusTextBox = new ComboBox();
+            label9 = new Label();
             departmenTextBox = new ComboBox();
             label8 = new Label();
             editPersonButton = new Button();
@@ -111,6 +113,8 @@
             // 
             // panelCommonInfo
             // 
+            panelCommonInfo.Controls.Add(StatusTextBox);
+            panelCommonInfo.Controls.Add(label9);
             panelCommonInfo.Controls.Add(departmenTextBox);
             panelCommonInfo.Controls.Add(label8);
             panelCommonInfo.Controls.Add(editPersonButton);
@@ -127,8 +131,30 @@
             panelCommonInfo.Location = new Point(0, 0);
             panelCommonInfo.Margin = new Padding(3, 2, 3, 2);
             panelCommonInfo.Name = "panelCommonInfo";
-            panelCommonInfo.Size = new Size(702, 142);
+            panelCommonInfo.Size = new Size(702, 184);
             panelCommonInfo.TabIndex = 0;
+            // 
+            // StatusTextBox
+            // 
+            StatusTextBox.Enabled = false;
+            StatusTextBox.FlatStyle = FlatStyle.Flat;
+            StatusTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            StatusTextBox.FormattingEnabled = true;
+            StatusTextBox.Location = new Point(176, 143);
+            StatusTextBox.Margin = new Padding(3, 2, 3, 2);
+            StatusTextBox.Name = "StatusTextBox";
+            StatusTextBox.Size = new Size(252, 28);
+            StatusTextBox.TabIndex = 25;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(6, 146);
+            label9.Name = "label9";
+            label9.Size = new Size(91, 20);
+            label9.TabIndex = 24;
+            label9.Text = "Состояние";
             // 
             // departmenTextBox
             // 
@@ -269,10 +295,10 @@
             PCHardInfoPanel.Controls.Add(dataGridViewPcInfo);
             PCHardInfoPanel.Controls.Add(label5);
             PCHardInfoPanel.Dock = DockStyle.Top;
-            PCHardInfoPanel.Location = new Point(0, 142);
+            PCHardInfoPanel.Location = new Point(0, 184);
             PCHardInfoPanel.Margin = new Padding(3, 2, 3, 2);
             PCHardInfoPanel.Name = "PCHardInfoPanel";
-            PCHardInfoPanel.Size = new Size(702, 220);
+            PCHardInfoPanel.Size = new Size(702, 175);
             PCHardInfoPanel.TabIndex = 1;
             // 
             // dataGridViewPcInfo
@@ -301,7 +327,7 @@
             dataGridViewPcInfo.RowHeadersWidth = 51;
             dataGridViewPcInfo.RowTemplate.Height = 29;
             dataGridViewPcInfo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewPcInfo.Size = new Size(702, 200);
+            dataGridViewPcInfo.Size = new Size(702, 155);
             dataGridViewPcInfo.TabIndex = 2;
             // 
             // name
@@ -321,7 +347,7 @@
             ServisHistoryPanel.Controls.Add(dataGridViewServisHistory);
             ServisHistoryPanel.Controls.Add(label6);
             ServisHistoryPanel.Dock = DockStyle.Top;
-            ServisHistoryPanel.Location = new Point(0, 362);
+            ServisHistoryPanel.Location = new Point(0, 359);
             ServisHistoryPanel.Margin = new Padding(3, 2, 3, 2);
             ServisHistoryPanel.Name = "ServisHistoryPanel";
             ServisHistoryPanel.Size = new Size(702, 165);
@@ -387,10 +413,10 @@
             ConnectedHWPanel.Controls.Add(dataGridViewConnectedHW);
             ConnectedHWPanel.Controls.Add(label7);
             ConnectedHWPanel.Dock = DockStyle.Top;
-            ConnectedHWPanel.Location = new Point(0, 527);
+            ConnectedHWPanel.Location = new Point(0, 524);
             ConnectedHWPanel.Margin = new Padding(3, 2, 3, 2);
             ConnectedHWPanel.Name = "ConnectedHWPanel";
-            ConnectedHWPanel.Size = new Size(702, 185);
+            ConnectedHWPanel.Size = new Size(702, 186);
             ConnectedHWPanel.TabIndex = 3;
             // 
             // deleteButton
@@ -485,7 +511,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(702, 742);
+            ClientSize = new Size(702, 747);
             Controls.Add(saveButton);
             Controls.Add(ConnectedHWPanel);
             Controls.Add(ServisHistoryPanel);
@@ -540,5 +566,7 @@
         private DataGridViewTextBoxColumn DateOut;
         private DataGridViewTextBoxColumn Reason;
         private DataGridViewTextBoxColumn Verdict;
+        private ComboBox StatusTextBox;
+        private Label label9;
     }
 }

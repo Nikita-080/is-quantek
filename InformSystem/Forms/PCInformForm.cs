@@ -23,6 +23,7 @@ namespace InformSystem.Forms
         private dataBase.Hardware PC;
         private dataBase.Place place;
         private dataBase.Access access;
+        private dataBase.StatusDict status;
 
         private void LoadService()
         {
@@ -102,6 +103,12 @@ namespace InformSystem.Forms
                 departmenTextBox.DataSource = depart.ToList();
                 departmenTextBox.DisplayMember = "NameD";
                 departmenTextBox.ValueMember = "IdDd";
+
+                var status = from t in context.StatusDicts
+                             select t;
+                StatusTextBox.DataSource = status.ToList();
+                StatusTextBox.DisplayMember = "NameS";
+                StatusTextBox.ValueMember = "IdS";
             }
         }
 
@@ -114,8 +121,10 @@ namespace InformSystem.Forms
                 PC = context.Hardwares.Select(pc => pc).Where(pc => pc.IdH == id).First();
                 place = context.Places.Select(p => p).Where(p => p.HardwareP == id).FirstOrDefault();
                 access = context.Accesses.Select(pers => pers).Where(pers => pers.HardwareA == id).FirstOrDefault();
+                status = context.StatusDicts.Select(s => s).Where(s => s.IdS == PC.Status).FirstOrDefault();
                 IdTextBox.Text = PC.IdH.ToString();
                 HTypeTextBox.Text = "Компьютер";
+                StatusTextBox.Text = status.NameS.ToString();
                 if (place != null)
                 {
                     PlaceTextBox.Text = "Здание " + place.Building + ", " + "этаж " + place.Floor + ", " + "офис " + place.Office;
@@ -158,6 +167,7 @@ namespace InformSystem.Forms
             PlaceTextBox.Enabled = true;
             PersonTextBox.Enabled = true;
             departmenTextBox.Enabled = true;
+            StatusTextBox.Enabled = true;
         }
         private void ConfigLoad(int id)
         {
@@ -221,7 +231,7 @@ namespace InformSystem.Forms
 
         private void editPlaceButton_Click(object sender, EventArgs e)
         {
-            ChangePlaceForm placeC = new ChangePlaceForm();
+            ChangePlaceForm placeC = new ChangePlaceForm(place);
             placeC.ShowDialog();
             if (placeC.Save) //if click save button
             {
@@ -306,6 +316,7 @@ namespace InformSystem.Forms
                     context.Places.Remove(remP);
                 }
             }
+
             context.SaveChanges();
             this.Close();
         }

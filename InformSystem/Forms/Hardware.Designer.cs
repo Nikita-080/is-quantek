@@ -54,7 +54,7 @@
             toolsPanel.Location = new Point(0, 0);
             toolsPanel.Margin = new Padding(3, 2, 3, 2);
             toolsPanel.Name = "toolsPanel";
-            toolsPanel.Size = new Size(1004, 49);
+            toolsPanel.Size = new Size(1006, 49);
             toolsPanel.TabIndex = 0;
             // 
             // sortButton
@@ -62,7 +62,7 @@
             sortButton.BackColor = Color.FromArgb(0, 42, 87);
             sortButton.FlatAppearance.BorderSize = 0;
             sortButton.FlatStyle = FlatStyle.Flat;
-            sortButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            sortButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             sortButton.ForeColor = SystemColors.ButtonFace;
             sortButton.Location = new Point(103, 9);
             sortButton.Margin = new Padding(3, 2, 3, 2);
@@ -77,7 +77,7 @@
             addButton.BackColor = Color.FromArgb(0, 42, 87);
             addButton.FlatAppearance.BorderSize = 0;
             addButton.FlatStyle = FlatStyle.Flat;
-            addButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            addButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             addButton.ForeColor = SystemColors.ButtonFace;
             addButton.Location = new Point(10, 9);
             addButton.Margin = new Padding(3, 2, 3, 2);
@@ -95,7 +95,7 @@
             tablePanel.Location = new Point(0, 49);
             tablePanel.Margin = new Padding(3, 2, 3, 2);
             tablePanel.Name = "tablePanel";
-            tablePanel.Size = new Size(1004, 311);
+            tablePanel.Size = new Size(1006, 311);
             tablePanel.TabIndex = 1;
             // 
             // databaseTable
@@ -112,7 +112,7 @@
             databaseTable.RowHeadersWidth = 51;
             databaseTable.RowTemplate.Height = 29;
             databaseTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            databaseTable.Size = new Size(1004, 311);
+            databaseTable.Size = new Size(1006, 311);
             databaseTable.TabIndex = 0;
             databaseTable.CellDoubleClick += databaseTable_CellDoubleClick;
             // 
@@ -185,7 +185,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1004, 360);
+            ClientSize = new Size(1006, 360);
             Controls.Add(tablePanel);
             Controls.Add(toolsPanel);
             Margin = new Padding(3, 2, 3, 2);

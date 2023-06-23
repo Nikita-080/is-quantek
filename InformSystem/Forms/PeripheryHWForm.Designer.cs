@@ -31,6 +31,8 @@
             Label label6;
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelCommonInfo = new Panel();
+            StatusTextBox = new ComboBox();
+            label5 = new Label();
             departmenTextBox = new ComboBox();
             HTypeTextBox = new ComboBox();
             label8 = new Label();
@@ -71,6 +73,8 @@
             // 
             // panelCommonInfo
             // 
+            panelCommonInfo.Controls.Add(StatusTextBox);
+            panelCommonInfo.Controls.Add(label5);
             panelCommonInfo.Controls.Add(departmenTextBox);
             panelCommonInfo.Controls.Add(HTypeTextBox);
             panelCommonInfo.Controls.Add(label8);
@@ -89,8 +93,30 @@
             panelCommonInfo.Location = new Point(0, 0);
             panelCommonInfo.Margin = new Padding(3, 2, 3, 2);
             panelCommonInfo.Name = "panelCommonInfo";
-            panelCommonInfo.Size = new Size(702, 201);
+            panelCommonInfo.Size = new Size(519, 239);
             panelCommonInfo.TabIndex = 1;
+            // 
+            // StatusTextBox
+            // 
+            StatusTextBox.Enabled = false;
+            StatusTextBox.FlatStyle = FlatStyle.Flat;
+            StatusTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            StatusTextBox.FormattingEnabled = true;
+            StatusTextBox.Location = new Point(176, 194);
+            StatusTextBox.Margin = new Padding(3, 2, 3, 2);
+            StatusTextBox.Name = "StatusTextBox";
+            StatusTextBox.Size = new Size(252, 28);
+            StatusTextBox.TabIndex = 23;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(3, 197);
+            label5.Name = "label5";
+            label5.Size = new Size(91, 20);
+            label5.TabIndex = 22;
+            label5.Text = "Состояние";
             // 
             // departmenTextBox
             // 
@@ -121,7 +147,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(6, 132);
+            label8.Location = new Point(3, 131);
             label8.Name = "label8";
             label8.Size = new Size(60, 20);
             label8.TabIndex = 16;
@@ -173,11 +199,11 @@
             // 
             DiagAndFormatLabel.AutoSize = true;
             DiagAndFormatLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            DiagAndFormatLabel.Location = new Point(6, 164);
+            DiagAndFormatLabel.Location = new Point(3, 167);
             DiagAndFormatLabel.Name = "DiagAndFormatLabel";
-            DiagAndFormatLabel.Size = new Size(92, 20);
+            DiagAndFormatLabel.Size = new Size(71, 20);
             DiagAndFormatLabel.TabIndex = 8;
-            DiagAndFormatLabel.Text = "Диагональ";
+            DiagAndFormatLabel.Text = "Формат";
             // 
             // PersonTextBox
             // 
@@ -193,7 +219,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(6, 99);
+            label4.Location = new Point(3, 101);
             label4.Name = "label4";
             label4.Size = new Size(121, 20);
             label4.TabIndex = 6;
@@ -213,7 +239,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(6, 68);
+            label3.Location = new Point(3, 69);
             label3.Name = "label3";
             label3.Size = new Size(141, 20);
             label3.TabIndex = 4;
@@ -223,7 +249,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(6, 36);
+            label2.Location = new Point(3, 39);
             label2.Name = "label2";
             label2.Size = new Size(40, 20);
             label2.TabIndex = 2;
@@ -243,7 +269,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(6, 7);
+            label1.Location = new Point(3, 11);
             label1.Name = "label1";
             label1.Size = new Size(26, 20);
             label1.TabIndex = 0;
@@ -252,13 +278,12 @@
             // ServisHistoryPanel
             // 
             ServisHistoryPanel.Controls.Add(dataGridViewServisHistory);
-            ServisHistoryPanel.Controls.Add(saveButton);
             ServisHistoryPanel.Controls.Add(label6);
             ServisHistoryPanel.Dock = DockStyle.Top;
-            ServisHistoryPanel.Location = new Point(0, 201);
+            ServisHistoryPanel.Location = new Point(0, 239);
             ServisHistoryPanel.Margin = new Padding(3, 2, 3, 2);
             ServisHistoryPanel.Name = "ServisHistoryPanel";
-            ServisHistoryPanel.Size = new Size(702, 190);
+            ServisHistoryPanel.Size = new Size(519, 171);
             ServisHistoryPanel.TabIndex = 3;
             // 
             // dataGridViewServisHistory
@@ -283,7 +308,7 @@
             dataGridViewServisHistory.RowHeadersWidth = 51;
             dataGridViewServisHistory.RowTemplate.Height = 29;
             dataGridViewServisHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewServisHistory.Size = new Size(702, 141);
+            dataGridViewServisHistory.Size = new Size(519, 141);
             dataGridViewServisHistory.TabIndex = 5;
             // 
             // DateIn
@@ -321,7 +346,7 @@
             saveButton.FlatStyle = FlatStyle.Flat;
             saveButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             saveButton.ForeColor = SystemColors.ButtonFace;
-            saveButton.Location = new Point(595, 158);
+            saveButton.Location = new Point(403, 416);
             saveButton.Margin = new Padding(3, 2, 3, 2);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(104, 26);
@@ -334,8 +359,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(702, 388);
+            ClientSize = new Size(519, 453);
             Controls.Add(ServisHistoryPanel);
+            Controls.Add(saveButton);
             Controls.Add(panelCommonInfo);
             Margin = new Padding(3, 2, 3, 2);
             Name = "PeripheryHWForm";
@@ -372,5 +398,7 @@
         private DataGridViewTextBoxColumn DateOut;
         private DataGridViewTextBoxColumn Reason;
         private DataGridViewTextBoxColumn Verdict;
+        private Label label5;
+        private ComboBox StatusTextBox;
     }
 }
