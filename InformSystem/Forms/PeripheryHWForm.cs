@@ -18,6 +18,7 @@ namespace InformSystem.Forms
         private dataBase.Hardware Per;
         private dataBase.Place place;
         private dataBase.Access access;
+        private dataBase.StatusDict status;
         int building = 0;
         int floor = 0;
         int office = 0;
@@ -72,6 +73,12 @@ namespace InformSystem.Forms
                 departmenTextBox.DataSource = depart.ToList();
                 departmenTextBox.DisplayMember = "NameD";
                 departmenTextBox.ValueMember = "IdDd";
+
+                var status = from t in context.StatusDicts
+                             select t;
+                StatusTextBox.DataSource = status.ToList();
+                StatusTextBox.DisplayMember = "NameS";
+                StatusTextBox.ValueMember = "IdS";
             }
         }
 
@@ -83,6 +90,7 @@ namespace InformSystem.Forms
             PersonTextBox.Enabled = true;
             departmenTextBox.Enabled = true;
             DiagFormatTextBox.Enabled = true;
+            StatusTextBox.Enabled = true;
         }
 
         private void LoadInfo(int id)
@@ -93,9 +101,11 @@ namespace InformSystem.Forms
                 Per = context.Hardwares.Select(per => per).Where(per => per.IdH == id).First();
                 place = context.Places.Select(p => p).Where(p => p.HardwareP == id).FirstOrDefault();
                 access = context.Accesses.Select(pers => pers).Where(pers => pers.HardwareA == id).FirstOrDefault();
+                status = context.StatusDicts.Select(s => s).Where(s => s.IdS == Per.Status).FirstOrDefault();
                 dataBase.HardwareType type = context.HardwareTypes.Select(d => d).Where(d => d.IdHt == Per.TypeH).FirstOrDefault();
                 IdTextBox.Text = Per.IdH.ToString();
                 HTypeTextBox.Text = type.NameT;
+                StatusTextBox.Text = status.NameS.ToString();
                 if (place != null)
                 {
                     PlaceTextBox.Text = "Здание " + place.Building + ", " + "этаж " + place.Floor + ", " + "офис " + place.Office;
@@ -142,6 +152,7 @@ namespace InformSystem.Forms
             PlaceTextBox.Enabled = true;
             PersonTextBox.Enabled = true;
             departmenTextBox.Enabled = true;
+            StatusTextBox.Enabled = true;
             LoadInfo(id);
             LoadService(id);
         }
@@ -183,7 +194,7 @@ namespace InformSystem.Forms
 
         private void editPlaceButton_Click(object sender, EventArgs e)
         {
-            ChangePlaceForm placeC = new ChangePlaceForm();
+            ChangePlaceForm placeC = new ChangePlaceForm(place);
             placeC.ShowDialog();
             if (placeC.Save) //if click save button
             {
@@ -201,7 +212,8 @@ namespace InformSystem.Forms
             dataBase.Hardware h = new dataBase.Hardware
             {
                 IdH = Convert.ToInt32(IdTextBox.Text),
-                TypeH = Convert.ToInt32(HTypeTextBox.SelectedValue)
+                TypeH = Convert.ToInt32(HTypeTextBox.SelectedValue),
+                Status = Convert.ToInt32(StatusTextBox.Text)
             };
             context.Hardwares.Add(h);
             //Добавление места и отдела оборудования
@@ -241,5 +253,6 @@ namespace InformSystem.Forms
             context.HardwareValues.Add(v);
             context.SaveChanges();
         }
+
     }
 }

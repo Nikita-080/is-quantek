@@ -25,10 +25,20 @@ namespace InformSystem.Forms
             Office = 0;
             Save = false;
         }
-
-        private void PlaceTextBox_TextChanged(object sender, EventArgs e)
+        public ChangePlaceForm(dataBase.Place p)
         {
-
+            InitializeComponent();
+            if (p != null)
+            {
+                Building = Convert.ToInt32(p.Building);
+                Floor = Convert.ToInt32(p.Floor);
+                Office = Convert.ToInt32(p.Office);
+                BuildingNumeric.Value = p.Building;
+                FloorNumeric.Value = p.Floor;
+                OfficeNumeric.Value = p.Office;
+            }
+            else { Building = 0; Floor = 0; Office = 0; }
+            Save = false;
         }
 
         private void saveButton_Click(object sender, EventArgs e)

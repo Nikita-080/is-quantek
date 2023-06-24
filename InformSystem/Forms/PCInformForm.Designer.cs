@@ -28,470 +28,510 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label5;
-            System.Windows.Forms.Label label6;
-            System.Windows.Forms.Label label7;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panelCommonInfo = new System.Windows.Forms.Panel();
-            this.departmenTextBox = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.editPersonButton = new System.Windows.Forms.Button();
-            this.editPlaceButton = new System.Windows.Forms.Button();
-            this.PersonTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.PlaceTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.HTypeTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.IdTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PCHardInfoPanel = new System.Windows.Forms.Panel();
-            this.dataGridViewPcInfo = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServisHistoryPanel = new System.Windows.Forms.Panel();
-            this.dataGridViewServisHistory = new System.Windows.Forms.DataGridView();
-            this.DateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Verdict = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConnectedHWPanel = new System.Windows.Forms.Panel();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
-            this.dataGridViewConnectedHW = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saveButton = new System.Windows.Forms.Button();
-            label5 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
-            label7 = new System.Windows.Forms.Label();
-            this.panelCommonInfo.SuspendLayout();
-            this.PCHardInfoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPcInfo)).BeginInit();
-            this.ServisHistoryPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewServisHistory)).BeginInit();
-            this.ConnectedHWPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConnectedHW)).BeginInit();
-            this.SuspendLayout();
+            Label label5;
+            Label label6;
+            Label label7;
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            panelCommonInfo = new Panel();
+            StatusTextBox = new ComboBox();
+            label9 = new Label();
+            departmenTextBox = new ComboBox();
+            label8 = new Label();
+            editPersonButton = new Button();
+            editPlaceButton = new Button();
+            PersonTextBox = new TextBox();
+            label4 = new Label();
+            PlaceTextBox = new TextBox();
+            label3 = new Label();
+            HTypeTextBox = new TextBox();
+            label2 = new Label();
+            IdTextBox = new TextBox();
+            label1 = new Label();
+            PCHardInfoPanel = new Panel();
+            dataGridViewPcInfo = new DataGridView();
+            name = new DataGridViewTextBoxColumn();
+            value = new DataGridViewTextBoxColumn();
+            ServisHistoryPanel = new Panel();
+            dataGridViewServisHistory = new DataGridView();
+            DateIn = new DataGridViewTextBoxColumn();
+            DateOut = new DataGridViewTextBoxColumn();
+            Reason = new DataGridViewTextBoxColumn();
+            Verdict = new DataGridViewTextBoxColumn();
+            ConnectedHWPanel = new Panel();
+            deleteButton = new Button();
+            addButton = new Button();
+            dataGridViewConnectedHW = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            Type = new DataGridViewTextBoxColumn();
+            saveButton = new Button();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            panelCommonInfo.SuspendLayout();
+            PCHardInfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewPcInfo).BeginInit();
+            ServisHistoryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewServisHistory).BeginInit();
+            ConnectedHWPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewConnectedHW).BeginInit();
+            SuspendLayout();
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Dock = System.Windows.Forms.DockStyle.Top;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label5.Location = new System.Drawing.Point(0, 0);
+            label5.Dock = DockStyle.Top;
+            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(0, 0);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(277, 25);
+            label5.Size = new Size(220, 20);
             label5.TabIndex = 1;
             label5.Text = "Системные характеристики";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Dock = System.Windows.Forms.DockStyle.Top;
-            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label6.Location = new System.Drawing.Point(0, 0);
+            label6.Dock = DockStyle.Top;
+            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(0, 0);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(173, 25);
+            label6.Size = new Size(141, 20);
             label6.TabIndex = 1;
             label6.Text = "История Сервиса";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Dock = System.Windows.Forms.DockStyle.Top;
-            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label7.Location = new System.Drawing.Point(0, 0);
+            label7.Dock = DockStyle.Top;
+            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(0, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(268, 25);
+            label7.Size = new Size(222, 20);
             label7.TabIndex = 1;
             label7.Text = "Привязанное оборудование";
             // 
             // panelCommonInfo
             // 
-            this.panelCommonInfo.Controls.Add(this.departmenTextBox);
-            this.panelCommonInfo.Controls.Add(this.label8);
-            this.panelCommonInfo.Controls.Add(this.editPersonButton);
-            this.panelCommonInfo.Controls.Add(this.editPlaceButton);
-            this.panelCommonInfo.Controls.Add(this.PersonTextBox);
-            this.panelCommonInfo.Controls.Add(this.label4);
-            this.panelCommonInfo.Controls.Add(this.PlaceTextBox);
-            this.panelCommonInfo.Controls.Add(this.label3);
-            this.panelCommonInfo.Controls.Add(this.HTypeTextBox);
-            this.panelCommonInfo.Controls.Add(this.label2);
-            this.panelCommonInfo.Controls.Add(this.IdTextBox);
-            this.panelCommonInfo.Controls.Add(this.label1);
-            this.panelCommonInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCommonInfo.Location = new System.Drawing.Point(0, 0);
-            this.panelCommonInfo.Name = "panelCommonInfo";
-            this.panelCommonInfo.Size = new System.Drawing.Size(802, 189);
-            this.panelCommonInfo.TabIndex = 0;
+            panelCommonInfo.Controls.Add(StatusTextBox);
+            panelCommonInfo.Controls.Add(label9);
+            panelCommonInfo.Controls.Add(departmenTextBox);
+            panelCommonInfo.Controls.Add(label8);
+            panelCommonInfo.Controls.Add(editPersonButton);
+            panelCommonInfo.Controls.Add(editPlaceButton);
+            panelCommonInfo.Controls.Add(PersonTextBox);
+            panelCommonInfo.Controls.Add(label4);
+            panelCommonInfo.Controls.Add(PlaceTextBox);
+            panelCommonInfo.Controls.Add(label3);
+            panelCommonInfo.Controls.Add(HTypeTextBox);
+            panelCommonInfo.Controls.Add(label2);
+            panelCommonInfo.Controls.Add(IdTextBox);
+            panelCommonInfo.Controls.Add(label1);
+            panelCommonInfo.Dock = DockStyle.Top;
+            panelCommonInfo.Location = new Point(0, 0);
+            panelCommonInfo.Margin = new Padding(3, 2, 3, 2);
+            panelCommonInfo.Name = "panelCommonInfo";
+            panelCommonInfo.Size = new Size(702, 184);
+            panelCommonInfo.TabIndex = 0;
+            // 
+            // StatusTextBox
+            // 
+            StatusTextBox.Enabled = false;
+            StatusTextBox.FlatStyle = FlatStyle.Flat;
+            StatusTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            StatusTextBox.FormattingEnabled = true;
+            StatusTextBox.Location = new Point(176, 143);
+            StatusTextBox.Margin = new Padding(3, 2, 3, 2);
+            StatusTextBox.Name = "StatusTextBox";
+            StatusTextBox.Size = new Size(252, 28);
+            StatusTextBox.TabIndex = 25;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(6, 146);
+            label9.Name = "label9";
+            label9.Size = new Size(91, 20);
+            label9.TabIndex = 24;
+            label9.Text = "Состояние";
             // 
             // departmenTextBox
             // 
-            this.departmenTextBox.Enabled = false;
-            this.departmenTextBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.departmenTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.departmenTextBox.FormattingEnabled = true;
-            this.departmenTextBox.Location = new System.Drawing.Point(201, 148);
-            this.departmenTextBox.Name = "departmenTextBox";
-            this.departmenTextBox.Size = new System.Drawing.Size(287, 33);
-            this.departmenTextBox.TabIndex = 20;
+            departmenTextBox.Enabled = false;
+            departmenTextBox.FlatStyle = FlatStyle.Flat;
+            departmenTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            departmenTextBox.FormattingEnabled = true;
+            departmenTextBox.Location = new Point(176, 111);
+            departmenTextBox.Margin = new Padding(3, 2, 3, 2);
+            departmenTextBox.Name = "departmenTextBox";
+            departmenTextBox.Size = new Size(252, 28);
+            departmenTextBox.TabIndex = 20;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(7, 151);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 25);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Отдел";
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(6, 113);
+            label8.Name = "label8";
+            label8.Size = new Size(60, 20);
+            label8.TabIndex = 13;
+            label8.Text = "Отдел";
             // 
             // editPersonButton
             // 
-            this.editPersonButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.editPersonButton.FlatAppearance.BorderSize = 0;
-            this.editPersonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editPersonButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.editPersonButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.editPersonButton.Image = global::InformSystem.Properties.Resources.edit48481;
-            this.editPersonButton.Location = new System.Drawing.Point(496, 111);
-            this.editPersonButton.Name = "editPersonButton";
-            this.editPersonButton.Size = new System.Drawing.Size(37, 29);
-            this.editPersonButton.TabIndex = 12;
-            this.editPersonButton.UseVisualStyleBackColor = false;
+            editPersonButton.BackColor = SystemColors.ButtonFace;
+            editPersonButton.FlatAppearance.BorderSize = 0;
+            editPersonButton.FlatStyle = FlatStyle.Flat;
+            editPersonButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            editPersonButton.ForeColor = SystemColors.ButtonFace;
+            editPersonButton.Image = Properties.Resources.edit48481;
+            editPersonButton.Location = new Point(434, 83);
+            editPersonButton.Margin = new Padding(3, 2, 3, 2);
+            editPersonButton.Name = "editPersonButton";
+            editPersonButton.Size = new Size(32, 22);
+            editPersonButton.TabIndex = 12;
+            editPersonButton.UseVisualStyleBackColor = false;
+            editPersonButton.Click += editPersonButton_Click;
             // 
             // editPlaceButton
             // 
-            this.editPlaceButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.editPlaceButton.FlatAppearance.BorderSize = 0;
-            this.editPlaceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editPlaceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.editPlaceButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.editPlaceButton.Image = global::InformSystem.Properties.Resources.edit48481;
-            this.editPlaceButton.Location = new System.Drawing.Point(496, 75);
-            this.editPlaceButton.Name = "editPlaceButton";
-            this.editPlaceButton.Size = new System.Drawing.Size(37, 29);
-            this.editPlaceButton.TabIndex = 11;
-            this.editPlaceButton.UseVisualStyleBackColor = false;
+            editPlaceButton.BackColor = SystemColors.ButtonFace;
+            editPlaceButton.FlatAppearance.BorderSize = 0;
+            editPlaceButton.FlatStyle = FlatStyle.Flat;
+            editPlaceButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            editPlaceButton.ForeColor = SystemColors.ButtonFace;
+            editPlaceButton.Image = Properties.Resources.edit48481;
+            editPlaceButton.Location = new Point(434, 56);
+            editPlaceButton.Margin = new Padding(3, 2, 3, 2);
+            editPlaceButton.Name = "editPlaceButton";
+            editPlaceButton.Size = new Size(32, 22);
+            editPlaceButton.TabIndex = 11;
+            editPlaceButton.UseVisualStyleBackColor = false;
+            editPlaceButton.Click += editPlaceButton_Click;
             // 
             // PersonTextBox
             // 
-            this.PersonTextBox.Enabled = false;
-            this.PersonTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PersonTextBox.Location = new System.Drawing.Point(201, 111);
-            this.PersonTextBox.Name = "PersonTextBox";
-            this.PersonTextBox.Size = new System.Drawing.Size(287, 30);
-            this.PersonTextBox.TabIndex = 7;
+            PersonTextBox.Enabled = false;
+            PersonTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            PersonTextBox.Location = new Point(176, 83);
+            PersonTextBox.Margin = new Padding(3, 2, 3, 2);
+            PersonTextBox.Name = "PersonTextBox";
+            PersonTextBox.Size = new Size(252, 26);
+            PersonTextBox.TabIndex = 7;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(7, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 25);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Ответственный";
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(6, 83);
+            label4.Name = "label4";
+            label4.Size = new Size(130, 20);
+            label4.TabIndex = 6;
+            label4.Text = "Ответственный";
             // 
             // PlaceTextBox
             // 
-            this.PlaceTextBox.Enabled = false;
-            this.PlaceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PlaceTextBox.Location = new System.Drawing.Point(201, 75);
-            this.PlaceTextBox.Name = "PlaceTextBox";
-            this.PlaceTextBox.Size = new System.Drawing.Size(287, 30);
-            this.PlaceTextBox.TabIndex = 5;
+            PlaceTextBox.Enabled = false;
+            PlaceTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            PlaceTextBox.Location = new Point(176, 56);
+            PlaceTextBox.Margin = new Padding(3, 2, 3, 2);
+            PlaceTextBox.Name = "PlaceTextBox";
+            PlaceTextBox.Size = new Size(252, 26);
+            PlaceTextBox.TabIndex = 5;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(7, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 25);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Местоположение";
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(6, 56);
+            label3.Name = "label3";
+            label3.Size = new Size(141, 20);
+            label3.TabIndex = 4;
+            label3.Text = "Местоположение";
             // 
             // HTypeTextBox
             // 
-            this.HTypeTextBox.Enabled = false;
-            this.HTypeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.HTypeTextBox.Location = new System.Drawing.Point(201, 41);
-            this.HTypeTextBox.Name = "HTypeTextBox";
-            this.HTypeTextBox.Size = new System.Drawing.Size(287, 30);
-            this.HTypeTextBox.TabIndex = 3;
+            HTypeTextBox.Enabled = false;
+            HTypeTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            HTypeTextBox.Location = new Point(176, 31);
+            HTypeTextBox.Margin = new Padding(3, 2, 3, 2);
+            HTypeTextBox.Name = "HTypeTextBox";
+            HTypeTextBox.Size = new Size(252, 26);
+            HTypeTextBox.TabIndex = 3;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(7, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Вид";
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(6, 31);
+            label2.Name = "label2";
+            label2.Size = new Size(40, 20);
+            label2.TabIndex = 2;
+            label2.Text = "Вид";
             // 
             // IdTextBox
             // 
-            this.IdTextBox.Enabled = false;
-            this.IdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.IdTextBox.Location = new System.Drawing.Point(201, 7);
-            this.IdTextBox.Name = "IdTextBox";
-            this.IdTextBox.Size = new System.Drawing.Size(287, 30);
-            this.IdTextBox.TabIndex = 1;
+            IdTextBox.Enabled = false;
+            IdTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            IdTextBox.Location = new Point(176, 5);
+            IdTextBox.Margin = new Padding(3, 2, 3, 2);
+            IdTextBox.Name = "IdTextBox";
+            IdTextBox.Size = new Size(252, 26);
+            IdTextBox.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(7, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ID";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(6, 7);
+            label1.Name = "label1";
+            label1.Size = new Size(26, 20);
+            label1.TabIndex = 0;
+            label1.Text = "ID";
             // 
             // PCHardInfoPanel
             // 
-            this.PCHardInfoPanel.Controls.Add(this.dataGridViewPcInfo);
-            this.PCHardInfoPanel.Controls.Add(label5);
-            this.PCHardInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PCHardInfoPanel.Location = new System.Drawing.Point(0, 189);
-            this.PCHardInfoPanel.Name = "PCHardInfoPanel";
-            this.PCHardInfoPanel.Size = new System.Drawing.Size(802, 293);
-            this.PCHardInfoPanel.TabIndex = 1;
+            PCHardInfoPanel.Controls.Add(dataGridViewPcInfo);
+            PCHardInfoPanel.Controls.Add(label5);
+            PCHardInfoPanel.Dock = DockStyle.Top;
+            PCHardInfoPanel.Location = new Point(0, 184);
+            PCHardInfoPanel.Margin = new Padding(3, 2, 3, 2);
+            PCHardInfoPanel.Name = "PCHardInfoPanel";
+            PCHardInfoPanel.Size = new Size(702, 175);
+            PCHardInfoPanel.TabIndex = 1;
             // 
             // dataGridViewPcInfo
             // 
-            this.dataGridViewPcInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewPcInfo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewPcInfo.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewPcInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewPcInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPcInfo.ColumnHeadersVisible = false;
-            this.dataGridViewPcInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.value});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewPcInfo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewPcInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewPcInfo.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridViewPcInfo.Location = new System.Drawing.Point(0, 25);
-            this.dataGridViewPcInfo.Name = "dataGridViewPcInfo";
-            this.dataGridViewPcInfo.RowHeadersVisible = false;
-            this.dataGridViewPcInfo.RowHeadersWidth = 51;
-            this.dataGridViewPcInfo.RowTemplate.Height = 29;
-            this.dataGridViewPcInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPcInfo.Size = new System.Drawing.Size(802, 268);
-            this.dataGridViewPcInfo.TabIndex = 2;
+            dataGridViewPcInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewPcInfo.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewPcInfo.BackgroundColor = SystemColors.Control;
+            dataGridViewPcInfo.BorderStyle = BorderStyle.None;
+            dataGridViewPcInfo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewPcInfo.ColumnHeadersVisible = false;
+            dataGridViewPcInfo.Columns.AddRange(new DataGridViewColumn[] { name, value });
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewPcInfo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewPcInfo.Dock = DockStyle.Fill;
+            dataGridViewPcInfo.GridColor = SystemColors.ButtonFace;
+            dataGridViewPcInfo.Location = new Point(0, 20);
+            dataGridViewPcInfo.Margin = new Padding(3, 2, 3, 2);
+            dataGridViewPcInfo.Name = "dataGridViewPcInfo";
+            dataGridViewPcInfo.RowHeadersVisible = false;
+            dataGridViewPcInfo.RowHeadersWidth = 51;
+            dataGridViewPcInfo.RowTemplate.Height = 29;
+            dataGridViewPcInfo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewPcInfo.Size = new Size(702, 155);
+            dataGridViewPcInfo.TabIndex = 2;
             // 
             // name
             // 
-            this.name.HeaderText = "name";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
+            name.HeaderText = "name";
+            name.MinimumWidth = 6;
+            name.Name = "name";
             // 
             // value
             // 
-            this.value.HeaderText = "value";
-            this.value.MinimumWidth = 6;
-            this.value.Name = "value";
+            value.HeaderText = "value";
+            value.MinimumWidth = 6;
+            value.Name = "value";
             // 
             // ServisHistoryPanel
             // 
-            this.ServisHistoryPanel.Controls.Add(this.dataGridViewServisHistory);
-            this.ServisHistoryPanel.Controls.Add(label6);
-            this.ServisHistoryPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ServisHistoryPanel.Location = new System.Drawing.Point(0, 482);
-            this.ServisHistoryPanel.Name = "ServisHistoryPanel";
-            this.ServisHistoryPanel.Size = new System.Drawing.Size(802, 220);
-            this.ServisHistoryPanel.TabIndex = 2;
+            ServisHistoryPanel.Controls.Add(dataGridViewServisHistory);
+            ServisHistoryPanel.Controls.Add(label6);
+            ServisHistoryPanel.Dock = DockStyle.Top;
+            ServisHistoryPanel.Location = new Point(0, 359);
+            ServisHistoryPanel.Margin = new Padding(3, 2, 3, 2);
+            ServisHistoryPanel.Name = "ServisHistoryPanel";
+            ServisHistoryPanel.Size = new Size(702, 165);
+            ServisHistoryPanel.TabIndex = 2;
             // 
             // dataGridViewServisHistory
             // 
-            this.dataGridViewServisHistory.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewServisHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewServisHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewServisHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewServisHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DateIn,
-            this.DateOut,
-            this.Reason,
-            this.Verdict});
-            this.dataGridViewServisHistory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridViewServisHistory.Location = new System.Drawing.Point(0, 25);
-            this.dataGridViewServisHistory.Name = "dataGridViewServisHistory";
-            this.dataGridViewServisHistory.RowHeadersVisible = false;
-            this.dataGridViewServisHistory.RowHeadersWidth = 51;
-            this.dataGridViewServisHistory.RowTemplate.Height = 29;
-            this.dataGridViewServisHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewServisHistory.Size = new System.Drawing.Size(802, 188);
-            this.dataGridViewServisHistory.TabIndex = 2;
+            dataGridViewServisHistory.BackgroundColor = SystemColors.Control;
+            dataGridViewServisHistory.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewServisHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewServisHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewServisHistory.Columns.AddRange(new DataGridViewColumn[] { DateIn, DateOut, Reason, Verdict });
+            dataGridViewServisHistory.Dock = DockStyle.Top;
+            dataGridViewServisHistory.Location = new Point(0, 20);
+            dataGridViewServisHistory.Margin = new Padding(3, 2, 3, 2);
+            dataGridViewServisHistory.Name = "dataGridViewServisHistory";
+            dataGridViewServisHistory.RowHeadersVisible = false;
+            dataGridViewServisHistory.RowHeadersWidth = 51;
+            dataGridViewServisHistory.RowTemplate.Height = 29;
+            dataGridViewServisHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewServisHistory.Size = new Size(702, 141);
+            dataGridViewServisHistory.TabIndex = 2;
             // 
             // DateIn
             // 
-            this.DateIn.HeaderText = "Дата получения";
-            this.DateIn.MinimumWidth = 6;
-            this.DateIn.Name = "DateIn";
-            this.DateIn.Width = 125;
+            DateIn.HeaderText = "Дата получения";
+            DateIn.MinimumWidth = 6;
+            DateIn.Name = "DateIn";
+            DateIn.Width = 125;
             // 
             // DateOut
             // 
-            this.DateOut.HeaderText = "Дата возврата";
-            this.DateOut.MinimumWidth = 6;
-            this.DateOut.Name = "DateOut";
-            this.DateOut.Width = 125;
+            DateOut.HeaderText = "Дата возврата";
+            DateOut.MinimumWidth = 6;
+            DateOut.Name = "DateOut";
+            DateOut.Width = 125;
             // 
             // Reason
             // 
-            this.Reason.HeaderText = "Причина";
-            this.Reason.MinimumWidth = 6;
-            this.Reason.Name = "Reason";
-            this.Reason.Width = 125;
+            Reason.HeaderText = "Причина";
+            Reason.MinimumWidth = 6;
+            Reason.Name = "Reason";
+            Reason.Width = 125;
             // 
             // Verdict
             // 
-            this.Verdict.HeaderText = "Вердикт";
-            this.Verdict.MinimumWidth = 6;
-            this.Verdict.Name = "Verdict";
-            this.Verdict.Width = 125;
+            Verdict.HeaderText = "Вердикт";
+            Verdict.MinimumWidth = 6;
+            Verdict.Name = "Verdict";
+            Verdict.Width = 125;
             // 
             // ConnectedHWPanel
             // 
-            this.ConnectedHWPanel.Controls.Add(this.deleteButton);
-            this.ConnectedHWPanel.Controls.Add(this.addButton);
-            this.ConnectedHWPanel.Controls.Add(this.dataGridViewConnectedHW);
-            this.ConnectedHWPanel.Controls.Add(label7);
-            this.ConnectedHWPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ConnectedHWPanel.Location = new System.Drawing.Point(0, 702);
-            this.ConnectedHWPanel.Name = "ConnectedHWPanel";
-            this.ConnectedHWPanel.Size = new System.Drawing.Size(802, 247);
-            this.ConnectedHWPanel.TabIndex = 3;
+            ConnectedHWPanel.Controls.Add(deleteButton);
+            ConnectedHWPanel.Controls.Add(addButton);
+            ConnectedHWPanel.Controls.Add(dataGridViewConnectedHW);
+            ConnectedHWPanel.Controls.Add(label7);
+            ConnectedHWPanel.Dock = DockStyle.Top;
+            ConnectedHWPanel.Location = new Point(0, 524);
+            ConnectedHWPanel.Margin = new Padding(3, 2, 3, 2);
+            ConnectedHWPanel.Name = "ConnectedHWPanel";
+            ConnectedHWPanel.Size = new Size(702, 186);
+            ConnectedHWPanel.TabIndex = 3;
             // 
             // deleteButton
             // 
-            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
-            this.deleteButton.FlatAppearance.BorderSize = 0;
-            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.deleteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.deleteButton.Location = new System.Drawing.Point(697, 204);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(101, 40);
-            this.deleteButton.TabIndex = 5;
-            this.deleteButton.Text = "Отвязать";
-            this.deleteButton.UseVisualStyleBackColor = false;
+            deleteButton.BackColor = Color.FromArgb(0, 42, 87);
+            deleteButton.FlatAppearance.BorderSize = 0;
+            deleteButton.FlatStyle = FlatStyle.Flat;
+            deleteButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            deleteButton.ForeColor = SystemColors.ButtonFace;
+            deleteButton.Location = new Point(610, 153);
+            deleteButton.Margin = new Padding(3, 2, 3, 2);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(88, 30);
+            deleteButton.TabIndex = 5;
+            deleteButton.Text = "Отвязать";
+            deleteButton.UseVisualStyleBackColor = false;
+            deleteButton.Click += deleteButton_Click;
             // 
             // addButton
             // 
-            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
-            this.addButton.FlatAppearance.BorderSize = 0;
-            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.addButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.addButton.Location = new System.Drawing.Point(591, 204);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(101, 40);
-            this.addButton.TabIndex = 4;
-            this.addButton.Text = "Добавить";
-            this.addButton.UseVisualStyleBackColor = false;
+            addButton.BackColor = Color.FromArgb(0, 42, 87);
+            addButton.FlatAppearance.BorderSize = 0;
+            addButton.FlatStyle = FlatStyle.Flat;
+            addButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            addButton.ForeColor = SystemColors.ButtonFace;
+            addButton.Location = new Point(517, 153);
+            addButton.Margin = new Padding(3, 2, 3, 2);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(88, 30);
+            addButton.TabIndex = 4;
+            addButton.Text = "Добавить";
+            addButton.UseVisualStyleBackColor = false;
+            addButton.Click += addButton_Click;
             // 
             // dataGridViewConnectedHW
             // 
-            this.dataGridViewConnectedHW.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewConnectedHW.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewConnectedHW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewConnectedHW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewConnectedHW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Type});
-            this.dataGridViewConnectedHW.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridViewConnectedHW.Location = new System.Drawing.Point(0, 25);
-            this.dataGridViewConnectedHW.Name = "dataGridViewConnectedHW";
-            this.dataGridViewConnectedHW.RowHeadersVisible = false;
-            this.dataGridViewConnectedHW.RowHeadersWidth = 51;
-            this.dataGridViewConnectedHW.RowTemplate.Height = 29;
-            this.dataGridViewConnectedHW.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewConnectedHW.Size = new System.Drawing.Size(802, 172);
-            this.dataGridViewConnectedHW.TabIndex = 2;
+            dataGridViewConnectedHW.BackgroundColor = SystemColors.Control;
+            dataGridViewConnectedHW.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridViewConnectedHW.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewConnectedHW.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewConnectedHW.Columns.AddRange(new DataGridViewColumn[] { Id, Type });
+            dataGridViewConnectedHW.Dock = DockStyle.Top;
+            dataGridViewConnectedHW.Location = new Point(0, 20);
+            dataGridViewConnectedHW.Margin = new Padding(3, 2, 3, 2);
+            dataGridViewConnectedHW.Name = "dataGridViewConnectedHW";
+            dataGridViewConnectedHW.RowHeadersVisible = false;
+            dataGridViewConnectedHW.RowHeadersWidth = 51;
+            dataGridViewConnectedHW.RowTemplate.Height = 29;
+            dataGridViewConnectedHW.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewConnectedHW.Size = new Size(702, 129);
+            dataGridViewConnectedHW.TabIndex = 2;
             // 
             // Id
             // 
-            this.Id.HeaderText = "Номер";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.Width = 175;
+            Id.HeaderText = "Номер";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.Width = 175;
             // 
             // Type
             // 
-            this.Type.HeaderText = "Тип";
-            this.Type.MinimumWidth = 6;
-            this.Type.Name = "Type";
-            this.Type.Width = 175;
+            Type.HeaderText = "Тип";
+            Type.MinimumWidth = 6;
+            Type.Name = "Type";
+            Type.Width = 175;
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.saveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.saveButton.Location = new System.Drawing.Point(591, 952);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(207, 35);
-            this.saveButton.TabIndex = 5;
-            this.saveButton.Text = "Сохранить";
-            this.saveButton.UseVisualStyleBackColor = false;
+            saveButton.BackColor = Color.FromArgb(0, 42, 87);
+            saveButton.FlatAppearance.BorderSize = 0;
+            saveButton.FlatStyle = FlatStyle.Flat;
+            saveButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            saveButton.ForeColor = SystemColors.ButtonFace;
+            saveButton.Location = new Point(517, 714);
+            saveButton.Margin = new Padding(3, 2, 3, 2);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(181, 26);
+            saveButton.TabIndex = 5;
+            saveButton.Text = "Сохранить";
+            saveButton.UseVisualStyleBackColor = false;
+            saveButton.Click += saveButton_Click;
             // 
             // PCInformForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(802, 989);
-            this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.ConnectedHWPanel);
-            this.Controls.Add(this.ServisHistoryPanel);
-            this.Controls.Add(this.PCHardInfoPanel);
-            this.Controls.Add(this.panelCommonInfo);
-            this.Name = "PCInformForm";
-            this.Text = "PCInformForm";
-            this.panelCommonInfo.ResumeLayout(false);
-            this.panelCommonInfo.PerformLayout();
-            this.PCHardInfoPanel.ResumeLayout(false);
-            this.PCHardInfoPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPcInfo)).EndInit();
-            this.ServisHistoryPanel.ResumeLayout(false);
-            this.ServisHistoryPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewServisHistory)).EndInit();
-            this.ConnectedHWPanel.ResumeLayout(false);
-            this.ConnectedHWPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConnectedHW)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            ClientSize = new Size(702, 747);
+            Controls.Add(saveButton);
+            Controls.Add(ConnectedHWPanel);
+            Controls.Add(ServisHistoryPanel);
+            Controls.Add(PCHardInfoPanel);
+            Controls.Add(panelCommonInfo);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "PCInformForm";
+            Text = "PCInformForm";
+            panelCommonInfo.ResumeLayout(false);
+            panelCommonInfo.PerformLayout();
+            PCHardInfoPanel.ResumeLayout(false);
+            PCHardInfoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewPcInfo).EndInit();
+            ServisHistoryPanel.ResumeLayout(false);
+            ServisHistoryPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewServisHistory).EndInit();
+            ConnectedHWPanel.ResumeLayout(false);
+            ConnectedHWPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewConnectedHW).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -526,5 +566,7 @@
         private DataGridViewTextBoxColumn DateOut;
         private DataGridViewTextBoxColumn Reason;
         private DataGridViewTextBoxColumn Verdict;
+        private ComboBox StatusTextBox;
+        private Label label9;
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Numerics;
@@ -28,12 +29,23 @@ namespace InformSystem.Forms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            hardware = context.Hardwares.Select(pc => pc).Where(pc => pc.IdH == Convert.ToInt32(IdTextBox.Text)).First();
-            hardware.Parent = id;
-            if (context.SaveChanges() > 0)
+            try
             {
-                MessageBox.Show("Оборудование привязано", "Привязка",MessageBoxButtons.OK);
+                int Pc = context.Hardwares.Where(p => p.IdH == Convert.ToInt32(IdTextBox.Text)).First().TypeH;
+                if (Pc != 1)
+                {
+                    hardware = context.Hardwares.Select(pc => pc).Where(pc => pc.IdH == Convert.ToInt32(IdTextBox.Text)).First();
+                    hardware.Parent = id;
+                    if (context.SaveChanges() > 0)
+                    {
+                        MessageBox.Show("Оборудование привязано", "Привязка", MessageBoxButtons.OK);
+                    }
+                }
+                else MessageBox.Show("Вы не можете привязать системный блок", "Привязка", MessageBoxButtons.OK);
+
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            
         }
     }
 }
