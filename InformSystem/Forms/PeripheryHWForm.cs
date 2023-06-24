@@ -109,8 +109,11 @@ namespace InformSystem.Forms
                 if (place != null)
                 {
                     PlaceTextBox.Text = "Здание " + place.Building + ", " + "этаж " + place.Floor + ", " + "офис " + place.Office;
+                    building = place.Building;
+                    floor = place.Floor;
+                    office = place.Office;
                     int idD = place.DepartmentId;
-                    dataBase.DepartmentDict department = context.DepartmentDicts.Select(d => d).FirstOrDefault();
+                    dataBase.DepartmentDict department = context.DepartmentDicts.Select(d => d).Where(d => d.IdDd == place.DepartmentId).FirstOrDefault();
                     departmenTextBox.Text = department.NameD;
                 }
                 if (access != null)
@@ -207,13 +210,20 @@ namespace InformSystem.Forms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            if (saveButton.Text == "Добавить") AddHardware();
+            else SaveHardware();
+            this.Close();
+        }
+
+        bool AddHardware()
+        {
             PnppkContext context = new PnppkContext();
             //Добавление оборудования
             dataBase.Hardware h = new dataBase.Hardware
             {
                 IdH = Convert.ToInt32(IdTextBox.Text),
                 TypeH = Convert.ToInt32(HTypeTextBox.SelectedValue),
-                Status = Convert.ToInt32(StatusTextBox.Text)
+                Status = Convert.ToInt32(StatusTextBox.SelectedValue)
             };
             context.Hardwares.Add(h);
             //Добавление места и отдела оборудования
@@ -239,7 +249,7 @@ namespace InformSystem.Forms
                     Person = Convert.ToInt32(PersonTextBox.Text)
                 };
                 context.Accesses.Add(a);
-                this.Close();
+
             }
 
             //Добавление характеристик оборудования
@@ -252,7 +262,78 @@ namespace InformSystem.Forms
             };
             context.HardwareValues.Add(v);
             context.SaveChanges();
+            return true;
         }
+        bool SaveHardware()
+        {
+            PnppkContext context = new PnppkContext();
+            //Настройка пользователя
+            if (PersonTextBox.Text != "")
+            {
+                dataBase.Access a = context.Accesses.Where(a => a.HardwareA == Per.IdH && a.Person == Convert.ToInt32(PersonTextBox.Text)).FirstOrDefault();
+                if (a != null)
+                {
+                    a.Person = Convert.ToInt32(PersonTextBox.Text);
+                }
+                else
+                {
+                    a = new dataBase.Access()
+                    {
+                        HardwareA = Per.IdH,
+                        Person = Convert.ToInt32(PersonTextBox.Text)
+                    };
+                    context.Accesses.Add(a);
+                }
+            }
+            else
+            {
 
+                if (access != null)
+                {
+                    dataBase.Access remA = context.Accesses.Where(a => a.HardwareA == Per.IdH && a.Person == access.Person).FirstOrDefault();
+                    context.Accesses.Remove(remA);
+                }
+            }
+            //Настройка местоположения
+            if (PlaceTextBox.Text != "")
+            {
+                dataBase.Place p = context.Places.Where(p => p.HardwareP == Per.IdH).FirstOrDefault();
+                var dQuery = context.Database.SqlQuery<DateTime>(FormattableStringFactory.Create("SELECT CURDATE()"));
+                DateTime dbDate = dQuery.AsEnumerable().First();
+                if (p != null)
+                {
+                    p.Building = building;
+                    p.Floor = floor;
+                    p.Office = office;
+                    p.Data = dbDate;
+                    p.DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue);
+                }
+                else
+                {
+                    dataBase.Place pc = new dataBase.Place()
+                    {
+                        HardwareP = Per.IdH,
+                        Building = building,
+                        Floor = floor,
+                        Office = office,
+                        Data = dbDate,
+                        DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue)
+                    };
+                    context.Places.Add(pc);
+                }
+            }
+            else
+            {
+
+                if (place != null)
+                {
+                    dataBase.Place remP = context.Places.Where(a => a.HardwareP == Per.IdH).FirstOrDefault();
+                    context.Places.Remove(remP);
+                }
+            }
+
+            context.SaveChanges();
+            return true;
+        }
     }
 }

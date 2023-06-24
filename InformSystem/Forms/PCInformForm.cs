@@ -24,6 +24,7 @@ namespace InformSystem.Forms
         private dataBase.Place place;
         private dataBase.Access access;
         private dataBase.StatusDict status;
+        private dataBase.DepartmentDict departmen;
 
         private void LoadService()
         {
@@ -122,9 +123,11 @@ namespace InformSystem.Forms
                 place = context.Places.Select(p => p).Where(p => p.HardwareP == id).FirstOrDefault();
                 access = context.Accesses.Select(pers => pers).Where(pers => pers.HardwareA == id).FirstOrDefault();
                 status = context.StatusDicts.Select(s => s).Where(s => s.IdS == PC.Status).FirstOrDefault();
+                //departmen = context.DepartmentDicts.Select(d=>d).Where(d=>d.IdDd == )
                 IdTextBox.Text = PC.IdH.ToString();
                 HTypeTextBox.Text = "Компьютер";
                 StatusTextBox.Text = status.NameS.ToString();
+
                 if (place != null)
                 {
                     PlaceTextBox.Text = "Здание " + place.Building + ", " + "этаж " + place.Floor + ", " + "офис " + place.Office;
@@ -135,6 +138,7 @@ namespace InformSystem.Forms
                     floor = place.Floor;
                     office = place.Office;
                 }
+                else departmenTextBox.Text = "";
                 if (access != null)
                 {
                     PersonTextBox.Text = access.Person.ToString();

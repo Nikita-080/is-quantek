@@ -28,7 +28,7 @@ namespace InformSystem.Forms
         private DataTable CreateDataTable()
         {
             DataTable dT = new DataTable();
-            for(int i =0; i < databaseTable.Columns.Count; i++)
+            for (int i = 0; i < databaseTable.Columns.Count; i++)
             {
                 DataColumn dc = new DataColumn(databaseTable.Columns[i].HeaderText);
                 databaseTable.Columns[i].DataPropertyName = dc.ColumnName;
@@ -47,7 +47,7 @@ namespace InformSystem.Forms
                     var hw = from hardw in context.Hardwares
                              join person in context.Accesses on hardw.IdH equals person.HardwareA into phw
                              from p in phw.DefaultIfEmpty()
-                             join place in context.Places on p.HardwareA equals place.HardwareP into plc
+                             join place in context.Places on hardw.IdH equals place.HardwareP into plc
                              from pl in plc.DefaultIfEmpty()
                              join status in context.StatusDicts on hardw.Status equals status.IdS into st
                              from s in st.DefaultIfEmpty()
@@ -82,10 +82,10 @@ namespace InformSystem.Forms
                         dataTable.Rows.Add(dr);
                     }
                     databaseTable.DataSource = dataTable;
-                    
+
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -116,7 +116,7 @@ namespace InformSystem.Forms
                         pfrm.ShowDialog();
                         break;
                 }
-                
+                LoadData();
             }
         }
 
@@ -124,6 +124,7 @@ namespace InformSystem.Forms
         {
             PeripheryHWForm frm = new PeripheryHWForm();
             frm.ShowDialog();
+            LoadData();
         }
 
         private void filterButton_Click(object sender, EventArgs e)

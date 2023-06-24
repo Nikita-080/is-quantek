@@ -226,9 +226,9 @@
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(6, 83);
             label4.Name = "label4";
-            label4.Size = new Size(130, 20);
+            label4.Size = new Size(121, 20);
             label4.TabIndex = 6;
-            label4.Text = "Ответственный";
+            label4.Text = "Пользователь";
             // 
             // PlaceTextBox
             // 
