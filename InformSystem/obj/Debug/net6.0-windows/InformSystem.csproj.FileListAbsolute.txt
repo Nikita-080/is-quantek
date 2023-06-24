@@ -271,3 +271,4 @@ D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.ChangePer
 D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.ChangePlaceForm.resources
 D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.NewRepare.resources
 D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Main.resources
+D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.SearchForm.resources

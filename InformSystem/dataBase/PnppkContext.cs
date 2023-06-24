@@ -39,7 +39,7 @@ public partial class PnppkContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySQL("Server=26.192.232.27;Database=pnppk;User Id=root;Password=;");
+        => optionsBuilder.UseMySQL("Server=5.42.80.20;Database=pnppk;User Id=pnppkRoot;Password=pnppkRoot;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -4,6 +4,9 @@
     <Compile Update="Forms\AddPeripheryForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Main.cs">
       <SubType>Form</SubType>
     </Compile>
