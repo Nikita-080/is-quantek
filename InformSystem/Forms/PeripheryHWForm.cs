@@ -75,6 +75,7 @@ namespace InformSystem.Forms
                 departmenTextBox.ValueMember = "IdDd";
 
                 var status = from t in context.StatusDicts
+                             where t.IdS != 4
                              select t;
                 StatusTextBox.DataSource = status.ToList();
                 StatusTextBox.DisplayMember = "NameS";
@@ -103,9 +104,11 @@ namespace InformSystem.Forms
                 access = context.Accesses.Select(pers => pers).Where(pers => pers.HardwareA == id).FirstOrDefault();
                 status = context.StatusDicts.Select(s => s).Where(s => s.IdS == Per.Status).FirstOrDefault();
                 dataBase.HardwareType type = context.HardwareTypes.Select(d => d).Where(d => d.IdHt == Per.TypeH).FirstOrDefault();
+                dataBase.HardwareValue value = context.HardwareValues.Select(v => v).Where(v => v.HardwareV == Per.IdH).FirstOrDefault();
                 IdTextBox.Text = Per.IdH.ToString();
                 HTypeTextBox.Text = type.NameT;
                 StatusTextBox.Text = status.NameS.ToString();
+                if (value != null) DiagFormatTextBox.Text = value.Value.ToString();
                 if (place != null)
                 {
                     PlaceTextBox.Text = "Здание " + place.Building + ", " + "этаж " + place.Floor + ", " + "офис " + place.Office;
@@ -152,13 +155,15 @@ namespace InformSystem.Forms
         {
             InitializeComponent();
             FillComboBox();
-            IdTextBox.Enabled = true;
-            PlaceTextBox.Enabled = true;
-            PersonTextBox.Enabled = true;
-            departmenTextBox.Enabled = true;
-            StatusTextBox.Enabled = true;
             LoadInfo(id);
             LoadService(id);
+            bool repair = status.IdS != 4;
+            IdTextBox.Enabled = repair;
+            PlaceTextBox.Enabled = repair;
+            PersonTextBox.Enabled = repair;
+            departmenTextBox.Enabled = repair;
+            StatusTextBox.Enabled = repair;
+            editPlaceButton.Enabled = repair;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

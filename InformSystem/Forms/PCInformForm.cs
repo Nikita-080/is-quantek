@@ -106,6 +106,7 @@ namespace InformSystem.Forms
                 departmenTextBox.ValueMember = "IdDd";
 
                 var status = from t in context.StatusDicts
+                             where t.IdS != 4
                              select t;
                 StatusTextBox.DataSource = status.ToList();
                 StatusTextBox.DisplayMember = "NameS";
@@ -156,22 +157,23 @@ namespace InformSystem.Forms
         public PCInformForm(int idPC)
         {
             InitializeComponent();
-            ActiveElementsChange();
             FillComboBox();
             LoadPCInfo(idPC);
             LoadConnectedHW();
             LoadService();
             ConfigLoad(idPC);
-
+            ActiveElementsChange();
 
         }
         private void ActiveElementsChange()
         {
+            bool repair = status.IdS != 4;
             HTypeTextBox.Enabled = false;
-            PlaceTextBox.Enabled = true;
-            PersonTextBox.Enabled = true;
-            departmenTextBox.Enabled = true;
-            StatusTextBox.Enabled = true;
+            PlaceTextBox.Enabled = repair;
+            PersonTextBox.Enabled = repair;
+            departmenTextBox.Enabled = repair;
+            StatusTextBox.Enabled = repair;
+            editPlaceButton.Enabled = repair;
         }
         private void ConfigLoad(int id)
         {
