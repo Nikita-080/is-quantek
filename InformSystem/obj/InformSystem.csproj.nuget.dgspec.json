@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rush_IT\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj": {}
+    "D:\\is-quantek\\InformSystem\\InformSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rush_IT\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj": {
+    "D:\\is-quantek\\InformSystem\\InformSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rush_IT\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj",
+        "projectUniqueName": "D:\\is-quantek\\InformSystem\\InformSystem.csproj",
         "projectName": "InformSystem",
-        "projectPath": "C:\\Users\\Rush_IT\\Source\\Repos\\is-quantek\\InformSystem\\InformSystem.csproj",
-        "packagesPath": "C:\\Users\\Rush_IT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rush_IT\\Source\\Repos\\is-quantek\\InformSystem\\obj\\",
+        "projectPath": "D:\\is-quantek\\InformSystem\\InformSystem.csproj",
+        "packagesPath": "C:\\Users\\ainaz\\.nuget\\packages\\",
+        "outputPath": "D:\\is-quantek\\InformSystem\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Rush_IT\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ainaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -74,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

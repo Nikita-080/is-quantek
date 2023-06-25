@@ -116,6 +116,7 @@ namespace InformSystem.Forms
                     dataBase.DepartmentDict department = context.DepartmentDicts.Select(d => d).Where(d => d.IdDd == place.DepartmentId).FirstOrDefault();
                     departmenTextBox.Text = department.NameD;
                 }
+                else departmenTextBox.SelectedIndex = -1;
                 if (access != null)
                 {
                     PersonTextBox.Text = access.Person.ToString();
@@ -186,13 +187,6 @@ namespace InformSystem.Forms
                     DiagAndFormatLabel.Text = "Диагональ";
                     break;
             }
-        }
-
-
-        private void editPersonButton_Click(object sender, EventArgs e)
-        {
-            //ChangePersonForm person = new ChangePersonForm();
-            //person.ShowDialog();
         }
 
         private void editPlaceButton_Click(object sender, EventArgs e)

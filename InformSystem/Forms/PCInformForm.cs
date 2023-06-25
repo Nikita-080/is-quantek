@@ -138,7 +138,7 @@ namespace InformSystem.Forms
                     floor = place.Floor;
                     office = place.Office;
                 }
-                else departmenTextBox.Text = "";
+                else departmenTextBox.SelectedIndex = -1;
                 if (access != null)
                 {
                     PersonTextBox.Text = access.Person.ToString();
@@ -244,12 +244,6 @@ namespace InformSystem.Forms
                 office = Convert.ToInt32(placeC.Office);
                 PlaceTextBox.Text = "Здание " + placeC.Building + ", " + "этаж " + placeC.Floor + ", " + "офис " + placeC.Office;
             }
-        }
-
-        private void editPersonButton_Click(object sender, EventArgs e)
-        {
-            //ChangePersonForm person = new ChangePersonForm();
-            //person.ShowDialog();
         }
 
 
