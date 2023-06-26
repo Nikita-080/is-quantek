@@ -44,7 +44,7 @@
             // 
             this.textBox_path.BackColor = System.Drawing.SystemColors.ControlLight;
             this.textBox_path.Location = new System.Drawing.Point(2, 35);
-            this.textBox_path.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_path.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_path.Name = "textBox_path";
             this.textBox_path.Size = new System.Drawing.Size(346, 27);
             this.textBox_path.TabIndex = 0;
@@ -64,12 +64,13 @@
             // 
             this.button_path.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button_path.Location = new System.Drawing.Point(357, 35);
-            this.button_path.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_path.Margin = new System.Windows.Forms.Padding(2);
             this.button_path.Name = "button_path";
             this.button_path.Size = new System.Drawing.Size(90, 27);
             this.button_path.TabIndex = 2;
             this.button_path.Text = "...";
             this.button_path.UseVisualStyleBackColor = false;
+            this.button_path.Click += new System.EventHandler(this.ChoseFolder);
             // 
             // button_ok
             // 
@@ -79,12 +80,13 @@
             this.button_ok.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button_ok.ForeColor = System.Drawing.Color.White;
             this.button_ok.Location = new System.Drawing.Point(451, 35);
-            this.button_ok.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_ok.Margin = new System.Windows.Forms.Padding(2);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(90, 27);
             this.button_ok.TabIndex = 3;
             this.button_ok.Text = "Найти";
             this.button_ok.UseVisualStyleBackColor = false;
+            this.button_ok.Click += new System.EventHandler(this.OK);
             // 
             // button_cancel
             // 
@@ -94,19 +96,20 @@
             this.button_cancel.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button_cancel.ForeColor = System.Drawing.Color.White;
             this.button_cancel.Location = new System.Drawing.Point(545, 35);
-            this.button_cancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_cancel.Margin = new System.Windows.Forms.Padding(2);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(90, 27);
             this.button_cancel.TabIndex = 4;
             this.button_cancel.Text = "Отмена";
             this.button_cancel.UseVisualStyleBackColor = false;
+            this.button_cancel.Click += new System.EventHandler(this.CANCEL);
             // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(1044, 241);
             this.richTextBox1.TabIndex = 5;
@@ -143,9 +146,9 @@
             this.ClientSize = new System.Drawing.Size(1044, 476);
             this.Controls.Add(this.textPanel);
             this.Controls.Add(this.toolsPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UpdateDataWindow";
-            this.Text = "UpdateDataWindow";
+            this.Text = "Обновление данных о ПК";
             this.toolsPanel.ResumeLayout(false);
             this.toolsPanel.PerformLayout();
             this.textPanel.ResumeLayout(false);

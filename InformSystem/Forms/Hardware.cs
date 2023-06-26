@@ -141,30 +141,37 @@ namespace InformSystem.Forms
 
         private void FillFilterPanel()
         {
-            using (PnppkContext context = new PnppkContext())
+            try
             {
-                var depart = from t in context.DepartmentDicts
-                             where t.NameD != "склад"
-                             select t;
-                departmenTextBox.DataSource = depart.ToList();
-                departmenTextBox.DisplayMember = "NameD";
-                departmenTextBox.ValueMember = "IdDd";
-                departmenTextBox.SelectedIndex = -1;
+                using (PnppkContext context = new PnppkContext())
+                {
+                    var depart = from t in context.DepartmentDicts
+                                 where t.NameD != "склад"
+                                 select t;
+                    departmenTextBox.DataSource = depart.ToList();
+                    departmenTextBox.DisplayMember = "NameD";
+                    departmenTextBox.ValueMember = "IdDd";
+                    departmenTextBox.SelectedIndex = -1;
 
-                var type = from t in context.HardwareTypes
-                           select t;
-                HTypeTextBox.DataSource = type.ToList();
-                HTypeTextBox.DisplayMember = "NameT";
-                HTypeTextBox.ValueMember = "IdHt";
-                HTypeTextBox.SelectedIndex = -1;
+                    var type = from t in context.HardwareTypes
+                               select t;
+                    HTypeTextBox.DataSource = type.ToList();
+                    HTypeTextBox.DisplayMember = "NameT";
+                    HTypeTextBox.ValueMember = "IdHt";
+                    HTypeTextBox.SelectedIndex = -1;
 
-                var stat = from t in context.StatusDicts
-                           select t;
-                HardStatusComboBox.DataSource = stat.ToList();
-                HardStatusComboBox.DisplayMember = "NameS";
-                HardStatusComboBox.ValueMember = "IdS";
-                HardStatusComboBox.SelectedIndex = -1;
+                    var stat = from t in context.StatusDicts
+                               select t;
+                    HardStatusComboBox.DataSource = stat.ToList();
+                    HardStatusComboBox.DisplayMember = "NameS";
+                    HardStatusComboBox.ValueMember = "IdS";
+                    HardStatusComboBox.SelectedIndex = -1;
 
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
 

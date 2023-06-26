@@ -97,20 +97,27 @@ namespace InformSystem.Forms
 
         private void FillComboBox()
         {
-            using (PnppkContext context = new PnppkContext())
+            try
             {
-                var depart = from t in context.DepartmentDicts
-                             select t;
-                departmenTextBox.DataSource = depart.ToList();
-                departmenTextBox.DisplayMember = "NameD";
-                departmenTextBox.ValueMember = "IdDd";
+                using (PnppkContext context = new PnppkContext())
+                {
+                    var depart = from t in context.DepartmentDicts
+                                 select t;
+                    departmenTextBox.DataSource = depart.ToList();
+                    departmenTextBox.DisplayMember = "NameD";
+                    departmenTextBox.ValueMember = "IdDd";
 
-                var status = from t in context.StatusDicts
-                             where t.IdS != 4
-                             select t;
-                StatusTextBox.DataSource = status.ToList();
-                StatusTextBox.DisplayMember = "NameS";
-                StatusTextBox.ValueMember = "IdS";
+                    var status = from t in context.StatusDicts
+                                 where t.IdS != 4
+                                 select t;
+                    StatusTextBox.DataSource = status.ToList();
+                    StatusTextBox.DisplayMember = "NameS";
+                    StatusTextBox.ValueMember = "IdS";
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -237,97 +244,118 @@ namespace InformSystem.Forms
 
         private void editPlaceButton_Click(object sender, EventArgs e)
         {
-            ChangePlaceForm placeC = new ChangePlaceForm(place);
-            placeC.ShowDialog();
-            if (placeC.Save) //if click save button
+            try
             {
-                building = Convert.ToInt32(placeC.Building);
-                floor = Convert.ToInt32(placeC.Floor);
-                office = Convert.ToInt32(placeC.Office);
-                PlaceTextBox.Text = "Здание " + placeC.Building + ", " + "этаж " + placeC.Floor + ", " + "офис " + placeC.Office;
+                ChangePlaceForm placeC = new ChangePlaceForm(place);
+                placeC.ShowDialog();
+                if (placeC.Save) //if click save button
+                {
+                    building = Convert.ToInt32(placeC.Building);
+                    floor = Convert.ToInt32(placeC.Floor);
+                    office = Convert.ToInt32(placeC.Office);
+                    PlaceTextBox.Text = "Здание " + placeC.Building + ", " + "этаж " + placeC.Floor + ", " + "офис " + placeC.Office;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            //TODO Сохранение данных системного блока оборудования
-            PnppkContext context = new PnppkContext();
-
-            if (PersonTextBox.Text != "")
+            try
             {
-                dataBase.Access a = context.Accesses.Where(a => a.HardwareA == id_PC && a.Person == Convert.ToInt32(PersonTextBox.Text)).FirstOrDefault();
-                if (a != null)
+                //TODO Сохранение данных системного блока оборудования
+                PnppkContext context = new PnppkContext();
+
+                if (PersonTextBox.Text != "")
                 {
-                    a.Person = Convert.ToInt32(PersonTextBox.Text);
+                    dataBase.Access a = context.Accesses.Where(a => a.HardwareA == id_PC && a.Person == Convert.ToInt32(PersonTextBox.Text)).FirstOrDefault();
+                    if (a != null)
+                    {
+                        a.Person = Convert.ToInt32(PersonTextBox.Text);
+                    }
+                    else
+                    {
+                        a = new dataBase.Access()
+                        {
+                            HardwareA = id_PC,
+                            Person = Convert.ToInt32(PersonTextBox.Text)
+                        };
+                        context.Accesses.Add(a);
+                    }
                 }
                 else
                 {
-                    a = new dataBase.Access()
-                    {
-                        HardwareA = id_PC,
-                        Person = Convert.ToInt32(PersonTextBox.Text)
-                    };
-                    context.Accesses.Add(a);
-                }
-            }
-            else
-            {
 
-                if (access != null)
-                {
-                    dataBase.Access remA = context.Accesses.Where(a => a.HardwareA == id_PC && a.Person == access.Person).FirstOrDefault();
-                    context.Accesses.Remove(remA);
+                    if (access != null)
+                    {
+                        dataBase.Access remA = context.Accesses.Where(a => a.HardwareA == id_PC && a.Person == access.Person).FirstOrDefault();
+                        context.Accesses.Remove(remA);
+                    }
                 }
-            }
-            if (PlaceTextBox.Text != "")
-            {
-                dataBase.Place p = context.Places.Where(p => p.HardwareP == id_PC).FirstOrDefault();
-                var dQuery = context.Database.SqlQuery<DateTime>(FormattableStringFactory.Create("SELECT CURDATE()"));
-                DateTime dbDate = dQuery.AsEnumerable().First();
-                if (p != null)
+                if (PlaceTextBox.Text != "")
                 {
-                    p.Building = building;
-                    p.Floor = floor;
-                    p.Office = office;
-                    p.Data = dbDate;
-                    p.DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue);
+                    dataBase.Place p = context.Places.Where(p => p.HardwareP == id_PC).FirstOrDefault();
+                    var dQuery = context.Database.SqlQuery<DateTime>(FormattableStringFactory.Create("SELECT CURDATE()"));
+                    DateTime dbDate = dQuery.AsEnumerable().First();
+                    if (p != null)
+                    {
+                        p.Building = building;
+                        p.Floor = floor;
+                        p.Office = office;
+                        p.Data = dbDate;
+                        p.DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue);
+                    }
+                    else
+                    {
+                        dataBase.Place pc = new dataBase.Place()
+                        {
+                            HardwareP = id_PC,
+                            Building = building,
+                            Floor = floor,
+                            Office = office,
+                            Data = dbDate,
+                            DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue)
+                        };
+                        context.Places.Add(pc);
+                    }
                 }
                 else
                 {
-                    dataBase.Place pc = new dataBase.Place()
+
+                    if (place != null)
                     {
-                        HardwareP = id_PC,
-                        Building = building,
-                        Floor = floor,
-                        Office = office,
-                        Data = dbDate,
-                        DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue)
-                    };
-                    context.Places.Add(pc);
+                        dataBase.Place remP = context.Places.Where(a => a.HardwareP == id_PC).FirstOrDefault();
+                        context.Places.Remove(remP);
+                    }
                 }
+
+                context.SaveChanges();
+                this.Close();
             }
-            else
+            catch(Exception ex)
             {
-
-                if (place != null)
-                {
-                    dataBase.Place remP = context.Places.Where(a => a.HardwareP == id_PC).FirstOrDefault();
-                    context.Places.Remove(remP);
-                }
+                MessageBox.Show(ex.Message);
             }
-
-            context.SaveChanges();
-            this.Close();
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            AddPeripheryForm periphery = new AddPeripheryForm(PC.IdH);
-            if (periphery.ShowDialog() == DialogResult.Cancel)
+            try
             {
-                LoadConnectedHW();
-                this.Refresh();
+                AddPeripheryForm periphery = new AddPeripheryForm(PC.IdH);
+                if (periphery.ShowDialog() == DialogResult.Cancel)
+                {
+                    LoadConnectedHW();
+                    this.Refresh();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
         }

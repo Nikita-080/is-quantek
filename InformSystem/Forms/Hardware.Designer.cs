@@ -28,350 +28,345 @@
         /// </summary>
         private void InitializeComponent()
         {
-            toolsPanel = new Panel();
-            refreshButton = new Button();
-            SearchButton = new Button();
-            filterButton = new Button();
-            addButton = new Button();
-            tablePanel = new Panel();
-            databaseTable = new DataGridView();
-            Id = new DataGridViewTextBoxColumn();
-            Type = new DataGridViewTextBoxColumn();
-            Person = new DataGridViewTextBoxColumn();
-            Department = new DataGridViewTextBoxColumn();
-            Building = new DataGridViewTextBoxColumn();
-            Floor = new DataGridViewTextBoxColumn();
-            Office = new DataGridViewTextBoxColumn();
-            isWork = new DataGridViewTextBoxColumn();
-            typeID = new DataGridViewTextBoxColumn();
-            filterPanel = new Panel();
-            clearButton = new Button();
-            acceptFiltButton = new Button();
-            HardStatusComboBox = new ComboBox();
-            label1 = new Label();
-            HTypeTextBox = new ComboBox();
-            departmenTextBox = new ComboBox();
-            label8 = new Label();
-            label2 = new Label();
-            toolsPanel.SuspendLayout();
-            tablePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)databaseTable).BeginInit();
-            filterPanel.SuspendLayout();
-            SuspendLayout();
+            this.toolsPanel = new System.Windows.Forms.Panel();
+            this.refreshButton = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.filterButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
+            this.tablePanel = new System.Windows.Forms.Panel();
+            this.databaseTable = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Person = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Building = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Floor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Office = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filterPanel = new System.Windows.Forms.Panel();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.acceptFiltButton = new System.Windows.Forms.Button();
+            this.HardStatusComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.HTypeTextBox = new System.Windows.Forms.ComboBox();
+            this.departmenTextBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.toolsPanel.SuspendLayout();
+            this.tablePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseTable)).BeginInit();
+            this.filterPanel.SuspendLayout();
+            this.SuspendLayout();
             // 
             // toolsPanel
             // 
-            toolsPanel.Controls.Add(refreshButton);
-            toolsPanel.Controls.Add(SearchButton);
-            toolsPanel.Controls.Add(filterButton);
-            toolsPanel.Controls.Add(addButton);
-            toolsPanel.Dock = DockStyle.Top;
-            toolsPanel.Location = new Point(0, 0);
-            toolsPanel.Margin = new Padding(3, 2, 3, 2);
-            toolsPanel.Name = "toolsPanel";
-            toolsPanel.Size = new Size(1004, 44);
-            toolsPanel.TabIndex = 0;
+            this.toolsPanel.Controls.Add(this.refreshButton);
+            this.toolsPanel.Controls.Add(this.SearchButton);
+            this.toolsPanel.Controls.Add(this.filterButton);
+            this.toolsPanel.Controls.Add(this.addButton);
+            this.toolsPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.toolsPanel.Location = new System.Drawing.Point(0, 0);
+            this.toolsPanel.Name = "toolsPanel";
+            this.toolsPanel.Size = new System.Drawing.Size(1147, 59);
+            this.toolsPanel.TabIndex = 0;
             // 
             // refreshButton
             // 
-            refreshButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            refreshButton.BackColor = Color.FromArgb(0, 42, 87);
-            refreshButton.FlatAppearance.BorderSize = 0;
-            refreshButton.FlatStyle = FlatStyle.Flat;
-            refreshButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            refreshButton.ForeColor = SystemColors.ButtonFace;
-            refreshButton.Location = new Point(737, 9);
-            refreshButton.Margin = new Padding(3, 2, 3, 2);
-            refreshButton.Name = "refreshButton";
-            refreshButton.Size = new Size(141, 26);
-            refreshButton.TabIndex = 3;
-            refreshButton.Text = "Обновить";
-            refreshButton.UseVisualStyleBackColor = false;
-            refreshButton.Click += refreshButton_Click;
+            this.refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
+            this.refreshButton.FlatAppearance.BorderSize = 0;
+            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.refreshButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.refreshButton.Location = new System.Drawing.Point(842, 12);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(161, 35);
+            this.refreshButton.TabIndex = 3;
+            this.refreshButton.Text = "Обновить";
+            this.refreshButton.UseVisualStyleBackColor = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // SearchButton
             // 
-            SearchButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            SearchButton.BackColor = Color.FromArgb(0, 42, 87);
-            SearchButton.FlatAppearance.BorderSize = 0;
-            SearchButton.FlatStyle = FlatStyle.Flat;
-            SearchButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            SearchButton.ForeColor = SystemColors.ButtonFace;
-            SearchButton.Image = Properties.Resources.search;
-            SearchButton.ImageAlign = ContentAlignment.MiddleRight;
-            SearchButton.Location = new Point(883, 9);
-            SearchButton.Margin = new Padding(3, 2, 3, 2);
-            SearchButton.Name = "SearchButton";
-            SearchButton.Size = new Size(118, 26);
-            SearchButton.TabIndex = 2;
-            SearchButton.Text = "Найти";
-            SearchButton.UseVisualStyleBackColor = false;
-            SearchButton.Click += SearchButton_Click;
+            this.SearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
+            this.SearchButton.FlatAppearance.BorderSize = 0;
+            this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SearchButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.SearchButton.Image = global::InformSystem.Properties.Resources.search;
+            this.SearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SearchButton.Location = new System.Drawing.Point(1009, 12);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(135, 35);
+            this.SearchButton.TabIndex = 2;
+            this.SearchButton.Text = "Найти";
+            this.SearchButton.UseVisualStyleBackColor = false;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // filterButton
             // 
-            filterButton.BackColor = Color.FromArgb(0, 42, 87);
-            filterButton.FlatAppearance.BorderSize = 0;
-            filterButton.FlatStyle = FlatStyle.Flat;
-            filterButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            filterButton.ForeColor = SystemColors.ButtonFace;
-            filterButton.Location = new Point(103, 9);
-            filterButton.Margin = new Padding(3, 2, 3, 2);
-            filterButton.Name = "filterButton";
-            filterButton.Size = new Size(141, 26);
-            filterButton.TabIndex = 1;
-            filterButton.Text = "Фильтры";
-            filterButton.UseVisualStyleBackColor = false;
-            filterButton.Click += filterButton_Click;
+            this.filterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
+            this.filterButton.FlatAppearance.BorderSize = 0;
+            this.filterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.filterButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.filterButton.Location = new System.Drawing.Point(118, 12);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(161, 35);
+            this.filterButton.TabIndex = 1;
+            this.filterButton.Text = "Фильтры";
+            this.filterButton.UseVisualStyleBackColor = false;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
             // 
             // addButton
             // 
-            addButton.BackColor = Color.FromArgb(0, 42, 87);
-            addButton.FlatAppearance.BorderSize = 0;
-            addButton.FlatStyle = FlatStyle.Flat;
-            addButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            addButton.ForeColor = SystemColors.ButtonFace;
-            addButton.Location = new Point(10, 9);
-            addButton.Margin = new Padding(3, 2, 3, 2);
-            addButton.Name = "addButton";
-            addButton.Size = new Size(88, 26);
-            addButton.TabIndex = 0;
-            addButton.Text = "Добавить";
-            addButton.UseVisualStyleBackColor = false;
-            addButton.Click += addButton_Click;
+            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
+            this.addButton.FlatAppearance.BorderSize = 0;
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.addButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.addButton.Location = new System.Drawing.Point(11, 12);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(101, 35);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Добавить";
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // tablePanel
             // 
-            tablePanel.Controls.Add(databaseTable);
-            tablePanel.Dock = DockStyle.Fill;
-            tablePanel.Location = new Point(0, 121);
-            tablePanel.Margin = new Padding(3, 2, 3, 2);
-            tablePanel.Name = "tablePanel";
-            tablePanel.Size = new Size(1004, 239);
-            tablePanel.TabIndex = 1;
+            this.tablePanel.Controls.Add(this.databaseTable);
+            this.tablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablePanel.Location = new System.Drawing.Point(0, 162);
+            this.tablePanel.Name = "tablePanel";
+            this.tablePanel.Size = new System.Drawing.Size(1147, 318);
+            this.tablePanel.TabIndex = 1;
             // 
             // databaseTable
             // 
-            databaseTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            databaseTable.BackgroundColor = SystemColors.ControlLight;
-            databaseTable.BorderStyle = BorderStyle.None;
-            databaseTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            databaseTable.Columns.AddRange(new DataGridViewColumn[] { Id, Type, Person, Department, Building, Floor, Office, isWork, typeID });
-            databaseTable.Dock = DockStyle.Fill;
-            databaseTable.Location = new Point(0, 0);
-            databaseTable.Margin = new Padding(3, 2, 3, 2);
-            databaseTable.Name = "databaseTable";
-            databaseTable.ReadOnly = true;
-            databaseTable.RowHeadersVisible = false;
-            databaseTable.RowHeadersWidth = 51;
-            databaseTable.RowTemplate.Height = 29;
-            databaseTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            databaseTable.Size = new Size(1004, 239);
-            databaseTable.TabIndex = 0;
-            databaseTable.CellDoubleClick += databaseTable_CellDoubleClick;
+            this.databaseTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.databaseTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.databaseTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.databaseTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.databaseTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Type,
+            this.Person,
+            this.Department,
+            this.Building,
+            this.Floor,
+            this.Office,
+            this.isWork,
+            this.typeID});
+            this.databaseTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.databaseTable.Location = new System.Drawing.Point(0, 0);
+            this.databaseTable.Name = "databaseTable";
+            this.databaseTable.ReadOnly = true;
+            this.databaseTable.RowHeadersVisible = false;
+            this.databaseTable.RowHeadersWidth = 51;
+            this.databaseTable.RowTemplate.Height = 29;
+            this.databaseTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.databaseTable.Size = new System.Drawing.Size(1147, 318);
+            this.databaseTable.TabIndex = 0;
             // 
             // Id
             // 
-            Id.HeaderText = "Номер";
-            Id.MinimumWidth = 6;
-            Id.Name = "Id";
-            Id.ReadOnly = true;
+            this.Id.HeaderText = "Номер";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // Type
             // 
-            Type.HeaderText = "Тип";
-            Type.MinimumWidth = 6;
-            Type.Name = "Type";
-            Type.ReadOnly = true;
+            this.Type.HeaderText = "Тип";
+            this.Type.MinimumWidth = 6;
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
             // 
             // Person
             // 
-            Person.HeaderText = "Пользователь";
-            Person.MinimumWidth = 6;
-            Person.Name = "Person";
-            Person.ReadOnly = true;
+            this.Person.HeaderText = "Пользователь";
+            this.Person.MinimumWidth = 6;
+            this.Person.Name = "Person";
+            this.Person.ReadOnly = true;
             // 
             // Department
             // 
-            Department.HeaderText = "Отдел";
-            Department.MinimumWidth = 6;
-            Department.Name = "Department";
-            Department.ReadOnly = true;
+            this.Department.HeaderText = "Отдел";
+            this.Department.MinimumWidth = 6;
+            this.Department.Name = "Department";
+            this.Department.ReadOnly = true;
             // 
             // Building
             // 
-            Building.HeaderText = "Здание";
-            Building.MinimumWidth = 6;
-            Building.Name = "Building";
-            Building.ReadOnly = true;
+            this.Building.HeaderText = "Здание";
+            this.Building.MinimumWidth = 6;
+            this.Building.Name = "Building";
+            this.Building.ReadOnly = true;
             // 
             // Floor
             // 
-            Floor.HeaderText = "Этаж";
-            Floor.MinimumWidth = 6;
-            Floor.Name = "Floor";
-            Floor.ReadOnly = true;
+            this.Floor.HeaderText = "Этаж";
+            this.Floor.MinimumWidth = 6;
+            this.Floor.Name = "Floor";
+            this.Floor.ReadOnly = true;
             // 
             // Office
             // 
-            Office.HeaderText = "Офис";
-            Office.MinimumWidth = 6;
-            Office.Name = "Office";
-            Office.ReadOnly = true;
+            this.Office.HeaderText = "Офис";
+            this.Office.MinimumWidth = 6;
+            this.Office.Name = "Office";
+            this.Office.ReadOnly = true;
             // 
             // isWork
             // 
-            isWork.HeaderText = "Состояние";
-            isWork.MinimumWidth = 6;
-            isWork.Name = "isWork";
-            isWork.ReadOnly = true;
+            this.isWork.HeaderText = "Состояние";
+            this.isWork.MinimumWidth = 6;
+            this.isWork.Name = "isWork";
+            this.isWork.ReadOnly = true;
             // 
             // typeID
             // 
-            typeID.HeaderText = "typeID";
-            typeID.MinimumWidth = 6;
-            typeID.Name = "typeID";
-            typeID.ReadOnly = true;
-            typeID.Visible = false;
+            this.typeID.HeaderText = "typeID";
+            this.typeID.MinimumWidth = 6;
+            this.typeID.Name = "typeID";
+            this.typeID.ReadOnly = true;
+            this.typeID.Visible = false;
             // 
             // filterPanel
             // 
-            filterPanel.Controls.Add(clearButton);
-            filterPanel.Controls.Add(acceptFiltButton);
-            filterPanel.Controls.Add(HardStatusComboBox);
-            filterPanel.Controls.Add(label1);
-            filterPanel.Controls.Add(HTypeTextBox);
-            filterPanel.Controls.Add(departmenTextBox);
-            filterPanel.Controls.Add(label8);
-            filterPanel.Controls.Add(label2);
-            filterPanel.Dock = DockStyle.Top;
-            filterPanel.Location = new Point(0, 44);
-            filterPanel.Margin = new Padding(3, 2, 3, 2);
-            filterPanel.Name = "filterPanel";
-            filterPanel.Size = new Size(1004, 77);
-            filterPanel.TabIndex = 2;
-            filterPanel.Visible = false;
+            this.filterPanel.Controls.Add(this.clearButton);
+            this.filterPanel.Controls.Add(this.acceptFiltButton);
+            this.filterPanel.Controls.Add(this.HardStatusComboBox);
+            this.filterPanel.Controls.Add(this.label1);
+            this.filterPanel.Controls.Add(this.HTypeTextBox);
+            this.filterPanel.Controls.Add(this.departmenTextBox);
+            this.filterPanel.Controls.Add(this.label8);
+            this.filterPanel.Controls.Add(this.label2);
+            this.filterPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filterPanel.Location = new System.Drawing.Point(0, 59);
+            this.filterPanel.Name = "filterPanel";
+            this.filterPanel.Size = new System.Drawing.Size(1147, 103);
+            this.filterPanel.TabIndex = 2;
+            this.filterPanel.Visible = false;
             // 
             // clearButton
             // 
-            clearButton.Anchor = AnchorStyles.Right;
-            clearButton.BackColor = Color.FromArgb(0, 42, 87);
-            clearButton.FlatAppearance.BorderSize = 0;
-            clearButton.FlatStyle = FlatStyle.Flat;
-            clearButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            clearButton.ForeColor = SystemColors.ButtonFace;
-            clearButton.Location = new Point(852, 37);
-            clearButton.Margin = new Padding(3, 2, 3, 2);
-            clearButton.Name = "clearButton";
-            clearButton.Size = new Size(141, 26);
-            clearButton.TabIndex = 29;
-            clearButton.Text = "Сбросить";
-            clearButton.UseVisualStyleBackColor = false;
-            clearButton.Click += clearButton_Click;
+            this.clearButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.clearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
+            this.clearButton.FlatAppearance.BorderSize = 0;
+            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.clearButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.clearButton.Location = new System.Drawing.Point(974, 49);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(161, 35);
+            this.clearButton.TabIndex = 29;
+            this.clearButton.Text = "Сбросить";
+            this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // acceptFiltButton
             // 
-            acceptFiltButton.Anchor = AnchorStyles.Right;
-            acceptFiltButton.BackColor = Color.FromArgb(0, 42, 87);
-            acceptFiltButton.FlatAppearance.BorderSize = 0;
-            acceptFiltButton.FlatStyle = FlatStyle.Flat;
-            acceptFiltButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            acceptFiltButton.ForeColor = SystemColors.ButtonFace;
-            acceptFiltButton.Location = new Point(852, 3);
-            acceptFiltButton.Margin = new Padding(3, 2, 3, 2);
-            acceptFiltButton.Name = "acceptFiltButton";
-            acceptFiltButton.Size = new Size(141, 26);
-            acceptFiltButton.TabIndex = 28;
-            acceptFiltButton.Text = "Применить";
-            acceptFiltButton.UseVisualStyleBackColor = false;
-            acceptFiltButton.Click += acceptFiltButton_Click;
+            this.acceptFiltButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.acceptFiltButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
+            this.acceptFiltButton.FlatAppearance.BorderSize = 0;
+            this.acceptFiltButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.acceptFiltButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.acceptFiltButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.acceptFiltButton.Location = new System.Drawing.Point(974, 4);
+            this.acceptFiltButton.Name = "acceptFiltButton";
+            this.acceptFiltButton.Size = new System.Drawing.Size(161, 35);
+            this.acceptFiltButton.TabIndex = 28;
+            this.acceptFiltButton.Text = "Применить";
+            this.acceptFiltButton.UseVisualStyleBackColor = false;
+            this.acceptFiltButton.Click += new System.EventHandler(this.acceptFiltButton_Click);
             // 
             // HardStatusComboBox
             // 
-            HardStatusComboBox.Anchor = AnchorStyles.Left;
-            HardStatusComboBox.FlatStyle = FlatStyle.Flat;
-            HardStatusComboBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            HardStatusComboBox.FormattingEnabled = true;
-            HardStatusComboBox.Location = new Point(452, 6);
-            HardStatusComboBox.Margin = new Padding(3, 2, 3, 2);
-            HardStatusComboBox.Name = "HardStatusComboBox";
-            HardStatusComboBox.Size = new Size(252, 28);
-            HardStatusComboBox.TabIndex = 27;
+            this.HardStatusComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.HardStatusComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HardStatusComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.HardStatusComboBox.FormattingEnabled = true;
+            this.HardStatusComboBox.Location = new System.Drawing.Point(517, 8);
+            this.HardStatusComboBox.Name = "HardStatusComboBox";
+            this.HardStatusComboBox.Size = new System.Drawing.Size(287, 33);
+            this.HardStatusComboBox.TabIndex = 27;
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Left;
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(347, 8);
-            label1.Name = "label1";
-            label1.Size = new Size(91, 20);
-            label1.TabIndex = 26;
-            label1.Text = "Состояние";
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(397, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 25);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Состояние";
             // 
             // HTypeTextBox
             // 
-            HTypeTextBox.Anchor = AnchorStyles.Left;
-            HTypeTextBox.FlatStyle = FlatStyle.Flat;
-            HTypeTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            HTypeTextBox.FormattingEnabled = true;
-            HTypeTextBox.Location = new Point(80, 6);
-            HTypeTextBox.Margin = new Padding(3, 2, 3, 2);
-            HTypeTextBox.Name = "HTypeTextBox";
-            HTypeTextBox.Size = new Size(252, 28);
-            HTypeTextBox.TabIndex = 25;
+            this.HTypeTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.HTypeTextBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HTypeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.HTypeTextBox.FormattingEnabled = true;
+            this.HTypeTextBox.Location = new System.Drawing.Point(91, 8);
+            this.HTypeTextBox.Name = "HTypeTextBox";
+            this.HTypeTextBox.Size = new System.Drawing.Size(287, 33);
+            this.HTypeTextBox.TabIndex = 25;
             // 
             // departmenTextBox
             // 
-            departmenTextBox.Anchor = AnchorStyles.Left;
-            departmenTextBox.FlatStyle = FlatStyle.Flat;
-            departmenTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            departmenTextBox.FormattingEnabled = true;
-            departmenTextBox.Location = new Point(80, 34);
-            departmenTextBox.Margin = new Padding(3, 2, 3, 2);
-            departmenTextBox.Name = "departmenTextBox";
-            departmenTextBox.Size = new Size(252, 28);
-            departmenTextBox.TabIndex = 24;
+            this.departmenTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.departmenTextBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.departmenTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.departmenTextBox.FormattingEnabled = true;
+            this.departmenTextBox.Location = new System.Drawing.Point(91, 45);
+            this.departmenTextBox.Name = "departmenTextBox";
+            this.departmenTextBox.Size = new System.Drawing.Size(287, 33);
+            this.departmenTextBox.TabIndex = 24;
             // 
             // label8
             // 
-            label8.Anchor = AnchorStyles.Left;
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(10, 40);
-            label8.Name = "label8";
-            label8.Size = new Size(60, 20);
-            label8.TabIndex = 23;
-            label8.Text = "Отдел";
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(11, 53);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 25);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Отдел";
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Left;
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(10, 6);
-            label2.Name = "label2";
-            label2.Size = new Size(36, 20);
-            label2.TabIndex = 21;
-            label2.Text = "Тип";
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(11, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 25);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Тип";
             // 
             // Hardware
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1004, 360);
-            Controls.Add(tablePanel);
-            Controls.Add(filterPanel);
-            Controls.Add(toolsPanel);
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "Hardware";
-            Text = "Hardware";
-            toolsPanel.ResumeLayout(false);
-            tablePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)databaseTable).EndInit();
-            filterPanel.ResumeLayout(false);
-            filterPanel.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1147, 480);
+            this.Controls.Add(this.tablePanel);
+            this.Controls.Add(this.filterPanel);
+            this.Controls.Add(this.toolsPanel);
+            this.Name = "Hardware";
+            this.Text = "Оборудование";
+            this.toolsPanel.ResumeLayout(false);
+            this.tablePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.databaseTable)).EndInit();
+            this.filterPanel.ResumeLayout(false);
+            this.filterPanel.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

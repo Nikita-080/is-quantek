@@ -273,3 +273,4 @@ D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.NewRepare
 D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Main.resources
 D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.SearchForm.resources
 C:\Users\Rush_IT\Source\Repos\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.SearchForm.resources
+D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.CloseRepair.resources

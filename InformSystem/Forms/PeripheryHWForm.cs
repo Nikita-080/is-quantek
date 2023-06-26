@@ -209,130 +209,153 @@ namespace InformSystem.Forms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (saveButton.Text == "Добавить") AddHardware();
-            else SaveHardware();
-            this.Close();
+            try
+            {
+                if (saveButton.Text == "Добавить") AddHardware();
+                else SaveHardware();
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         bool AddHardware()
         {
-            PnppkContext context = new PnppkContext();
-            //Добавление оборудования
-            dataBase.Hardware h = new dataBase.Hardware
+            try
             {
-                IdH = Convert.ToInt32(IdTextBox.Text),
-                TypeH = Convert.ToInt32(HTypeTextBox.SelectedValue),
-                Status = Convert.ToInt32(StatusTextBox.SelectedValue)
-            };
-            context.Hardwares.Add(h);
-            //Добавление места и отдела оборудования
-            var dQuery = context.Database.SqlQuery<DateTime>(FormattableStringFactory.Create("SELECT CURDATE()"));
-            DateTime dbDate = dQuery.AsEnumerable().First();
-            dataBase.Place p = new dataBase.Place()
-            {
-
-                HardwareP = h.IdH,
-                DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue),
-                Building = building,
-                Floor = floor,
-                Office = office,
-                Data = dbDate
-            };
-            context.Places.Add(p);
-            //Добавление Пользователя к оборудованию
-            if (PersonTextBox.Text != "")
-            {
-                dataBase.Access a = new dataBase.Access()
+                PnppkContext context = new PnppkContext();
+                //Добавление оборудования
+                dataBase.Hardware h = new dataBase.Hardware
                 {
-                    HardwareA = h.IdH,
-                    Person = Convert.ToInt32(PersonTextBox.Text)
+                    IdH = Convert.ToInt32(IdTextBox.Text),
+                    TypeH = Convert.ToInt32(HTypeTextBox.SelectedValue),
+                    Status = Convert.ToInt32(StatusTextBox.SelectedValue)
                 };
-                context.Accesses.Add(a);
-
-            }
-
-            //Добавление характеристик оборудования
-            int i_type = context.HardwareProperties.Select(p => p).Where(p => p.TypeP == h.TypeH).First().IdHp;//10 or 11
-            dataBase.HardwareValue v = new HardwareValue()
-            {
-                HardwareV = h.IdH,
-                Property = i_type,
-                Value = DiagFormatTextBox.Text
-            };
-            context.HardwareValues.Add(v);
-            context.SaveChanges();
-            return true;
-        }
-        bool SaveHardware()
-        {
-            PnppkContext context = new PnppkContext();
-            //Настройка пользователя
-            if (PersonTextBox.Text != "")
-            {
-                dataBase.Access a = context.Accesses.Where(a => a.HardwareA == Per.IdH && a.Person == Convert.ToInt32(PersonTextBox.Text)).FirstOrDefault();
-                if (a != null)
+                context.Hardwares.Add(h);
+                //Добавление места и отдела оборудования
+                var dQuery = context.Database.SqlQuery<DateTime>(FormattableStringFactory.Create("SELECT CURDATE()"));
+                DateTime dbDate = dQuery.AsEnumerable().First();
+                dataBase.Place p = new dataBase.Place()
                 {
-                    a.Person = Convert.ToInt32(PersonTextBox.Text);
-                }
-                else
+
+                    HardwareP = h.IdH,
+                    DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue),
+                    Building = building,
+                    Floor = floor,
+                    Office = office,
+                    Data = dbDate
+                };
+                context.Places.Add(p);
+                //Добавление Пользователя к оборудованию
+                if (PersonTextBox.Text != "")
                 {
-                    a = new dataBase.Access()
+                    dataBase.Access a = new dataBase.Access()
                     {
-                        HardwareA = Per.IdH,
+                        HardwareA = h.IdH,
                         Person = Convert.ToInt32(PersonTextBox.Text)
                     };
                     context.Accesses.Add(a);
-                }
-            }
-            else
-            {
 
-                if (access != null)
-                {
-                    dataBase.Access remA = context.Accesses.Where(a => a.HardwareA == Per.IdH && a.Person == access.Person).FirstOrDefault();
-                    context.Accesses.Remove(remA);
                 }
-            }
-            //Настройка местоположения
-            if (PlaceTextBox.Text != "")
-            {
-                dataBase.Place p = context.Places.Where(p => p.HardwareP == Per.IdH).FirstOrDefault();
-                var dQuery = context.Database.SqlQuery<DateTime>(FormattableStringFactory.Create("SELECT CURDATE()"));
-                DateTime dbDate = dQuery.AsEnumerable().First();
-                if (p != null)
+
+                //Добавление характеристик оборудования
+                int i_type = context.HardwareProperties.Select(p => p).Where(p => p.TypeP == h.TypeH).First().IdHp;//10 or 11
+                dataBase.HardwareValue v = new HardwareValue()
                 {
-                    p.Building = building;
-                    p.Floor = floor;
-                    p.Office = office;
-                    p.Data = dbDate;
-                    p.DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue);
+                    HardwareV = h.IdH,
+                    Property = i_type,
+                    Value = DiagFormatTextBox.Text
+                };
+                context.HardwareValues.Add(v);
+                context.SaveChanges();
+                return true;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return false;
+        }
+        bool SaveHardware()
+        {
+            try
+            {
+                PnppkContext context = new PnppkContext();
+                //Настройка пользователя
+                if (PersonTextBox.Text != "")
+                {
+                    dataBase.Access a = context.Accesses.Where(a => a.HardwareA == Per.IdH && a.Person == Convert.ToInt32(PersonTextBox.Text)).FirstOrDefault();
+                    if (a != null)
+                    {
+                        a.Person = Convert.ToInt32(PersonTextBox.Text);
+                    }
+                    else
+                    {
+                        a = new dataBase.Access()
+                        {
+                            HardwareA = Per.IdH,
+                            Person = Convert.ToInt32(PersonTextBox.Text)
+                        };
+                        context.Accesses.Add(a);
+                    }
                 }
                 else
                 {
-                    dataBase.Place pc = new dataBase.Place()
+
+                    if (access != null)
                     {
-                        HardwareP = Per.IdH,
-                        Building = building,
-                        Floor = floor,
-                        Office = office,
-                        Data = dbDate,
-                        DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue)
-                    };
-                    context.Places.Add(pc);
+                        dataBase.Access remA = context.Accesses.Where(a => a.HardwareA == Per.IdH && a.Person == access.Person).FirstOrDefault();
+                        context.Accesses.Remove(remA);
+                    }
                 }
-            }
-            else
-            {
-
-                if (place != null)
+                //Настройка местоположения
+                if (PlaceTextBox.Text != "")
                 {
-                    dataBase.Place remP = context.Places.Where(a => a.HardwareP == Per.IdH).FirstOrDefault();
-                    context.Places.Remove(remP);
+                    dataBase.Place p = context.Places.Where(p => p.HardwareP == Per.IdH).FirstOrDefault();
+                    var dQuery = context.Database.SqlQuery<DateTime>(FormattableStringFactory.Create("SELECT CURDATE()"));
+                    DateTime dbDate = dQuery.AsEnumerable().First();
+                    if (p != null)
+                    {
+                        p.Building = building;
+                        p.Floor = floor;
+                        p.Office = office;
+                        p.Data = dbDate;
+                        p.DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue);
+                    }
+                    else
+                    {
+                        dataBase.Place pc = new dataBase.Place()
+                        {
+                            HardwareP = Per.IdH,
+                            Building = building,
+                            Floor = floor,
+                            Office = office,
+                            Data = dbDate,
+                            DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue)
+                        };
+                        context.Places.Add(pc);
+                    }
                 }
-            }
+                else
+                {
 
-            context.SaveChanges();
-            return true;
+                    if (place != null)
+                    {
+                        dataBase.Place remP = context.Places.Where(a => a.HardwareP == Per.IdH).FirstOrDefault();
+                        context.Places.Remove(remP);
+                    }
+                }
+
+                context.SaveChanges();
+                return true;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return false;
         }
     }
 }

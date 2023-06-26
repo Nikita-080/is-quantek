@@ -30,7 +30,6 @@
         {
             this.LeftPanel = new System.Windows.Forms.Panel();
             this.UpdateDataButton = new System.Windows.Forms.Button();
-            this.BuyButton = new System.Windows.Forms.Button();
             this.RepairButton = new System.Windows.Forms.Button();
             this.HardwareButton = new System.Windows.Forms.Button();
             this.LogoPanel = new System.Windows.Forms.Panel();
@@ -48,7 +47,6 @@
             // 
             this.LeftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
             this.LeftPanel.Controls.Add(this.UpdateDataButton);
-            this.LeftPanel.Controls.Add(this.BuyButton);
             this.LeftPanel.Controls.Add(this.RepairButton);
             this.LeftPanel.Controls.Add(this.HardwareButton);
             this.LeftPanel.Controls.Add(this.LogoPanel);
@@ -66,7 +64,7 @@
             this.UpdateDataButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.UpdateDataButton.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.UpdateDataButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateDataButton.Location = new System.Drawing.Point(0, 260);
+            this.UpdateDataButton.Location = new System.Drawing.Point(0, 200);
             this.UpdateDataButton.Name = "UpdateDataButton";
             this.UpdateDataButton.Size = new System.Drawing.Size(220, 60);
             this.UpdateDataButton.TabIndex = 4;
@@ -74,22 +72,6 @@
             this.UpdateDataButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.UpdateDataButton.UseVisualStyleBackColor = true;
             this.UpdateDataButton.Click += new System.EventHandler(this.UpdateDataClick);
-            // 
-            // BuyButton
-            // 
-            this.BuyButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BuyButton.FlatAppearance.BorderSize = 0;
-            this.BuyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BuyButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BuyButton.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.BuyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BuyButton.Location = new System.Drawing.Point(0, 200);
-            this.BuyButton.Name = "BuyButton";
-            this.BuyButton.Size = new System.Drawing.Size(220, 60);
-            this.BuyButton.TabIndex = 3;
-            this.BuyButton.Text = "Закупка";
-            this.BuyButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BuyButton.UseVisualStyleBackColor = true;
             // 
             // RepairButton
             // 
@@ -159,15 +141,15 @@
             // 
             // ChildFormLabel
             // 
-            this.ChildFormLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ChildFormLabel.AutoSize = true;
+            this.ChildFormLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChildFormLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ChildFormLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.ChildFormLabel.Location = new System.Drawing.Point(534, 21);
+            this.ChildFormLabel.Location = new System.Drawing.Point(0, 0);
             this.ChildFormLabel.Name = "ChildFormLabel";
-            this.ChildFormLabel.Size = new System.Drawing.Size(98, 34);
+            this.ChildFormLabel.Size = new System.Drawing.Size(1062, 80);
             this.ChildFormLabel.TabIndex = 0;
-            this.ChildFormLabel.Text = "HOME";
+            this.ChildFormLabel.Text = "Домашняя страница";
+            this.ChildFormLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormPanel
             // 
@@ -178,7 +160,7 @@
             this.FormPanel.Size = new System.Drawing.Size(1062, 523);
             this.FormPanel.TabIndex = 2;
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,13 +168,12 @@
             this.Controls.Add(this.FormPanel);
             this.Controls.Add(this.TittlePanel);
             this.Controls.Add(this.LeftPanel);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Form1";
             this.LeftPanel.ResumeLayout(false);
             this.LogoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TittlePanel.ResumeLayout(false);
-            this.TittlePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -204,7 +185,6 @@
         private PictureBox pictureBox1;
         private Panel TittlePanel;
         private Panel FormPanel;
-        private Button BuyButton;
         private Button RepairButton;
         private Button HardwareButton;
         private Button UpdateDataButton;
