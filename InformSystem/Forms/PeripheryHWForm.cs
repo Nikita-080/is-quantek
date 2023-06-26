@@ -286,7 +286,7 @@ namespace InformSystem.Forms
                 //Настройка пользователя
                 if (PersonTextBox.Text != "")
                 {
-                    dataBase.Access a = context.Accesses.Where(a => a.HardwareA == Per.IdH && a.Person == Convert.ToInt32(PersonTextBox.Text)).FirstOrDefault();
+                    dataBase.Access a = context.Accesses.Where(a => a.HardwareA == Per.IdH && a.Person != Convert.ToInt32(PersonTextBox.Text)).FirstOrDefault();
                     if (a != null)
                     {
                         a.Person = Convert.ToInt32(PersonTextBox.Text);
