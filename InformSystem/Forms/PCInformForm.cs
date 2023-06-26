@@ -274,10 +274,11 @@ namespace InformSystem.Forms
 
                 if (PersonTextBox.Text != "")
                 {
-                    dataBase.Access a = context.Accesses.Where(a => a.HardwareA == id_PC && a.Person != Convert.ToInt32(PersonTextBox.Text)).FirstOrDefault();
+                    dataBase.Access a = context.Accesses.Where(ac => ac.HardwareA == id_PC).FirstOrDefault();
                     if (a != null)
                     {
-                        a.Person = Convert.ToInt32(PersonTextBox.Text);
+                        if (a.Person != Convert.ToInt32(PersonTextBox.Text)) 
+                            a.Person  = Convert.ToInt32(PersonTextBox.Text);
                     }
                     else
                     {
