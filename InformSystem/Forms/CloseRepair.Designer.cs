@@ -40,6 +40,7 @@
             documentNumberLabel = new Label();
             closeRepairDateLabel = new Label();
             repairIdLabel = new Label();
+            checkBox1 = new CheckBox();
             headerPanel.SuspendLayout();
             infoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)docNumUpDown).BeginInit();
@@ -69,6 +70,7 @@
             // 
             // infoPanel
             // 
+            infoPanel.Controls.Add(checkBox1);
             infoPanel.Controls.Add(sendButton);
             infoPanel.Controls.Add(verdictTextBox);
             infoPanel.Controls.Add(docNumUpDown);
@@ -99,11 +101,11 @@
             // verdictTextBox
             // 
             verdictTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            verdictTextBox.Location = new Point(12, 115);
+            verdictTextBox.Location = new Point(12, 120);
             verdictTextBox.MaxLength = 50;
             verdictTextBox.Multiline = true;
             verdictTextBox.Name = "verdictTextBox";
-            verdictTextBox.Size = new Size(440, 209);
+            verdictTextBox.Size = new Size(440, 204);
             verdictTextBox.TabIndex = 7;
             // 
             // docNumUpDown
@@ -135,7 +137,7 @@
             // 
             verdictLabel.AutoSize = true;
             verdictLabel.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            verdictLabel.Location = new Point(12, 97);
+            verdictLabel.Location = new Point(12, 95);
             verdictLabel.Name = "verdictLabel";
             verdictLabel.Size = new Size(56, 17);
             verdictLabel.TabIndex = 3;
@@ -171,6 +173,16 @@
             repairIdLabel.TabIndex = 0;
             repairIdLabel.Text = "Номер ремонта";
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(374, 95);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(80, 19);
+            checkBox1.TabIndex = 9;
+            checkBox1.Text = "Списание";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // CloseRepair
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -202,5 +214,6 @@
         private NumericUpDown docNumUpDown;
         private DateTimePicker dateClsoePicker;
         private Label label1;
+        private CheckBox checkBox1;
     }
 }

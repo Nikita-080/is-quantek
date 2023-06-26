@@ -20,7 +20,7 @@ namespace InformSystem.Forms
             docInUpDown.Controls[0].Visible = false;
             try
             {
-                foreach (var item in context.Hardwares.Select(id => id.IdH))
+                foreach (var item in context.Hardwares.Where(item => item.Status == 1 || item.Status == 3).Select(id => id.IdH))
                     HwIdComboBox.Items.Add(item);
             }
             catch (Exception ex)
@@ -34,6 +34,10 @@ namespace InformSystem.Forms
             Repair repair = new Repair();
             try
             {
+                dataBase.Hardware hardware = context.Hardwares.First(id => id.IdH == Convert.ToInt32(HwIdComboBox.Text));
+                if (hardware.Status == 4)
+                    throw new Exception("Already in repair");
+                hardware.Status = 4;
                 repair.HardwareR = Convert.ToInt32(HwIdComboBox.Text);
                 repair.DateIn = dateInPicker.Value;
                 repair.DocumentIn = (int)docInUpDown.Value;
