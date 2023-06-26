@@ -3,6 +3,8 @@ CREATE USER 'Buyer'@'%' IDENTIFIED BY 'buyerpassword';
 CREATE USER 'Repairman'@'%' IDENTIFIED BY 'repairmanpassword';
 
 GRANT SELECT ON pnppk.* TO 'Viewer'@'%';
+GRANT SELECT ON pnppk.* TO 'Buyer'@'%';
+GRANT SELECT ON pnppk.* TO 'Repairman'@'%';
 
 GRANT SELECT, INSERT, UPDATE ON pnppk.hardware TO 'Buyer'@'%';
 GRANT SELECT, INSERT, UPDATE ON pnppk.Hardware_Value TO 'Buyer'@'%';
