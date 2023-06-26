@@ -41,7 +41,7 @@ namespace InformSystem.Forms
                     hardware.Status = 2;
                     hardware.Parent = null;
                     place = context.Places.First(item => item.HardwareP == repair.HardwareR);
-                    place.Data = DateTime.Now;
+                    place.Data = dateClsoePicker.Value;
                     place.Floor = 0;
                     place.Office = 0;
                     place.Building = 0;

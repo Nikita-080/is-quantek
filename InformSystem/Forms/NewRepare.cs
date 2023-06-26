@@ -20,7 +20,7 @@ namespace InformSystem.Forms
             docInUpDown.Controls[0].Visible = false;
             try
             {
-                foreach (var item in context.Hardwares.Where(item => item.Status == 1).Select(id => id.IdH))
+                foreach (var item in context.Hardwares.Where(item => item.Status == 1 || item.Status == 3).Select(id => id.IdH))
                     HwIdComboBox.Items.Add(item);
             }
             catch (Exception ex)

@@ -31,19 +31,16 @@
             components = new System.ComponentModel.Container();
             tablePanel = new Panel();
             databaseTable = new DataGridView();
-            idRDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            hardwareRDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dateInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dateOutDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            documentInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            documentOutDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            reasonDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            verdictDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             repairBindingSource = new BindingSource(components);
             toolsPanel = new Panel();
             closeRepairButton = new Button();
             updateTableButton = new Button();
             addButton = new Button();
+            idRDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            hardwareRDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            documentInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            reasonDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             tablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)databaseTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repairBindingSource).BeginInit();
@@ -68,7 +65,7 @@
             databaseTable.BackgroundColor = SystemColors.ControlLight;
             databaseTable.BorderStyle = BorderStyle.None;
             databaseTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            databaseTable.Columns.AddRange(new DataGridViewColumn[] { idRDataGridViewTextBoxColumn, hardwareRDataGridViewTextBoxColumn, dateInDataGridViewTextBoxColumn, dateOutDataGridViewTextBoxColumn, documentInDataGridViewTextBoxColumn, documentOutDataGridViewTextBoxColumn, reasonDataGridViewTextBoxColumn, verdictDataGridViewTextBoxColumn });
+            databaseTable.Columns.AddRange(new DataGridViewColumn[] { idRDataGridViewTextBoxColumn, hardwareRDataGridViewTextBoxColumn, dateInDataGridViewTextBoxColumn, documentInDataGridViewTextBoxColumn, reasonDataGridViewTextBoxColumn });
             databaseTable.DataSource = repairBindingSource;
             databaseTable.Dock = DockStyle.Fill;
             databaseTable.Location = new Point(0, 0);
@@ -79,62 +76,6 @@
             databaseTable.RowTemplate.Height = 29;
             databaseTable.Size = new Size(914, 308);
             databaseTable.TabIndex = 0;
-            // 
-            // idRDataGridViewTextBoxColumn
-            // 
-            idRDataGridViewTextBoxColumn.DataPropertyName = "IdR";
-            idRDataGridViewTextBoxColumn.HeaderText = "Номер ремонта";
-            idRDataGridViewTextBoxColumn.Name = "idRDataGridViewTextBoxColumn";
-            idRDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // hardwareRDataGridViewTextBoxColumn
-            // 
-            hardwareRDataGridViewTextBoxColumn.DataPropertyName = "HardwareR";
-            hardwareRDataGridViewTextBoxColumn.HeaderText = "Номер оборудования";
-            hardwareRDataGridViewTextBoxColumn.Name = "hardwareRDataGridViewTextBoxColumn";
-            hardwareRDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateInDataGridViewTextBoxColumn
-            // 
-            dateInDataGridViewTextBoxColumn.DataPropertyName = "DateIn";
-            dateInDataGridViewTextBoxColumn.HeaderText = "Дата получения";
-            dateInDataGridViewTextBoxColumn.Name = "dateInDataGridViewTextBoxColumn";
-            dateInDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateOutDataGridViewTextBoxColumn
-            // 
-            dateOutDataGridViewTextBoxColumn.DataPropertyName = "DateOut";
-            dateOutDataGridViewTextBoxColumn.HeaderText = "Дата возврата";
-            dateOutDataGridViewTextBoxColumn.Name = "dateOutDataGridViewTextBoxColumn";
-            dateOutDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // documentInDataGridViewTextBoxColumn
-            // 
-            documentInDataGridViewTextBoxColumn.DataPropertyName = "DocumentIn";
-            documentInDataGridViewTextBoxColumn.HeaderText = "Номер документа получения";
-            documentInDataGridViewTextBoxColumn.Name = "documentInDataGridViewTextBoxColumn";
-            documentInDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // documentOutDataGridViewTextBoxColumn
-            // 
-            documentOutDataGridViewTextBoxColumn.DataPropertyName = "DocumentOut";
-            documentOutDataGridViewTextBoxColumn.HeaderText = "Номер документа возврата";
-            documentOutDataGridViewTextBoxColumn.Name = "documentOutDataGridViewTextBoxColumn";
-            documentOutDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // reasonDataGridViewTextBoxColumn
-            // 
-            reasonDataGridViewTextBoxColumn.DataPropertyName = "Reason";
-            reasonDataGridViewTextBoxColumn.HeaderText = "Причина";
-            reasonDataGridViewTextBoxColumn.Name = "reasonDataGridViewTextBoxColumn";
-            reasonDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // verdictDataGridViewTextBoxColumn
-            // 
-            verdictDataGridViewTextBoxColumn.DataPropertyName = "Verdict";
-            verdictDataGridViewTextBoxColumn.HeaderText = "Вердикт";
-            verdictDataGridViewTextBoxColumn.Name = "verdictDataGridViewTextBoxColumn";
-            verdictDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // repairBindingSource
             // 
@@ -201,6 +142,41 @@
             addButton.UseVisualStyleBackColor = false;
             addButton.Click += addButton_Click;
             // 
+            // idRDataGridViewTextBoxColumn
+            // 
+            idRDataGridViewTextBoxColumn.DataPropertyName = "IdR";
+            idRDataGridViewTextBoxColumn.HeaderText = "Номер ремонта";
+            idRDataGridViewTextBoxColumn.Name = "idRDataGridViewTextBoxColumn";
+            idRDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hardwareRDataGridViewTextBoxColumn
+            // 
+            hardwareRDataGridViewTextBoxColumn.DataPropertyName = "HardwareR";
+            hardwareRDataGridViewTextBoxColumn.HeaderText = "Номер оборудования";
+            hardwareRDataGridViewTextBoxColumn.Name = "hardwareRDataGridViewTextBoxColumn";
+            hardwareRDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateInDataGridViewTextBoxColumn
+            // 
+            dateInDataGridViewTextBoxColumn.DataPropertyName = "DateIn";
+            dateInDataGridViewTextBoxColumn.HeaderText = "Дата получения";
+            dateInDataGridViewTextBoxColumn.Name = "dateInDataGridViewTextBoxColumn";
+            dateInDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // documentInDataGridViewTextBoxColumn
+            // 
+            documentInDataGridViewTextBoxColumn.DataPropertyName = "DocumentIn";
+            documentInDataGridViewTextBoxColumn.HeaderText = "Номер документа получения";
+            documentInDataGridViewTextBoxColumn.Name = "documentInDataGridViewTextBoxColumn";
+            documentInDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // reasonDataGridViewTextBoxColumn
+            // 
+            reasonDataGridViewTextBoxColumn.DataPropertyName = "Reason";
+            reasonDataGridViewTextBoxColumn.HeaderText = "Причина";
+            reasonDataGridViewTextBoxColumn.Name = "reasonDataGridViewTextBoxColumn";
+            reasonDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // RepareMainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -226,14 +202,11 @@
         private Button addButton;
         private BindingSource repairBindingSource;
         private Button updateTableButton;
+        private Button closeRepairButton;
         private DataGridViewTextBoxColumn idRDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn hardwareRDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateInDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateOutDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn documentInDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn documentOutDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn reasonDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn verdictDataGridViewTextBoxColumn;
-        private Button closeRepairButton;
     }
 }
