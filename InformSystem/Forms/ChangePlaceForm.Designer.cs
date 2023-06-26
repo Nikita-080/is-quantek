@@ -28,122 +28,127 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.BuildingLabel = new System.Windows.Forms.Label();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.BuildingNumeric = new System.Windows.Forms.NumericUpDown();
-            this.FloorNumeric = new System.Windows.Forms.NumericUpDown();
-            this.OfficeNumeric = new System.Windows.Forms.NumericUpDown();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BuildingNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FloorNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OfficeNumeric)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            OfficeNumeric = new NumericUpDown();
+            FloorNumeric = new NumericUpDown();
+            BuildingNumeric = new NumericUpDown();
+            saveButton = new Button();
+            label8 = new Label();
+            label4 = new Label();
+            BuildingLabel = new Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)OfficeNumeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FloorNumeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BuildingNumeric).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.OfficeNumeric);
-            this.panel1.Controls.Add(this.FloorNumeric);
-            this.panel1.Controls.Add(this.BuildingNumeric);
-            this.panel1.Controls.Add(this.saveButton);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.BuildingLabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(432, 190);
-            this.panel1.TabIndex = 0;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(12, 89);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 23);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Офис";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(12, 45);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 23);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Этаж";
-            // 
-            // BuildingLabel
-            // 
-            this.BuildingLabel.AutoSize = true;
-            this.BuildingLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BuildingLabel.Location = new System.Drawing.Point(12, 9);
-            this.BuildingLabel.Name = "BuildingLabel";
-            this.BuildingLabel.Size = new System.Drawing.Size(85, 23);
-            this.BuildingLabel.TabIndex = 18;
-            this.BuildingLabel.Text = "Здание";
-            // 
-            // saveButton
-            // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.saveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.saveButton.Location = new System.Drawing.Point(287, 139);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(119, 29);
-            this.saveButton.TabIndex = 24;
-            this.saveButton.Text = "Сохранить";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // BuildingNumeric
-            // 
-            this.BuildingNumeric.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.BuildingNumeric.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BuildingNumeric.Location = new System.Drawing.Point(118, 9);
-            this.BuildingNumeric.Name = "BuildingNumeric";
-            this.BuildingNumeric.Size = new System.Drawing.Size(288, 28);
-            this.BuildingNumeric.TabIndex = 25;
-            // 
-            // FloorNumeric
-            // 
-            this.FloorNumeric.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.FloorNumeric.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FloorNumeric.Location = new System.Drawing.Point(118, 45);
-            this.FloorNumeric.Name = "FloorNumeric";
-            this.FloorNumeric.Size = new System.Drawing.Size(288, 28);
-            this.FloorNumeric.TabIndex = 26;
+            panel1.Controls.Add(OfficeNumeric);
+            panel1.Controls.Add(FloorNumeric);
+            panel1.Controls.Add(BuildingNumeric);
+            panel1.Controls.Add(saveButton);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(BuildingLabel);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(378, 142);
+            panel1.TabIndex = 0;
             // 
             // OfficeNumeric
             // 
-            this.OfficeNumeric.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OfficeNumeric.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OfficeNumeric.Location = new System.Drawing.Point(118, 84);
-            this.OfficeNumeric.Name = "OfficeNumeric";
-            this.OfficeNumeric.Size = new System.Drawing.Size(288, 28);
-            this.OfficeNumeric.TabIndex = 27;
+            OfficeNumeric.BorderStyle = BorderStyle.None;
+            OfficeNumeric.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            OfficeNumeric.Location = new Point(103, 63);
+            OfficeNumeric.Margin = new Padding(3, 2, 3, 2);
+            OfficeNumeric.Name = "OfficeNumeric";
+            OfficeNumeric.Size = new Size(252, 23);
+            OfficeNumeric.TabIndex = 27;
+            // 
+            // FloorNumeric
+            // 
+            FloorNumeric.BorderStyle = BorderStyle.None;
+            FloorNumeric.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FloorNumeric.Location = new Point(103, 34);
+            FloorNumeric.Margin = new Padding(3, 2, 3, 2);
+            FloorNumeric.Name = "FloorNumeric";
+            FloorNumeric.Size = new Size(252, 23);
+            FloorNumeric.TabIndex = 26;
+            // 
+            // BuildingNumeric
+            // 
+            BuildingNumeric.BorderStyle = BorderStyle.None;
+            BuildingNumeric.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            BuildingNumeric.Location = new Point(103, 7);
+            BuildingNumeric.Margin = new Padding(3, 2, 3, 2);
+            BuildingNumeric.Name = "BuildingNumeric";
+            BuildingNumeric.Size = new Size(252, 23);
+            BuildingNumeric.TabIndex = 25;
+            // 
+            // saveButton
+            // 
+            saveButton.BackColor = Color.FromArgb(0, 42, 87);
+            saveButton.FlatAppearance.BorderSize = 0;
+            saveButton.FlatStyle = FlatStyle.Flat;
+            saveButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            saveButton.ForeColor = SystemColors.ButtonFace;
+            saveButton.Location = new Point(251, 104);
+            saveButton.Margin = new Padding(3, 2, 3, 2);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(104, 27);
+            saveButton.TabIndex = 24;
+            saveButton.Text = "Сохранить";
+            saveButton.UseVisualStyleBackColor = false;
+            saveButton.Click += saveButton_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(10, 67);
+            label8.Name = "label8";
+            label8.Size = new Size(61, 21);
+            label8.TabIndex = 22;
+            label8.Text = "Офис";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(10, 34);
+            label4.Name = "label4";
+            label4.Size = new Size(51, 21);
+            label4.TabIndex = 20;
+            label4.Text = "Этаж";
+            // 
+            // BuildingLabel
+            // 
+            BuildingLabel.AutoSize = true;
+            BuildingLabel.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            BuildingLabel.Location = new Point(10, 7);
+            BuildingLabel.Name = "BuildingLabel";
+            BuildingLabel.Size = new Size(69, 21);
+            BuildingLabel.TabIndex = 18;
+            BuildingLabel.Text = "Здание";
             // 
             // ChangePlaceForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 190);
-            this.Controls.Add(this.panel1);
-            this.Name = "ChangePlaceForm";
-            this.Text = "ChangePlaceForm";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BuildingNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FloorNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OfficeNumeric)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(378, 142);
+            Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "ChangePlaceForm";
+            Text = "ChangePlaceForm";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)OfficeNumeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FloorNumeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BuildingNumeric).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

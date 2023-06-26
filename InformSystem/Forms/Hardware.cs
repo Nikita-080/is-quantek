@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,56 +15,86 @@ namespace InformSystem.Forms
 {
     public partial class Hardware : Form
     {
-        
+        private DataTable dataTable;
 
         public Hardware()
         {
             InitializeComponent();
+            dataTable = CreateDataTable();
             LoadData();
+            FillFilterPanel();
+        }
+
+        private DataTable CreateDataTable()
+        {
+            DataTable dT = new DataTable();
+            for (int i = 0; i < databaseTable.Columns.Count; i++)
+            {
+                DataColumn dc = new DataColumn(databaseTable.Columns[i].HeaderText);
+                databaseTable.Columns[i].DataPropertyName = dc.ColumnName;
+                dT.Columns.Add(dc);
+
+            }
+            return dT;
         }
 
         private void LoadData()
         {
-            using (PnppkContext context = new PnppkContext()) 
+            try
             {
-                var hw = from hardw in context.Hardwares
-                         join person in context.Accesses on hardw.IdH equals person.HardwareA into phw
-                         from p in phw.DefaultIfEmpty()
-                         join place in context.Places on p.HardwareA equals place.HardwareP into plc
-                         from pl in plc.DefaultIfEmpty()      
-                         select new
-                         {
-                             id = hardw.IdH,
-                             typeId = hardw.TypeH,
-                             type = hardw.TypeHNavigation.NameT,
-                             iswork = hardw.Iswork,
-                             pers = (p == null ? String.Empty : Convert.ToString(p.Person)),
-                             placeBuilding = (pl == null ? String.Empty : Convert.ToString(pl.Building)),
-                             placeFloor = (pl == null ? String.Empty : Convert.ToString(pl.Floor)),
-                             placeOffice = (pl == null ? String.Empty : Convert.ToString(pl.Office))
-                         };
-                foreach(var r in hw.ToList())
+                using (PnppkContext context = new PnppkContext())
                 {
-                    DataGridViewRow dr = new DataGridViewRow();
-                    dr.CreateCells(databaseTable);
-                    dr.Cells[0].Value = r.id;
-                    dr.Cells[1].Value = r.type;
-                    dr.Cells[2].Value = r.pers;
-                    dr.Cells[3].Value = r.placeBuilding;
-                    dr.Cells[4].Value = r.placeFloor;
-                    dr.Cells[5].Value = r.placeOffice;
-                    dr.Cells[6].Value = r.iswork;
-                    dr.Cells[7].Value = r.typeId;
-                    databaseTable.Rows.Add(dr);
+                    var hw = from hardw in context.Hardwares
+                             join person in context.Accesses on hardw.IdH equals person.HardwareA into phw
+                             from p in phw.DefaultIfEmpty()
+                             join place in context.Places on hardw.IdH equals place.HardwareP into plc
+                             from pl in plc.DefaultIfEmpty()
+                             join status in context.StatusDicts on hardw.Status equals status.IdS into st
+                             from s in st.DefaultIfEmpty()
+                             select new
+                             {
+                                 id = hardw.IdH,
+                                 typeId = hardw.TypeH,
+                                 type = hardw.TypeHNavigation.NameT,
+                                 depart = (pl == null ? String.Empty : Convert.ToString(pl.Department.NameD)),
+                                 Status = s.NameS,
+                                 pers = (p == null ? String.Empty : Convert.ToString(p.Person)),
+                                 placeBuilding = (pl == null ? String.Empty : Convert.ToString(pl.Building)),
+                                 placeFloor = (pl == null ? String.Empty : Convert.ToString(pl.Floor)),
+                                 placeOffice = (pl == null ? String.Empty : Convert.ToString(pl.Office))
+                             };
+                    dataTable.Clear();
+                    dataTable.DefaultView.RowFilter = "";
+                    foreach (var r in hw.ToList())
+                    {
+                        DataRow dr;
+                        dr = dataTable.NewRow();
+                        //dr.CreateCells(dataTable);
+                        dr[0] = r.id;
+                        dr[1] = r.type;
+                        dr[2] = r.pers;
+                        dr[3] = r.depart;
+                        dr[4] = r.placeBuilding;
+                        dr[5] = r.placeFloor;
+                        dr[6] = r.placeOffice;
+                        dr[7] = r.Status;
+                        dr[8] = r.typeId;
+                        dataTable.Rows.Add(dr);
+                    }
+                    databaseTable.DataSource = dataTable;
+
                 }
-                
             }
-            
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
         }
 
         private void Hardware_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void databaseTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -72,17 +103,20 @@ namespace InformSystem.Forms
             {
                 int index = databaseTable.SelectedCells[0].RowIndex;
                 DataGridViewRow dataGridViewRow = databaseTable.Rows[index];
-                int id = Convert.ToInt32(dataGridViewRow.Cells[7].Value);
-                if (id == 1)
+                int id = Convert.ToInt32(dataGridViewRow.Cells[0].Value);
+                int id_type = Convert.ToInt32(dataGridViewRow.Cells[8].Value);
+                switch (id_type)
                 {
-                    PCInformForm frm = new PCInformForm(id);
-                    frm.ShowDialog();
+                    case 1:
+                        PCInformForm frm = new PCInformForm(id);
+                        frm.ShowDialog();
+                        break;
+                    default:
+                        PeripheryHWForm pfrm = new PeripheryHWForm(id);
+                        pfrm.ShowDialog();
+                        break;
                 }
-                else if (id == 2 || id == 3)
-                {
-                    PeripheryHWForm frm = new PeripheryHWForm(id);
-                    frm.ShowDialog();
-                }
+                LoadData();
             }
         }
 
@@ -90,6 +124,81 @@ namespace InformSystem.Forms
         {
             PeripheryHWForm frm = new PeripheryHWForm();
             frm.ShowDialog();
+            LoadData();
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            if (filterPanel.Visible)
+            {
+                filterPanel.Visible = false;
+            }
+            else
+            {
+                filterPanel.Visible = true;
+            }
+        }
+
+        private void FillFilterPanel()
+        {
+            using (PnppkContext context = new PnppkContext())
+            {
+                var depart = from t in context.DepartmentDicts
+                             where t.NameD != "склад"
+                             select t;
+                departmenTextBox.DataSource = depart.ToList();
+                departmenTextBox.DisplayMember = "NameD";
+                departmenTextBox.ValueMember = "IdDd";
+                departmenTextBox.SelectedIndex = -1;
+
+                var type = from t in context.HardwareTypes
+                           select t;
+                HTypeTextBox.DataSource = type.ToList();
+                HTypeTextBox.DisplayMember = "NameT";
+                HTypeTextBox.ValueMember = "IdHt";
+                HTypeTextBox.SelectedIndex = -1;
+
+                var stat = from t in context.StatusDicts
+                           select t;
+                HardStatusComboBox.DataSource = stat.ToList();
+                HardStatusComboBox.DisplayMember = "NameS";
+                HardStatusComboBox.ValueMember = "IdS";
+                HardStatusComboBox.SelectedIndex = -1;
+
+            }
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void acceptFiltButton_Click(object sender, EventArgs e)
+        {
+            useFilter();
+        }
+
+        private void useFilter()
+        {
+            try
+            {
+                dataTable.DefaultView.RowFilter = String.Format("Состояние LIKE '%{0}%' AND Тип LIKE '%{1}%' AND Отдел LIKE '%{2}%'", HardStatusComboBox.Text, HTypeTextBox.Text, departmenTextBox.Text);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            SearchForm sF = new SearchForm(dataTable);
+            sF.Show();
         }
     }
 }
