@@ -174,13 +174,15 @@ namespace InformSystem.Forms
         }
         private void ActiveElementsChange()
         {
-            bool repair = status.IdS != 4;
+            bool repair = status.IdS != 4 && status.IdS != 2;
             HTypeTextBox.Enabled = false;
             PlaceTextBox.Enabled = repair;
             PersonTextBox.Enabled = repair;
             departmenTextBox.Enabled = repair;
             StatusTextBox.Enabled = repair;
             editPlaceButton.Enabled = repair;
+            addButton.Enabled = repair;
+            deleteButton.Enabled = repair;
         }
         private void ConfigLoad(int id)
         {

@@ -70,7 +70,6 @@
             this.button_path.TabIndex = 2;
             this.button_path.Text = "...";
             this.button_path.UseVisualStyleBackColor = false;
-            this.button_path.Click += new System.EventHandler(this.ChoseFolder);
             // 
             // button_ok
             // 
@@ -86,7 +85,6 @@
             this.button_ok.TabIndex = 3;
             this.button_ok.Text = "Найти";
             this.button_ok.UseVisualStyleBackColor = false;
-            this.button_ok.Click += new System.EventHandler(this.OK);
             // 
             // button_cancel
             // 
@@ -102,7 +100,6 @@
             this.button_cancel.TabIndex = 4;
             this.button_cancel.Text = "Отмена";
             this.button_cancel.UseVisualStyleBackColor = false;
-            this.button_cancel.Click += new System.EventHandler(this.CANCEL);
             // 
             // richTextBox1
             // 

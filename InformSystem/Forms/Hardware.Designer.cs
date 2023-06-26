@@ -170,6 +170,7 @@
             this.databaseTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.databaseTable.Size = new System.Drawing.Size(1147, 318);
             this.databaseTable.TabIndex = 0;
+            this.databaseTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.databaseTable_CellDoubleClick);
             // 
             // Id
             // 

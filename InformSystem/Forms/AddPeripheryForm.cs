@@ -31,8 +31,8 @@ namespace InformSystem.Forms
         {
             try
             {
-                int Pc = context.Hardwares.Where(p => p.IdH == Convert.ToInt32(IdTextBox.Text)).First().TypeH;
-                if (Pc != 1)
+                var Pc = context.Hardwares.Where(p => p.IdH == Convert.ToInt32(IdTextBox.Text)).First();
+                if (Pc.TypeH != 1 && (Pc.Status != 4 && Pc.Status != 2))
                 {
                     hardware = context.Hardwares.Select(pc => pc).Where(pc => pc.IdH == Convert.ToInt32(IdTextBox.Text)).First();
                     hardware.Parent = id;
@@ -41,7 +41,7 @@ namespace InformSystem.Forms
                         MessageBox.Show("Оборудование привязано", "Привязка", MessageBoxButtons.OK);
                     }
                 }
-                else MessageBox.Show("Вы не можете привязать системный блок", "Привязка", MessageBoxButtons.OK);
+                else MessageBox.Show("Вы не можете привязать оборудование, по причине того, что оно в ремонте или списано, либо это системный блок", "Привязка", MessageBoxButtons.OK);
 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

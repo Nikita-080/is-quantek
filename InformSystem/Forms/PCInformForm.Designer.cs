@@ -186,6 +186,7 @@
             this.editPlaceButton.Size = new System.Drawing.Size(37, 29);
             this.editPlaceButton.TabIndex = 11;
             this.editPlaceButton.UseVisualStyleBackColor = false;
+            this.editPlaceButton.Click += new System.EventHandler(this.editPlaceButton_Click);
             // 
             // PersonTextBox
             // 
@@ -406,6 +407,7 @@
             this.deleteButton.TabIndex = 5;
             this.deleteButton.Text = "Отвязать";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // addButton
             // 
@@ -420,6 +422,7 @@
             this.addButton.TabIndex = 4;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // dataGridViewConnectedHW
             // 
@@ -474,6 +477,7 @@
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "Сохранить";
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // PCInformForm
             // 
