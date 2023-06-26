@@ -8,6 +8,7 @@ namespace InformSystem
         public Main()
         {
             InitializeComponent();
+            OpenChildForm(new Hardware());
 
         }
 
@@ -17,7 +18,7 @@ namespace InformSystem
             {
                 object connection="connection"; //TODO средство взаимодействия с базой данных
                 UpdateDataWindow win = new UpdateDataWindow(connection);
-                OpenChildForm(win, sender);
+                OpenChildForm(win);
                 //win.ShowDialog();
             }
             else
@@ -27,7 +28,7 @@ namespace InformSystem
             
         }
 
-        private void OpenChildForm(Form childForm, object btnSender)
+        private void OpenChildForm(Form childForm)
         {
             if(activeForm != null)
             {
@@ -52,12 +53,12 @@ namespace InformSystem
 
         private void HardwareButton_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Hardware(), sender);
+            OpenChildForm(new Hardware());
         }
 
         private void RepairButton_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new RepareMainWindow(), sender);
+            OpenChildForm(new RepareMainWindow());
         }
     }
 }

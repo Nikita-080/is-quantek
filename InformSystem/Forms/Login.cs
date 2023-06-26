@@ -27,11 +27,7 @@ namespace InformSystem.Forms
             LogIn();
         }
         private void LogIn()
-        {
-            Main mainMenu = new Main();
-            mainMenu.Show();
-            mainMenu.FormClosed += Logout;
-            
+        {     
             login = LoginTextBox.Text;
             password = PasswordTextBox.Text;
             if (LoginTextBox.Text == "Имя пользователя")
@@ -42,7 +38,9 @@ namespace InformSystem.Forms
                 password = "";
             else
                 password = PasswordTextBox.Text;
-
+            Main mainMenu = new Main();
+            mainMenu.Show();
+            mainMenu.FormClosed += Logout;
             this.Hide();
         }
 
