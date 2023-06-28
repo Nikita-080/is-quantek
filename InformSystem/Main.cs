@@ -84,7 +84,6 @@ namespace InformSystem
                 {
                     PnppkContext context = new PnppkContext();
                     int num = 20;
-                    /*
                     for (int i = 0; i < num; i++)
                     {
                         var printer = new InformSystem.dataBase.Hardware();
@@ -129,7 +128,6 @@ namespace InformSystem
                         context.Places.Add(p);
                         context.Accesses.Add(a);
                     }
-                    */
                     for (int i = 0; i < 10; i++)
                     {
                         var reasons = new List<string> { "тормозит","упал","не включается","зависает"};
