@@ -23,7 +23,6 @@ C:\Users\Никита\is-quantek\InformSystem\bin\Debug\net6.0-windows\InformSys
 C:\Users\Никита\is-quantek\InformSystem\bin\Debug\net6.0-windows\InformSystem.dll
 C:\Users\Никита\is-quantek\InformSystem\bin\Debug\net6.0-windows\InformSystem.pdb
 C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.csproj.AssemblyReference.cache
-C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Form1.resources
 C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.Login.resources
 C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Properties.Resources.resources
 C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.csproj.GenerateResource.cache
@@ -337,3 +336,8 @@ c:\Users\Rush_IT\OneDrive\Документы\GitHub\is-quantek\InformSystem\obj\
 c:\Users\Rush_IT\OneDrive\Документы\GitHub\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.pdb
 c:\Users\Rush_IT\OneDrive\Документы\GitHub\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.genruntimeconfig.cache
 c:\Users\Rush_IT\OneDrive\Документы\GitHub\is-quantek\InformSystem\obj\Debug\net6.0-windows\ref\InformSystem.dll
+C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.AddPeripheryForm.resources
+C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.ChangePersonForm.resources
+C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.CloseRepair.resources
+C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.SearchForm.resources
+C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Main.resources

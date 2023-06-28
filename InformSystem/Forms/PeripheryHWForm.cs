@@ -215,7 +215,7 @@ namespace InformSystem.Forms
                 else SaveHardware();
                 this.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -272,7 +272,7 @@ namespace InformSystem.Forms
                 context.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -351,7 +351,7 @@ namespace InformSystem.Forms
                 context.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }

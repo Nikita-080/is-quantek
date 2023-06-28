@@ -115,7 +115,7 @@ namespace InformSystem.Forms
                     StatusTextBox.ValueMember = "IdS";
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -258,7 +258,7 @@ namespace InformSystem.Forms
                     PlaceTextBox.Text = "Здание " + placeC.Building + ", " + "этаж " + placeC.Floor + ", " + "офис " + placeC.Office;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -277,8 +277,8 @@ namespace InformSystem.Forms
                     dataBase.Access a = context.Accesses.Where(ac => ac.HardwareA == id_PC).FirstOrDefault();
                     if (a != null)
                     {
-                        if (a.Person != Convert.ToInt32(PersonTextBox.Text)) 
-                            a.Person  = Convert.ToInt32(PersonTextBox.Text);
+                        if (a.Person != Convert.ToInt32(PersonTextBox.Text))
+                            a.Person = Convert.ToInt32(PersonTextBox.Text);
                     }
                     else
                     {
@@ -339,7 +339,7 @@ namespace InformSystem.Forms
                 context.SaveChanges();
                 this.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -356,7 +356,7 @@ namespace InformSystem.Forms
                     this.Refresh();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
