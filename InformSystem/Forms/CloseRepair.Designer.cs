@@ -31,6 +31,7 @@
             headerPanel = new Panel();
             label1 = new Label();
             infoPanel = new Panel();
+            checkBox1 = new CheckBox();
             sendButton = new Button();
             verdictTextBox = new TextBox();
             docNumUpDown = new NumericUpDown();
@@ -40,7 +41,6 @@
             documentNumberLabel = new Label();
             closeRepairDateLabel = new Label();
             repairIdLabel = new Label();
-            checkBox1 = new CheckBox();
             headerPanel.SuspendLayout();
             infoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)docNumUpDown).BeginInit();
@@ -86,6 +86,16 @@
             infoPanel.Size = new Size(466, 409);
             infoPanel.TabIndex = 1;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(374, 95);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(80, 19);
+            checkBox1.TabIndex = 9;
+            checkBox1.Text = "Списание";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // sendButton
             // 
             sendButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -94,7 +104,7 @@
             sendButton.Name = "sendButton";
             sendButton.Size = new Size(440, 57);
             sendButton.TabIndex = 8;
-            sendButton.Text = "Отпарвить";
+            sendButton.Text = "Отправить";
             sendButton.UseVisualStyleBackColor = true;
             sendButton.Click += sendButton_Click;
             // 
@@ -173,16 +183,6 @@
             repairIdLabel.TabIndex = 0;
             repairIdLabel.Text = "Номер ремонта";
             // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(374, 95);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(80, 19);
-            checkBox1.TabIndex = 9;
-            checkBox1.Text = "Списание";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
             // CloseRepair
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -191,6 +191,7 @@
             Controls.Add(infoPanel);
             Controls.Add(headerPanel);
             Name = "CloseRepair";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "CloseRepair";
             headerPanel.ResumeLayout(false);
             headerPanel.PerformLayout();

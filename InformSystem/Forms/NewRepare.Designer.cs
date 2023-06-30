@@ -192,7 +192,8 @@
             Controls.Add(headerPanel);
             Controls.Add(infoPanel);
             Name = "NewRepare";
-            Text = "NewRepare";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "NewRepair";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)docInUpDown).EndInit();

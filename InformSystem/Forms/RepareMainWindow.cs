@@ -38,7 +38,10 @@ namespace InformSystem.Forms
         {
             try
             {
-                databaseTable.DataSource = context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue || repair.DateOut == null).ToList();
+                if (loadAllCheckBox.Checked)
+                    databaseTable.DataSource = context.Repairs.ToList();
+                else
+                    databaseTable.DataSource = context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue || repair.DateOut == null).ToList();
                 MessageBox.Show("Данные успешно обновлены");
             }
             catch (Exception ex)
