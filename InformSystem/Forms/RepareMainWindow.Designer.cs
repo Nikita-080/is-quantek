@@ -41,7 +41,8 @@
             verdictDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             repairBindingSource = new BindingSource(components);
             toolsPanel = new Panel();
-            loadAllCheckBox = new CheckBox();
+            clearFilterButton = new Button();
+            filterButton = new Button();
             closeRepairButton = new Button();
             updateTableButton = new Button();
             addButton = new Button();
@@ -143,7 +144,8 @@
             // 
             // toolsPanel
             // 
-            toolsPanel.Controls.Add(loadAllCheckBox);
+            toolsPanel.Controls.Add(clearFilterButton);
+            toolsPanel.Controls.Add(filterButton);
             toolsPanel.Controls.Add(closeRepairButton);
             toolsPanel.Controls.Add(updateTableButton);
             toolsPanel.Controls.Add(addButton);
@@ -154,17 +156,39 @@
             toolsPanel.Size = new Size(914, 49);
             toolsPanel.TabIndex = 2;
             // 
-            // loadAllCheckBox
+            // clearFilterButton
             // 
-            loadAllCheckBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            loadAllCheckBox.AutoSize = true;
-            loadAllCheckBox.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            loadAllCheckBox.Location = new Point(602, 12);
-            loadAllCheckBox.Name = "loadAllCheckBox";
-            loadAllCheckBox.Size = new Size(123, 23);
-            loadAllCheckBox.TabIndex = 4;
-            loadAllCheckBox.Text = "загрузить всё";
-            loadAllCheckBox.UseVisualStyleBackColor = true;
+            clearFilterButton.Anchor = AnchorStyles.Right;
+            clearFilterButton.BackColor = Color.FromArgb(0, 42, 87);
+            clearFilterButton.FlatAppearance.BorderSize = 0;
+            clearFilterButton.FlatStyle = FlatStyle.Flat;
+            clearFilterButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            clearFilterButton.ForeColor = SystemColors.ButtonFace;
+            clearFilterButton.Location = new Point(562, 9);
+            clearFilterButton.Margin = new Padding(3, 2, 3, 2);
+            clearFilterButton.Name = "clearFilterButton";
+            clearFilterButton.Size = new Size(87, 25);
+            clearFilterButton.TabIndex = 5;
+            clearFilterButton.Text = "Очистить";
+            clearFilterButton.UseVisualStyleBackColor = false;
+            clearFilterButton.Click += clearFilterButton_Click;
+            // 
+            // filterButton
+            // 
+            filterButton.Anchor = AnchorStyles.Right;
+            filterButton.BackColor = Color.FromArgb(0, 42, 87);
+            filterButton.FlatAppearance.BorderSize = 0;
+            filterButton.FlatStyle = FlatStyle.Flat;
+            filterButton.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            filterButton.ForeColor = SystemColors.ButtonFace;
+            filterButton.Location = new Point(655, 9);
+            filterButton.Margin = new Padding(3, 2, 3, 2);
+            filterButton.Name = "filterButton";
+            filterButton.Size = new Size(70, 25);
+            filterButton.TabIndex = 4;
+            filterButton.Text = "Фильтр";
+            filterButton.UseVisualStyleBackColor = false;
+            filterButton.Click += filterButton_Click;
             // 
             // closeRepairButton
             // 
@@ -229,7 +253,6 @@
             ((System.ComponentModel.ISupportInitialize)databaseTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)repairBindingSource).EndInit();
             toolsPanel.ResumeLayout(false);
-            toolsPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -250,6 +273,7 @@
         private DataGridViewTextBoxColumn documentOutDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn reasonDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn verdictDataGridViewTextBoxColumn;
-        private CheckBox loadAllCheckBox;
+        private Button clearFilterButton;
+        private Button filterButton;
     }
 }

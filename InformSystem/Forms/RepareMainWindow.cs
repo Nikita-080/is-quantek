@@ -38,10 +38,20 @@ namespace InformSystem.Forms
         {
             try
             {
-                if (loadAllCheckBox.Checked)
-                    databaseTable.DataSource = context.Repairs.ToList();
+                List<Repair> repairList = new List<Repair>();
+                if (RepairFilter.loadAll)
+                    repairList = context.Repairs.ToList();
                 else
-                    databaseTable.DataSource = context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue || repair.DateOut == null).ToList();
+                    repairList = context.Repairs.Where(repair => repair.DateOut == DateTime.MinValue || repair.DateOut == null).ToList();
+                if (RepairFilter.useDateFrom)
+                    repairList = repairList.Where(repair => repair.DateIn >= RepairFilter.dateFrom).ToList();
+                if (RepairFilter.useDateTo)
+                    repairList = repairList.Where(repair => repair.DateIn <= RepairFilter.dateTo).ToList();
+                if (RepairFilter.useDateFromEnd)
+                    repairList = repairList.Where(repair => repair.DateOut >= RepairFilter.dateFromEnd).ToList();
+                if (RepairFilter.useDateToEnd)
+                    repairList = repairList.Where(repair => repair.DateOut <= RepairFilter.dateToEnd).ToList();
+                databaseTable.DataSource = repairList;
                 MessageBox.Show("Данные успешно обновлены");
             }
             catch (Exception ex)
@@ -54,6 +64,21 @@ namespace InformSystem.Forms
         {
             CloseRepair closeRepair = new CloseRepair();
             closeRepair.Show();
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            RepairFilter filter = new RepairFilter();
+            filter.Show();
+        }
+
+        private void clearFilterButton_Click(object sender, EventArgs e)
+        {
+            RepairFilter.loadAll = false;
+            RepairFilter.useDateFrom = false;
+            RepairFilter.useDateTo = false;
+            RepairFilter.useDateFromEnd = false;
+            RepairFilter.useDateToEnd = false;
         }
     }
 }

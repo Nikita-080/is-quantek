@@ -166,3 +166,4 @@ C:\Users\vvvvvvvvv\Desktop\is-quantek\InformSystem\obj\Debug\net6.0-windows\Info
 C:\Users\vvvvvvvvv\Desktop\is-quantek\InformSystem\obj\Debug\net6.0-windows\ref\InformSystem.dll
 C:\Users\vvvvvvvvv\Desktop\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.NewRepare.resources
 C:\Users\vvvvvvvvv\Desktop\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.CloseRepair.resources
+C:\Users\vvvvvvvvv\Desktop\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.RepairFilter.resources
