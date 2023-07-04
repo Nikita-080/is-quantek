@@ -34,6 +34,9 @@
     <Compile Update="Forms\NewRepare.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\RepairFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\RepareMainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

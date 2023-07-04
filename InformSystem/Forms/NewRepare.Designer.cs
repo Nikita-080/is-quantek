@@ -206,7 +206,8 @@
             Controls.Add(infoPanel);
             Margin = new Padding(4, 5, 4, 5);
             Name = "NewRepare";
-            Text = "NewRepare";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "NewRepair";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)docInUpDown).EndInit();
