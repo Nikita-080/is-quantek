@@ -23,6 +23,7 @@ namespace InformSystem.Forms
             dataTable = CreateDataTable();
             LoadData();
             FillFilterPanel();
+            databaseTable.Sort(databaseTable.Columns["Type"], ListSortDirection.Descending);
         }
 
         private DataTable CreateDataTable()

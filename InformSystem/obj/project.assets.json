@@ -2540,19 +2540,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Никита\\.nuget\\packages\\": {}
+    "C:\\Users\\ainaz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Никита\\is-quantek\\InformSystem\\InformSystem.csproj",
+      "projectUniqueName": "D:\\is-quantek\\InformSystem\\InformSystem.csproj",
       "projectName": "InformSystem",
-      "projectPath": "C:\\Users\\Никита\\is-quantek\\InformSystem\\InformSystem.csproj",
-      "packagesPath": "C:\\Users\\Никита\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Никита\\is-quantek\\InformSystem\\obj\\",
+      "projectPath": "D:\\is-quantek\\InformSystem\\InformSystem.csproj",
+      "packagesPath": "C:\\Users\\ainaz\\.nuget\\packages\\",
+      "outputPath": "D:\\is-quantek\\InformSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Никита\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ainaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2608,7 +2608,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

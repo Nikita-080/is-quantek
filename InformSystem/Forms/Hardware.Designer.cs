@@ -146,6 +146,7 @@
             // 
             // databaseTable
             // 
+            this.databaseTable.AllowUserToAddRows = false;
             this.databaseTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.databaseTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.databaseTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
