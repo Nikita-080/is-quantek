@@ -179,6 +179,9 @@ namespace InformSystem.Forms
         private void clearButton_Click(object sender, EventArgs e)
         {
             LoadData();
+            HTypeTextBox.SelectedIndex = -1;
+            HardStatusComboBox.SelectedIndex = -1;
+            departmenTextBox.SelectedIndex = -1;
         }
 
         private void refreshButton_Click(object sender, EventArgs e)

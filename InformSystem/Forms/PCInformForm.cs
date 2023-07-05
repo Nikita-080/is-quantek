@@ -234,15 +234,7 @@ namespace InformSystem.Forms
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PCInformForm_Load(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void editPlaceButton_Click(object sender, EventArgs e)
         {

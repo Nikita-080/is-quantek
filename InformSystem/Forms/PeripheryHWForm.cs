@@ -19,9 +19,9 @@ namespace InformSystem.Forms
         private dataBase.Place place;
         private dataBase.Access access;
         private dataBase.StatusDict status;
-        int building = 0;
-        int floor = 0;
-        int office = 0;
+        int building;
+        int floor;
+        int office;
 
         private void LoadService(int id)
         {
@@ -166,20 +166,6 @@ namespace InformSystem.Forms
             editPlaceButton.Enabled = repair;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void changePlaceButton_Click(object sender, EventArgs e)
-        {
-            ChangePlaceForm placeC = new ChangePlaceForm();
-            placeC.ShowDialog();
-            if (placeC.Save) //if click save button
-            {
-                PlaceTextBox.Text = "Здание " + placeC.Building + ", " + "этаж " + placeC.Floor + ", " + "офис " + placeC.Office;
-            }
-        }
 
         private void HTypeTextBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -235,29 +221,37 @@ namespace InformSystem.Forms
                 };
                 context.Hardwares.Add(h);
                 //Добавление места и отдела оборудования
-                var dQuery = context.Database.SqlQuery<DateTime>(FormattableStringFactory.Create("SELECT CURDATE()"));
-                DateTime dbDate = dQuery.AsEnumerable().First();
-                dataBase.Place p = new dataBase.Place()
+                if (PlaceTextBox.Text != "")
                 {
+                    var dQuery = context.Database.SqlQuery<DateTime>(FormattableStringFactory.Create("SELECT CURDATE()"));
+                    DateTime dbDate = dQuery.AsEnumerable().First();
+                    dataBase.Place p = new dataBase.Place()
+                    {
 
-                    HardwareP = h.IdH,
-                    DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue),
-                    Building = building,
-                    Floor = floor,
-                    Office = office,
-                    Data = dbDate
-                };
-                context.Places.Add(p);
+                        HardwareP = h.IdH,
+                        DepartmentId = Convert.ToInt32(departmenTextBox.SelectedValue),
+                        Building = building,
+                        Floor = floor,
+                        Office = office,
+                        Data = dbDate
+                    };
+                    context.Places.Add(p);
+                }
+
                 //Добавление Пользователя к оборудованию
+
                 if (PersonTextBox.Text != "")
                 {
-                    dataBase.Access a = new dataBase.Access()
+                    var i_access = context.Accesses.Select(ac => ac).Where(ac => ac.Person == Convert.ToInt32(PersonTextBox.Text)).FirstOrDefault();
+                    if (i_access == null)
                     {
-                        HardwareA = h.IdH,
-                        Person = Convert.ToInt32(PersonTextBox.Text)
-                    };
-                    context.Accesses.Add(a);
-
+                        dataBase.Access a = new dataBase.Access()
+                        {
+                            HardwareA = h.IdH,
+                            Person = Convert.ToInt32(PersonTextBox.Text)
+                        };
+                        context.Accesses.Add(a);
+                    }
                 }
 
                 //Добавление характеристик оборудования
@@ -286,10 +280,11 @@ namespace InformSystem.Forms
                 //Настройка пользователя
                 if (PersonTextBox.Text != "")
                 {
-                    dataBase.Access a = context.Accesses.Where(a => a.HardwareA == Per.IdH && a.Person != Convert.ToInt32(PersonTextBox.Text)).FirstOrDefault();
+                    dataBase.Access a = context.Accesses.Where(a => a.HardwareA == Per.IdH).FirstOrDefault();
                     if (a != null)
                     {
-                        a.Person = Convert.ToInt32(PersonTextBox.Text);
+                        if (a.Person != Convert.ToInt32(PersonTextBox.Text))
+                            a.Person = Convert.ToInt32(PersonTextBox.Text);
                     }
                     else
                     {

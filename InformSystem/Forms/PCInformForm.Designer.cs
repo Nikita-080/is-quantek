@@ -83,9 +83,8 @@
             label5.Dock = DockStyle.Top;
             label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(0, 0);
-            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(337, 29);
+            label5.Size = new Size(220, 20);
             label5.TabIndex = 1;
             label5.Text = "Системные характеристики";
             // 
@@ -95,9 +94,8 @@
             label6.Dock = DockStyle.Top;
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label6.Location = new Point(0, 0);
-            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(216, 29);
+            label6.Size = new Size(141, 20);
             label6.TabIndex = 1;
             label6.Text = "История Сервиса";
             // 
@@ -107,9 +105,8 @@
             label7.Dock = DockStyle.Top;
             label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label7.Location = new Point(0, 0);
-            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(341, 29);
+            label7.Size = new Size(222, 20);
             label7.TabIndex = 1;
             label7.Text = "Привязанное оборудование";
             // 
@@ -130,9 +127,9 @@
             panelCommonInfo.Controls.Add(label1);
             panelCommonInfo.Dock = DockStyle.Top;
             panelCommonInfo.Location = new Point(0, 0);
-            panelCommonInfo.Margin = new Padding(4, 4, 4, 4);
+            panelCommonInfo.Margin = new Padding(3, 2, 3, 2);
             panelCommonInfo.Name = "panelCommonInfo";
-            panelCommonInfo.Size = new Size(998, 306);
+            panelCommonInfo.Size = new Size(698, 184);
             panelCommonInfo.TabIndex = 0;
             // 
             // StatusTextBox
@@ -141,20 +138,19 @@
             StatusTextBox.FlatStyle = FlatStyle.Flat;
             StatusTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             StatusTextBox.FormattingEnabled = true;
-            StatusTextBox.Location = new Point(251, 239);
-            StatusTextBox.Margin = new Padding(4, 4, 4, 4);
+            StatusTextBox.Location = new Point(176, 143);
+            StatusTextBox.Margin = new Padding(3, 2, 3, 2);
             StatusTextBox.Name = "StatusTextBox";
-            StatusTextBox.Size = new Size(358, 37);
+            StatusTextBox.Size = new Size(252, 28);
             StatusTextBox.TabIndex = 25;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(9, 244);
-            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Location = new Point(6, 146);
             label9.Name = "label9";
-            label9.Size = new Size(140, 29);
+            label9.Size = new Size(91, 20);
             label9.TabIndex = 24;
             label9.Text = "Состояние";
             // 
@@ -164,20 +160,19 @@
             departmenTextBox.FlatStyle = FlatStyle.Flat;
             departmenTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             departmenTextBox.FormattingEnabled = true;
-            departmenTextBox.Location = new Point(251, 185);
-            departmenTextBox.Margin = new Padding(4, 4, 4, 4);
+            departmenTextBox.Location = new Point(176, 111);
+            departmenTextBox.Margin = new Padding(3, 2, 3, 2);
             departmenTextBox.Name = "departmenTextBox";
-            departmenTextBox.Size = new Size(358, 37);
+            departmenTextBox.Size = new Size(252, 28);
             departmenTextBox.TabIndex = 20;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(9, 189);
-            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Location = new Point(6, 113);
             label8.Name = "label8";
-            label8.Size = new Size(87, 29);
+            label8.Size = new Size(60, 20);
             label8.TabIndex = 13;
             label8.Text = "Отдел";
             // 
@@ -189,10 +184,10 @@
             editPlaceButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             editPlaceButton.ForeColor = SystemColors.ButtonFace;
             editPlaceButton.Image = Properties.Resources.edit48481;
-            editPlaceButton.Location = new Point(620, 94);
-            editPlaceButton.Margin = new Padding(4, 4, 4, 4);
+            editPlaceButton.Location = new Point(434, 56);
+            editPlaceButton.Margin = new Padding(3, 2, 3, 2);
             editPlaceButton.Name = "editPlaceButton";
-            editPlaceButton.Size = new Size(46, 36);
+            editPlaceButton.Size = new Size(32, 22);
             editPlaceButton.TabIndex = 11;
             editPlaceButton.UseVisualStyleBackColor = false;
             editPlaceButton.Click += editPlaceButton_Click;
@@ -201,20 +196,19 @@
             // 
             PersonTextBox.Enabled = false;
             PersonTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            PersonTextBox.Location = new Point(251, 139);
-            PersonTextBox.Margin = new Padding(4, 4, 4, 4);
+            PersonTextBox.Location = new Point(176, 83);
+            PersonTextBox.Margin = new Padding(3, 2, 3, 2);
             PersonTextBox.Name = "PersonTextBox";
-            PersonTextBox.Size = new Size(358, 35);
+            PersonTextBox.Size = new Size(252, 26);
             PersonTextBox.TabIndex = 7;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(9, 139);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(6, 83);
             label4.Name = "label4";
-            label4.Size = new Size(179, 29);
+            label4.Size = new Size(121, 20);
             label4.TabIndex = 6;
             label4.Text = "Пользователь";
             // 
@@ -222,20 +216,19 @@
             // 
             PlaceTextBox.Enabled = false;
             PlaceTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            PlaceTextBox.Location = new Point(251, 94);
-            PlaceTextBox.Margin = new Padding(4, 4, 4, 4);
+            PlaceTextBox.Location = new Point(176, 56);
+            PlaceTextBox.Margin = new Padding(3, 2, 3, 2);
             PlaceTextBox.Name = "PlaceTextBox";
-            PlaceTextBox.Size = new Size(358, 35);
+            PlaceTextBox.Size = new Size(252, 26);
             PlaceTextBox.TabIndex = 5;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(9, 94);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(6, 56);
             label3.Name = "label3";
-            label3.Size = new Size(219, 29);
+            label3.Size = new Size(141, 20);
             label3.TabIndex = 4;
             label3.Text = "Местоположение";
             // 
@@ -243,20 +236,19 @@
             // 
             HTypeTextBox.Enabled = false;
             HTypeTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            HTypeTextBox.Location = new Point(251, 51);
-            HTypeTextBox.Margin = new Padding(4, 4, 4, 4);
+            HTypeTextBox.Location = new Point(176, 31);
+            HTypeTextBox.Margin = new Padding(3, 2, 3, 2);
             HTypeTextBox.Name = "HTypeTextBox";
-            HTypeTextBox.Size = new Size(358, 35);
+            HTypeTextBox.Size = new Size(252, 26);
             HTypeTextBox.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(9, 51);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(6, 31);
             label2.Name = "label2";
-            label2.Size = new Size(58, 29);
+            label2.Size = new Size(40, 20);
             label2.TabIndex = 2;
             label2.Text = "Вид";
             // 
@@ -264,20 +256,19 @@
             // 
             IdTextBox.Enabled = false;
             IdTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            IdTextBox.Location = new Point(251, 9);
-            IdTextBox.Margin = new Padding(4, 4, 4, 4);
+            IdTextBox.Location = new Point(176, 5);
+            IdTextBox.Margin = new Padding(3, 2, 3, 2);
             IdTextBox.Name = "IdTextBox";
-            IdTextBox.Size = new Size(358, 35);
+            IdTextBox.Size = new Size(252, 26);
             IdTextBox.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(9, 11);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(6, 7);
             label1.Name = "label1";
-            label1.Size = new Size(36, 29);
+            label1.Size = new Size(26, 20);
             label1.TabIndex = 0;
             label1.Text = "ID";
             // 
@@ -286,10 +277,10 @@
             PCHardInfoPanel.Controls.Add(dataGridViewPcInfo);
             PCHardInfoPanel.Controls.Add(label5);
             PCHardInfoPanel.Dock = DockStyle.Top;
-            PCHardInfoPanel.Location = new Point(0, 306);
-            PCHardInfoPanel.Margin = new Padding(4, 4, 4, 4);
+            PCHardInfoPanel.Location = new Point(0, 184);
+            PCHardInfoPanel.Margin = new Padding(3, 2, 3, 2);
             PCHardInfoPanel.Name = "PCHardInfoPanel";
-            PCHardInfoPanel.Size = new Size(998, 291);
+            PCHardInfoPanel.Size = new Size(698, 175);
             PCHardInfoPanel.TabIndex = 1;
             // 
             // dataGridViewPcInfo
@@ -311,14 +302,14 @@
             dataGridViewPcInfo.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewPcInfo.Dock = DockStyle.Fill;
             dataGridViewPcInfo.GridColor = SystemColors.ButtonFace;
-            dataGridViewPcInfo.Location = new Point(0, 29);
-            dataGridViewPcInfo.Margin = new Padding(4, 4, 4, 4);
+            dataGridViewPcInfo.Location = new Point(0, 20);
+            dataGridViewPcInfo.Margin = new Padding(3, 2, 3, 2);
             dataGridViewPcInfo.Name = "dataGridViewPcInfo";
             dataGridViewPcInfo.RowHeadersVisible = false;
             dataGridViewPcInfo.RowHeadersWidth = 51;
             dataGridViewPcInfo.RowTemplate.Height = 29;
             dataGridViewPcInfo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewPcInfo.Size = new Size(998, 262);
+            dataGridViewPcInfo.Size = new Size(698, 155);
             dataGridViewPcInfo.TabIndex = 2;
             // 
             // name
@@ -338,10 +329,10 @@
             ServisHistoryPanel.Controls.Add(dataGridViewServisHistory);
             ServisHistoryPanel.Controls.Add(label6);
             ServisHistoryPanel.Dock = DockStyle.Top;
-            ServisHistoryPanel.Location = new Point(0, 597);
-            ServisHistoryPanel.Margin = new Padding(4, 4, 4, 4);
+            ServisHistoryPanel.Location = new Point(0, 359);
+            ServisHistoryPanel.Margin = new Padding(3, 2, 3, 2);
             ServisHistoryPanel.Name = "ServisHistoryPanel";
-            ServisHistoryPanel.Size = new Size(998, 275);
+            ServisHistoryPanel.Size = new Size(698, 165);
             ServisHistoryPanel.TabIndex = 2;
             // 
             // dataGridViewServisHistory
@@ -359,14 +350,14 @@
             dataGridViewServisHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewServisHistory.Columns.AddRange(new DataGridViewColumn[] { DateIn, DateOut, Reason, Verdict });
             dataGridViewServisHistory.Dock = DockStyle.Top;
-            dataGridViewServisHistory.Location = new Point(0, 29);
-            dataGridViewServisHistory.Margin = new Padding(4, 4, 4, 4);
+            dataGridViewServisHistory.Location = new Point(0, 20);
+            dataGridViewServisHistory.Margin = new Padding(3, 2, 3, 2);
             dataGridViewServisHistory.Name = "dataGridViewServisHistory";
             dataGridViewServisHistory.RowHeadersVisible = false;
             dataGridViewServisHistory.RowHeadersWidth = 51;
             dataGridViewServisHistory.RowTemplate.Height = 29;
             dataGridViewServisHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewServisHistory.Size = new Size(998, 235);
+            dataGridViewServisHistory.Size = new Size(698, 141);
             dataGridViewServisHistory.TabIndex = 2;
             // 
             // DateIn
@@ -404,10 +395,10 @@
             ConnectedHWPanel.Controls.Add(dataGridViewConnectedHW);
             ConnectedHWPanel.Controls.Add(label7);
             ConnectedHWPanel.Dock = DockStyle.Top;
-            ConnectedHWPanel.Location = new Point(0, 872);
-            ConnectedHWPanel.Margin = new Padding(4, 4, 4, 4);
+            ConnectedHWPanel.Location = new Point(0, 524);
+            ConnectedHWPanel.Margin = new Padding(3, 2, 3, 2);
             ConnectedHWPanel.Name = "ConnectedHWPanel";
-            ConnectedHWPanel.Size = new Size(998, 310);
+            ConnectedHWPanel.Size = new Size(698, 186);
             ConnectedHWPanel.TabIndex = 3;
             // 
             // deleteButton
@@ -417,10 +408,10 @@
             deleteButton.FlatStyle = FlatStyle.Flat;
             deleteButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             deleteButton.ForeColor = SystemColors.ButtonFace;
-            deleteButton.Location = new Point(871, 255);
-            deleteButton.Margin = new Padding(4, 4, 4, 4);
+            deleteButton.Location = new Point(610, 153);
+            deleteButton.Margin = new Padding(3, 2, 3, 2);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(126, 50);
+            deleteButton.Size = new Size(88, 30);
             deleteButton.TabIndex = 5;
             deleteButton.Text = "Отвязать";
             deleteButton.UseVisualStyleBackColor = false;
@@ -433,10 +424,10 @@
             addButton.FlatStyle = FlatStyle.Flat;
             addButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             addButton.ForeColor = SystemColors.ButtonFace;
-            addButton.Location = new Point(739, 255);
-            addButton.Margin = new Padding(4, 4, 4, 4);
+            addButton.Location = new Point(517, 153);
+            addButton.Margin = new Padding(3, 2, 3, 2);
             addButton.Name = "addButton";
-            addButton.Size = new Size(126, 50);
+            addButton.Size = new Size(88, 30);
             addButton.TabIndex = 4;
             addButton.Text = "Добавить";
             addButton.UseVisualStyleBackColor = false;
@@ -457,14 +448,14 @@
             dataGridViewConnectedHW.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewConnectedHW.Columns.AddRange(new DataGridViewColumn[] { Id, Type });
             dataGridViewConnectedHW.Dock = DockStyle.Top;
-            dataGridViewConnectedHW.Location = new Point(0, 29);
-            dataGridViewConnectedHW.Margin = new Padding(4, 4, 4, 4);
+            dataGridViewConnectedHW.Location = new Point(0, 20);
+            dataGridViewConnectedHW.Margin = new Padding(3, 2, 3, 2);
             dataGridViewConnectedHW.Name = "dataGridViewConnectedHW";
             dataGridViewConnectedHW.RowHeadersVisible = false;
             dataGridViewConnectedHW.RowHeadersWidth = 51;
             dataGridViewConnectedHW.RowTemplate.Height = 29;
             dataGridViewConnectedHW.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewConnectedHW.Size = new Size(998, 215);
+            dataGridViewConnectedHW.Size = new Size(698, 129);
             dataGridViewConnectedHW.TabIndex = 2;
             // 
             // Id
@@ -488,10 +479,10 @@
             saveButton.FlatStyle = FlatStyle.Flat;
             saveButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             saveButton.ForeColor = SystemColors.ButtonFace;
-            saveButton.Location = new Point(739, 1190);
-            saveButton.Margin = new Padding(4, 4, 4, 4);
+            saveButton.Location = new Point(517, 714);
+            saveButton.Margin = new Padding(3, 2, 3, 2);
             saveButton.Name = "saveButton";
-            saveButton.Size = new Size(259, 44);
+            saveButton.Size = new Size(181, 26);
             saveButton.TabIndex = 5;
             saveButton.Text = "Сохранить";
             saveButton.UseVisualStyleBackColor = false;
@@ -499,16 +490,16 @@
             // 
             // PCInformForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(1002, 1050);
+            ClientSize = new Size(701, 630);
             Controls.Add(saveButton);
             Controls.Add(ConnectedHWPanel);
             Controls.Add(ServisHistoryPanel);
             Controls.Add(PCHardInfoPanel);
             Controls.Add(panelCommonInfo);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PCInformForm";
             Text = "PCInformForm";
             panelCommonInfo.ResumeLayout(false);

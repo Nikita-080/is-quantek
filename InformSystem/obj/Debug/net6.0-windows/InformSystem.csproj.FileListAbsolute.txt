@@ -342,3 +342,4 @@ C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSys
 C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.SearchForm.resources
 C:\Users\Никита\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Main.resources
 D:\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.RepairFilter.resources
+C:\Users\Rush_IT\OneDrive\Документы\GitHub\is-quantek\InformSystem\obj\Debug\net6.0-windows\InformSystem.Forms.RepairFilter.resources
